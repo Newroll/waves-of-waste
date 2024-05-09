@@ -1,0 +1,53 @@
+[gd_resource type="AnimatedTexture" load_steps=17 format=3 uid="uid://cwrjpo0nc0211"]
+
+[ext_resource type="Texture2D" uid="uid://bplb1de4kudea" path="res://assets/background/water/water-0.png" id="1_sqgtj"]
+[ext_resource type="Texture2D" uid="uid://ce5h7gjjo12wx" path="res://assets/background/water/water-1.png" id="2_ofyaf"]
+[ext_resource type="Texture2D" uid="uid://d20ecuxliq5jw" path="res://assets/background/water/water-10.png" id="3_x8t0c"]
+[ext_resource type="Texture2D" uid="uid://bn73ti0ejdliy" path="res://assets/background/water/water-11.png" id="4_8lok2"]
+[ext_resource type="Texture2D" uid="uid://o5p0ubqj4jvi" path="res://assets/background/water/water-12.png" id="5_85nu1"]
+[ext_resource type="Texture2D" uid="uid://muhjfylacb06" path="res://assets/background/water/water-13.png" id="6_jsjmm"]
+[ext_resource type="Texture2D" uid="uid://35g3b4ouhcuu" path="res://assets/background/water/water-14.png" id="7_fmqmx"]
+[ext_resource type="Texture2D" uid="uid://cxff5fy5kpe2v" path="res://assets/background/water/water-15.png" id="8_s4m5a"]
+[ext_resource type="Texture2D" uid="uid://b72iw070vjn81" path="res://assets/background/water/water-2.png" id="9_463lh"]
+[ext_resource type="Texture2D" uid="uid://o07ebf6p8neh" path="res://assets/background/water/water-3.png" id="10_0fnxv"]
+[ext_resource type="Texture2D" uid="uid://bby8cf4e47x5p" path="res://assets/background/water/water-4.png" id="11_xiqg5"]
+[ext_resource type="Texture2D" uid="uid://dc1pvmqbk7lk1" path="res://assets/background/water/water-5.png" id="12_61ssl"]
+[ext_resource type="Texture2D" uid="uid://bbhyhf5mn3bh3" path="res://assets/background/water/water-6.png" id="13_tlvq3"]
+[ext_resource type="Texture2D" uid="uid://c8mgnoubpbyub" path="res://assets/background/water/water-7.png" id="14_2ip66"]
+[ext_resource type="Texture2D" uid="uid://eqtih0dhg5xl" path="res://assets/background/water/water-8.png" id="15_yx1qv"]
+[ext_resource type="Texture2D" uid="uid://b81a7spuu1d8c" path="res://assets/background/water/water-9.png" id="16_r3y5x"]
+
+[resource]
+frames = 16
+speed_scale = 2.0
+frame_0/texture = ExtResource("1_sqgtj")
+frame_1/texture = ExtResource("2_ofyaf")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("9_463lh")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("10_0fnxv")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("11_xiqg5")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("12_61ssl")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("13_tlvq3")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("14_2ip66")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("15_yx1qv")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("16_r3y5x")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("3_x8t0c")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("4_8lok2")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("5_85nu1")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("6_jsjmm")
+frame_13/duration = 1.0
+frame_14/texture = ExtResource("7_fmqmx")
+frame_14/duration = 1.0
+frame_15/texture = ExtResource("8_s4m5a")
+frame_15/duration = 1.0
