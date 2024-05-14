@@ -5,43 +5,49 @@ const MAXSPEED = 100 # defines the max speed of the player
 const ACCELERATION = 1 # defines acceleration per frame
 const DECELERATION = 3 # same as above but deceleration
 
-var speed = 0 # defines the current speed of the player
+var speed = 0 # the current speed of the player
 
 var currentDirection = "down" # for animation purposes
 
 func _physics_process(_delta):
-	basic_movement()
+	movement()
 	sprite_animation()
-	print(speed)
 
-func handle_acceleration():
-	if speed < MAXSPEED:
-		speed += ACCELERATION
-
-func basic_movement():
-
+func movement():
+	# gets inputs
+	var directionVertical = Input.get_axis("move_up", "move_down")
 	var directionHorizontal = Input.get_axis("move_left", "move_right")
-	if directionHorizontal:
-		handle_acceleration()
+
+	# horizontal movement
+	if directionHorizontal && !directionVertical: # if player is moving horizontally and not vertically. prevents diagonal movement
+		if speed < MAXSPEED:
+			speed += ACCELERATION
 		velocity.x = directionHorizontal * speed
+		velocity.y = 0
 	else:
+		# deceleration shenanigans
 		if velocity.x > 0:
 			velocity.x -= DECELERATION
 		if velocity.x < 0:
 			velocity.x += DECELERATION
+		# make sure velocity returns to 0 if it's close enough
 		if velocity.x < 6 && velocity.x > -6 && velocity.x != 0:
 			velocity.x = 0
 			speed = 0
 	
-	var directionVertical = Input.get_axis("move_up", "move_down")
-	if directionVertical:
-		handle_acceleration()
+	# vertical movement
+	if directionVertical && !directionHorizontal: # if player is moving horizontally and not vertically. prevents diagonal movement
+		if speed < MAXSPEED:
+			speed += ACCELERATION
 		velocity.y = directionVertical * speed
+		velocity.x = 0
 	else:
+		# deceleration shenanigans
 		if velocity.y > 0:
 			velocity.y -= DECELERATION
 		if velocity.y < 0:
 			velocity.y += DECELERATION
+		# make sure velocity returns to 0 if it's close enough
 		if velocity.y < 6 && velocity.y > -6 && velocity.y != 0:
 			velocity.y = 0
 			speed = 0
