@@ -1,0 +1,132 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhgfxjldh32m1"]
+
+[ext_resource type="Script" path="res://src/hud.gd" id="1_4r25s"]
+[ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="1_q6lgt"]
+[ext_resource type="Texture2D" uid="uid://bw80od2udayp4" path="res://assets/ui/gear.png" id="2_2ajp7"]
+[ext_resource type="Texture2D" uid="uid://b7go6aiadjwti" path="res://assets/ui/pause.png" id="2_t4h1s"]
+[ext_resource type="Texture2D" uid="uid://c3snw6owwn3cl" path="res://assets/ui/enter_fullscreen.png" id="3_lkdgu"]
+[ext_resource type="Texture2D" uid="uid://4uer7hkav8g7" path="res://assets/ui/exit_fullscreen.png" id="4_tgsiq"]
+[ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="5_nbkal"]
+[ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="6_lbip0"]
+
+[node name="hud" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_4r25s")
+
+[node name="pause" type="TextureButton" parent="."]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 52.0
+offset_bottom = 52.0
+scale = Vector2(0.3, 0.3)
+toggle_mode = true
+texture_normal = ExtResource("2_t4h1s")
+
+[node name="hudopacity" type="ColorRect" parent="."]
+visible = false
+offset_right = 256.0
+offset_bottom = 224.0
+color = Color(0, 0, 0, 0.623529)
+
+[node name="logo" type="Label" parent="hudopacity"]
+layout_mode = 0
+offset_top = 15.0
+offset_right = 256.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("1_q6lgt")
+theme_override_font_sizes/font_size = 32
+text = "Game Paused"
+horizontal_alignment = 1
+
+[node name="settings" type="TextureButton" parent="hudopacity"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 192.0
+offset_right = 39.0
+offset_bottom = 224.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("2_2ajp7")
+
+[node name="fullscreen" type="TextureButton" parent="hudopacity"]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 7.0
+offset_right = 281.0
+offset_bottom = 55.0
+scale = Vector2(0.3, 0.3)
+toggle_mode = true
+texture_normal = ExtResource("3_lkdgu")
+texture_pressed = ExtResource("4_tgsiq")
+
+[node name="unpause" type="TextureButton" parent="hudopacity"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 61.0
+offset_right = 252.0
+offset_bottom = 110.0
+scale = Vector2(0.7, 0.7)
+texture_normal = ExtResource("5_nbkal")
+texture_pressed = ExtResource("6_lbip0")
+
+[node name="unpausetext" type="Label" parent="hudopacity"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 61.0
+offset_right = 194.0
+offset_bottom = 92.0
+theme_override_fonts/font = ExtResource("1_q6lgt")
+theme_override_font_sizes/font_size = 20
+text = "Resume game"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="backmenu" type="TextureButton" parent="hudopacity"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 97.0
+offset_right = 252.0
+offset_bottom = 146.0
+scale = Vector2(0.7, 0.5)
+texture_normal = ExtResource("5_nbkal")
+texture_pressed = ExtResource("6_lbip0")
+
+[node name="backmenutext" type="Label" parent="hudopacity"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 97.0
+offset_right = 193.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("1_q6lgt")
+theme_override_font_sizes/font_size = 12
+text = "Exit to menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="helpmenu" type="TextureButton" parent="hudopacity"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 124.0
+offset_right = 252.0
+offset_bottom = 173.0
+scale = Vector2(0.7, 0.5)
+texture_normal = ExtResource("5_nbkal")
+texture_pressed = ExtResource("6_lbip0")
+
+[node name="helptext" type="Label" parent="hudopacity"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 124.0
+offset_right = 193.0
+offset_bottom = 146.0
+theme_override_fonts/font = ExtResource("1_q6lgt")
+theme_override_font_sizes/font_size = 12
+text = "Help"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="hudopacity/settings" to="." method="_on_settings_pressed"]
+[connection signal="toggled" from="hudopacity/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="hudopacity/unpause" to="." method="_on_unpause_pressed"]
+[connection signal="pressed" from="hudopacity/backmenu" to="." method="_on_backmenu_pressed"]
+[connection signal="pressed" from="hudopacity/helpmenu" to="." method="_on_helpmenu_pressed"]
