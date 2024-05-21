@@ -293,6 +293,8 @@ position = Vector2(7.62939e-06, 0)
 scale = Vector2(0.35, 0.35)
 sprite_frames = SubResource("SpriteFrames_ali1b")
 animation = &"down"
+autoplay = "down"
+frame_progress = 0.57374
 
 [node name="idle" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
