@@ -3,6 +3,7 @@ extends Area2D
 func _on_body_entered(body):
 	if body.name == "player": # checks if it's really the player picking up the trash; we don't want trash picking eachother up
 		self.visible = false
+		Main.points += 1
 		$CanvasLayer.show()
 		get_tree().paused = true # pauses the game and show the ui
 

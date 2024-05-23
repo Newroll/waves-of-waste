@@ -1,5 +1,10 @@
 extends CanvasLayer
 
+func _process(_delta):
+	# sets text
+	$time.text = str(Main.formattedTime)
+	$points.text = str(Main.points)
+
 func _on_pause_pressed():
 	get_tree().paused = true
 	$pause.hide()
