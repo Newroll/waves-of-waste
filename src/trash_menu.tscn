@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://budjvn5eua8mq"]
+
+[ext_resource type="Texture2D" uid="uid://r3se4stfbo4m" path="res://assets/background/background.png" id="1_hm2hu"]
+[ext_resource type="Script" path="res://src/trash_menu.gd" id="1_u588n"]
+[ext_resource type="Texture2D" uid="uid://bq3clpt08kk0w" path="res://assets/trash/garbage_bag.png" id="2_bp7ko"]
+[ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="3_wokcj"]
+[ext_resource type="Texture2D" uid="uid://dti6sc4msdwdi" path="res://assets/ui/buttons/blue_button09.png" id="5_uo3bi"]
+
+[node name="trash-menu" type="Node2D"]
+script = ExtResource("1_u588n")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(162, 113)
+scale = Vector2(1.05093, 1.05093)
+texture = ExtResource("1_hm2hu")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 13.0
+offset_top = 49.0
+offset_right = 243.0
+offset_bottom = 214.0
+color = Color(0.14555, 0.405293, 0.549222, 0.67451)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 13.0
+offset_top = 49.0
+offset_right = 243.0
+offset_bottom = 214.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="templateContainer" type="MarginContainer" parent="ScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer/VBoxContainer/templateContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="trashSprite" type="TextureRect" parent="ScrollContainer/VBoxContainer/templateContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_bp7ko")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/VBoxContainer/templateContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="title" type="Label" parent="ScrollContainer/VBoxContainer/templateContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wokcj")
+theme_override_font_sizes/font_size = 12
+text = "A garbage bag"
+
+[node name="description" type="Label" parent="ScrollContainer/VBoxContainer/templateContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(170, 2.08165e-12)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_wokcj")
+theme_override_font_sizes/font_size = 12
+text = "It is bad for the environment"
+autowrap_mode = 2
+
+[node name="Label" type="Label" parent="."]
+offset_top = -1.0
+offset_right = 256.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("3_wokcj")
+theme_override_font_sizes/font_size = 32
+text = "Trash"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="backButton" type="TextureButton" parent="."]
+offset_left = 7.0
+offset_top = 6.0
+offset_right = 56.0
+offset_bottom = 55.0
+scale = Vector2(0.6, 0.6)
+texture_normal = ExtResource("5_uo3bi")
+
+[node name="text" type="Label" parent="backButton"]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("3_wokcj")
+text = "Back"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

@@ -30,7 +30,7 @@ func _on_backmenu_pressed():
 	get_tree().paused = false
 	$pause.show()
 	$hudopacity.hide()
-	get_tree().change_scene_to_file("res://src/main-menu.tscn")
+	Main.change_scene("res://src/main-menu.tscn")
 
 func _on_helpmenu_pressed():
 	pass # open the help menu (not implemented atm)

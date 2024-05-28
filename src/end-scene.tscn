@@ -265,6 +265,7 @@ scale = Vector2(0.537, 0.537)
 texture_normal = ExtResource("9_k4jl4")
 
 [node name="Label" type="Label" parent="levels/lvl2"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 47.0
@@ -284,6 +285,7 @@ scale = Vector2(0.5375, 0.5375)
 texture_normal = ExtResource("9_k4jl4")
 
 [node name="Label" type="Label" parent="levels/lvl3"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 47.0
@@ -303,6 +305,7 @@ scale = Vector2(0.537, 0.537)
 texture_normal = ExtResource("9_k4jl4")
 
 [node name="Label" type="Label" parent="levels/lvl4"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 47.0
@@ -322,6 +325,7 @@ scale = Vector2(0.537, 0.537)
 texture_normal = ExtResource("9_k4jl4")
 
 [node name="Label" type="Label" parent="levels/lvl5"]
+layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 47.0

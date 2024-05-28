@@ -13,15 +13,15 @@ func _on_fullscreen_toggled(toggled_on):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 func _on_continue_pressed():
-	get_tree().change_scene_to_file("res://src/levels/level-" + str(selectedLevel) + ".tscn")
+	Main.change_scene("res://src/levels/level-" + str(selectedLevel) + ".tscn")
 
 func _on_trashmenu_pressed():
-	pass # open the trash menu (not implemented atm)
+	Main.change_scene("res://src/trash_menu.tscn")
 
 func _on_quitmenu_pressed():
 	get_tree().paused = false
 	hide()
-	get_tree().change_scene_to_file("res://src/main-menu.tscn")
+	Main.change_scene("res://src/main-menu.tscn")
 
 func _on_lvl_1_pressed():
 	get_tree().paused = false

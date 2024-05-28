@@ -11,10 +11,10 @@ func _on_settings_pressed():
 	pass # open the settings menu (not implemented atm)
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://src/game.tscn")
+	Main.change_scene("res://src/game.tscn")
 
 func _on_trashmenu_pressed():
-	pass # open the trash menu (not implemented atm)
+	Main.change_scene("res://src/trash_menu.tscn")
 
 func _on_helpmenu_pressed():
 	pass # open the help menu (not implemented atm)

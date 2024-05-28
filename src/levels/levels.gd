@@ -12,4 +12,4 @@ func _process(delta):
 func _on_timer_timeout():
 	get_tree().paused = true
 	# yes rico, kaboom
-	get_tree().change_scene_to_file("res://src/end-scene.tscn")
+	Main.change_scene("res://src/end-scene.tscn")
