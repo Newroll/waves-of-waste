@@ -11,7 +11,7 @@ func _on_settings_pressed():
 	pass # open the settings menu (not implemented atm)
 
 func _on_play_pressed():
-	Main.change_scene("res://src/game.tscn")
+	Main.change_scene("res://src/levels/level-" + str(Main.currentLevel) + ".tscn")
 
 func _on_trashmenu_pressed():
 	Main.change_scene("res://src/trash_menu.tscn")

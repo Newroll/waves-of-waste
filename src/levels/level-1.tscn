@@ -18,9 +18,10 @@ use_texture_padding = false
 sources/2 = SubResource("TileSetAtlasSource_qdtsh")
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_t8neb")
 
 [node name="timer" type="Timer" parent="."]
-script = ExtResource("1_t8neb")
+wait_time = 60.0
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1

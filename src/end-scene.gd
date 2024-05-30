@@ -1,6 +1,9 @@
 extends CanvasLayer
 
-var selectedLevel = Main.currentLevel
+var selectedLevel
+
+func _ready():
+	call("_on_lvl_" + str(Main.currentLevel) + "_pressed")
 
 func _on_settings_pressed():
 	pass # open the settings menu (not implemented atm)
@@ -24,32 +27,37 @@ func _on_quitmenu_pressed():
 	Main.change_scene("res://src/main-menu.tscn")
 
 func _on_lvl_1_pressed():
-	get_tree().paused = false
-	selectedLevel = 1
-	$levels/pointer.show()
-	$levels/pointer.set_position(Vector2(59,74)) # moves the pointer around
+	if Main.currentLevel >= 1:
+		get_tree().paused = false
+		selectedLevel = 1
+		$levels/pointer.show()
+		$levels/pointer.set_position(Vector2(59,74)) # moves the pointer around
 
 # same thing
 func _on_lvl_2_pressed():
-	get_tree().paused = false
-	selectedLevel = 2
-	$levels/pointer.show()
-	$levels/pointer.set_position(Vector2(94,74))
+	if Main.currentLevel >= 2:
+		get_tree().paused = false
+		selectedLevel = 2
+		$levels/pointer.show()
+		$levels/pointer.set_position(Vector2(94,74))
 
 func _on_lvl_3_pressed():
-	get_tree().paused = false
-	selectedLevel = 3
-	$levels/pointer.show()
-	$levels/pointer.set_position(Vector2(129,74))
+	if Main.currentLevel >= 3:
+		get_tree().paused = false
+		selectedLevel = 3
+		$levels/pointer.show()
+		$levels/pointer.set_position(Vector2(129,74))
 
 func _on_lvl_4_pressed():
-	get_tree().paused = false
-	selectedLevel = 4
-	$levels/pointer.show()
-	$levels/pointer.set_position(Vector2(164,74))
+	if Main.currentLevel >= 4:
+		get_tree().paused = false
+		selectedLevel = 4
+		$levels/pointer.show()
+		$levels/pointer.set_position(Vector2(164,74))
 
 func _on_lvl_5_pressed():
-	get_tree().paused = false
-	selectedLevel = 5
-	$levels/pointer.show()
-	$levels/pointer.set_position(Vector2(199,74))
+	if Main.currentLevel >= 5:
+		get_tree().paused = false
+		selectedLevel = 5
+		$levels/pointer.show()
+		$levels/pointer.set_position(Vector2(199,74))
