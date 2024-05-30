@@ -3,7 +3,13 @@ extends CanvasLayer
 var selectedLevel
 
 func _ready():
-	call("_on_lvl_" + str(Main.currentLevel) + "_pressed")
+	if Main.currentLevel <= 5:
+		call("_on_lvl_" + str(Main.currentLevel) + "_pressed")
+	if Main.rating[Main.currentLevel-2] >= 0.5 && Main.rating[Main.currentLevel-2] < 1:
+		$stars/star3.set_animation("empty") # sets two stars to full
+	if Main.rating[Main.currentLevel-2] >= 0 && Main.rating[Main.currentLevel-2] < 0.5:
+		$stars/star2.set_animation("empty") # sets only one star to full
+		$stars/star3.set_animation("empty")
 
 func _on_settings_pressed():
 	pass # open the settings menu (not implemented atm)

@@ -144,7 +144,6 @@ scale = Vector2(1.75, 1.75)
 sprite_frames = SubResource("SpriteFrames_trmxs")
 animation = &"filled"
 autoplay = "filled"
-frame_progress = 0.603961
 
 [node name="star3" type="AnimatedSprite2D" parent="stars"]
 position = Vector2(161, 46)

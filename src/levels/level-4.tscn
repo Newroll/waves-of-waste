@@ -21,7 +21,9 @@ sources/2 = SubResource("TileSetAtlasSource_qdtsh")
 script = ExtResource("1_wgp6s")
 
 [node name="timer" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 3.0
+one_shot = true
+autostart = true
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -45,3 +47,5 @@ position = Vector2(198, 70)
 position = Vector2(222, 197)
 
 [node name="hud" parent="." instance=ExtResource("4_ijbxe")]
+
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

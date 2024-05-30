@@ -10,7 +10,8 @@ var previousScene
 var currentSave
 
 # scorekeeping stuff
-var scoreArr =  [0, 1, 2, 3, 4, 5]
+var maxPoints =  [1, 2, 3, 4, 5]
+var rating = [1.0, 2.0, 3.0, 4.0, 5.0]
 
 func _ready():
 	# loads the trash database
@@ -21,10 +22,13 @@ func _ready():
 
 func _process(_delta):
 	formattedTime = time_convert(eclapsedTime)
+	if currentLevel > 5:
+		currentLevel = 5
 
 func change_scene(newScenePath):
 	previousScene = currentScene
 	currentScene = newScenePath
+	get_tree().change_scene_to_file(newScenePath)
 	
 func time_convert(time_in_sec):
 	# i have no idea why i have to convert it to a string first
@@ -39,7 +43,8 @@ func time_convert(time_in_sec):
 
 func writeSave():
 	currentSave = {
-		"level" : currentLevel
+		"level" : currentLevel,
+		"rating" : rating
 	}
 	# writes the save array to a file
 	FileAccess.open("user://savegame.save", FileAccess.WRITE).store_line(JSON.stringify(currentSave))
