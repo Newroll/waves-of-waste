@@ -307,3 +307,17 @@ autoplay = "down"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(7.62939e-06, 0)
 shape = SubResource("CircleShape2D_dbpps")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
+limit_top = 0
+limit_right = 768
+limit_bottom = 768
+position_smoothing_enabled = true
+position_smoothing_speed = 3.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.3
+drag_top_margin = 0.3
+drag_right_margin = 0.3
+drag_bottom_margin = 0.3
