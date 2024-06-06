@@ -11,7 +11,7 @@ func _ready():
 		# kills the template bc we don't need it anymore and it will mess things up
 		%templateContainer.queue_free()
 		# sets sprites and text as to what is in the database
-		%VBoxContainer.get_child(i).get_child(0).get_child(0).set_texture(load("res://assets/trash/" + Main.trashList[i].path))
+		%VBoxContainer.get_child(i).get_child(0).get_child(0).get_child(0).set_texture(load("res://assets/trash/" + Main.trashList[i].path))
 		%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(0).set_text(Main.trashList[i].name)
 		%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(1).set_text(Main.trashList[i].description)
 
