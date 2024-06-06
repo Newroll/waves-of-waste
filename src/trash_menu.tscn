@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dti6sc4msdwdi" path="res://assets/ui/buttons/blue_button09.png" id="5_uo3bi"]
 
 [node name="trash-menu" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_u588n")
 
 [node name="background" type="Sprite2D" parent="."]
