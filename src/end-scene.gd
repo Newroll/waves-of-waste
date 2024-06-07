@@ -12,6 +12,7 @@ func _ready():
 		$stars/star3.set_animation("empty")
 
 func _process(_delta):
+	# checks fullscreen status and sets texture
 	if DisplayServer.window_get_mode() == 3:
 		$"ui-elements"/fullscreen.icon = load("res://assets/ui/exit_fullscreen.png")
 	if DisplayServer.window_get_mode() != 3:
@@ -21,6 +22,7 @@ func _on_settings_pressed():
 	pass # open the settings menu (not implemented atm)
 
 func _on_fullscreen_pressed():
+	# checks fullscreen status and enters/exits fullscreen mode
 	if DisplayServer.window_get_mode() == 3:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	elif DisplayServer.window_get_mode() != 3:

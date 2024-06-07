@@ -1,13 +1,14 @@
 extends Node2D
 
 func _process(_delta):
+	# checks fullscreen status and sets texture
 	if DisplayServer.window_get_mode() == 3:
 		$fullscreen.icon = load("res://assets/ui/exit_fullscreen.png")
 	if DisplayServer.window_get_mode() != 3:
 		$fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
 
-# this is a boolean value that sets the fullscreen status of the game
 func _on_fullscreen_pressed():
+	# checks fullscreen status and enters/exits fullscreen mode
 	if DisplayServer.window_get_mode() == 3:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	elif DisplayServer.window_get_mode() != 3:
