@@ -1,11 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://brxwfd43b8t4x"]
+[gd_scene load_steps=24 format=3 uid="uid://brxwfd43b8t4x"]
 
 [ext_resource type="Texture2D" uid="uid://b34d6j0o5i473" path="res://assets/ui/star-empty.png" id="1_j77f4"]
 [ext_resource type="Script" path="res://src/end-scene.gd" id="1_srch7"]
 [ext_resource type="Texture2D" uid="uid://si5ss1ux6tch" path="res://assets/ui/star.png" id="2_bxkvv"]
 [ext_resource type="Texture2D" uid="uid://bw80od2udayp4" path="res://assets/ui/gear.png" id="3_ln0xr"]
-[ext_resource type="Texture2D" uid="uid://c3snw6owwn3cl" path="res://assets/ui/enter_fullscreen.png" id="4_o1lxo"]
-[ext_resource type="Texture2D" uid="uid://4uer7hkav8g7" path="res://assets/ui/exit_fullscreen.png" id="5_fsy3l"]
 [ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="6_mh7er"]
 [ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="7_ovxpd"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="8_mccgr"]
@@ -163,15 +161,13 @@ offset_bottom = 224.0
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("3_ln0xr")
 
-[node name="fullscreen" type="TextureButton" parent="ui-elements"]
+[node name="fullscreen" type="Button" parent="ui-elements"]
 offset_left = 233.0
 offset_top = 7.0
 offset_right = 281.0
 offset_bottom = 55.0
 scale = Vector2(0.3, 0.3)
 toggle_mode = true
-texture_normal = ExtResource("4_o1lxo")
-texture_pressed = ExtResource("5_fsy3l")
 
 [node name="continue" type="TextureButton" parent="ui-elements"]
 offset_left = 61.0
@@ -342,7 +338,7 @@ scale = Vector2(0.375, 0.375)
 texture = ExtResource("11_c7l5m")
 
 [connection signal="pressed" from="ui-elements/settings" to="." method="_on_settings_pressed"]
-[connection signal="toggled" from="ui-elements/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="ui-elements/fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="ui-elements/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="ui-elements/trashmenu" to="." method="_on_trashmenu_pressed"]
 [connection signal="pressed" from="ui-elements/quitmenu" to="." method="_on_quitmenu_pressed"]

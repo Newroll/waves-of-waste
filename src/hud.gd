@@ -3,6 +3,10 @@ extends CanvasLayer
 func _process(_delta):
 	# sets text, bit of string concactnation
 	$textLabel.text = str(Main.points) + "/" + str(Main.maxPoints[Main.currentLevel-1]) + " | " + str(Main.formattedTime)
+	if DisplayServer.window_get_mode() == 3:
+		$hudopacity/fullscreen.icon = load("res://assets/ui/exit_fullscreen.png")
+	if DisplayServer.window_get_mode() != 3:
+		$hudopacity/fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
 
 func _on_pause_pressed():
 	get_tree().paused = true
@@ -11,11 +15,11 @@ func _on_pause_pressed():
 
 # literally the same as the menu
 # this is a boolean value that sets the fullscreen status of the game
-func _on_fullscreen_toggled(toggled_on):
-	if toggled_on == true:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	if toggled_on == false:
+func _on_fullscreen_pressed():
+	if DisplayServer.window_get_mode() == 3:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	elif DisplayServer.window_get_mode() != 3:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_settings_pressed():
 	pass # open the settings menu (not implemented atm)

@@ -11,15 +11,20 @@ func _ready():
 		$stars/star2.set_animation("empty") # sets only one star to full
 		$stars/star3.set_animation("empty")
 
+func _process(_delta):
+	if DisplayServer.window_get_mode() == 3:
+		$"ui-elements"/fullscreen.icon = load("res://assets/ui/exit_fullscreen.png")
+	if DisplayServer.window_get_mode() != 3:
+		$"ui-elements"/fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
+
 func _on_settings_pressed():
 	pass # open the settings menu (not implemented atm)
 
-func _on_fullscreen_toggled(toggled_on):
-	# again same code as before
-	if toggled_on == true:
-		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	if toggled_on == false:
+func _on_fullscreen_pressed():
+	if DisplayServer.window_get_mode() == 3:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+	elif DisplayServer.window_get_mode() != 3:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_continue_pressed():
 	Main.change_scene("res://src/levels/level-" + str(selectedLevel) + ".tscn")

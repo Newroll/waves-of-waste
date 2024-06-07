@@ -16,4 +16,5 @@ func _ready():
 		%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(1).set_text(Main.trashList[i].description)
 
 func _on_back_button_pressed():
+	get_tree().paused = false
 	Main.change_scene(previousScene)

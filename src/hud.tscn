@@ -1,13 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhgfxjldh32m1"]
+[gd_scene load_steps=13 format=3 uid="uid://dhgfxjldh32m1"]
 
 [ext_resource type="Script" path="res://src/hud.gd" id="1_4r25s"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="1_q6lgt"]
 [ext_resource type="Texture2D" uid="uid://bw80od2udayp4" path="res://assets/ui/gear.png" id="2_2ajp7"]
 [ext_resource type="Texture2D" uid="uid://b7go6aiadjwti" path="res://assets/ui/pause.png" id="2_t4h1s"]
 [ext_resource type="Texture2D" uid="uid://c3snw6owwn3cl" path="res://assets/ui/enter_fullscreen.png" id="3_lkdgu"]
-[ext_resource type="Texture2D" uid="uid://4uer7hkav8g7" path="res://assets/ui/exit_fullscreen.png" id="4_tgsiq"]
 [ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="5_nbkal"]
 [ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="6_lbip0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5uws"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6wmig"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4qfax"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2re5t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t06ls"]
 
 [node name="hud" type="CanvasLayer"]
 process_mode = 3
@@ -57,7 +66,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="hudopacity" type="ColorRect" parent="."]
-visible = false
 offset_right = 256.0
 offset_bottom = 224.0
 color = Color(0, 0, 0, 0.623529)
@@ -81,16 +89,20 @@ offset_bottom = 224.0
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("2_2ajp7")
 
-[node name="fullscreen" type="TextureButton" parent="hudopacity"]
+[node name="fullscreen" type="Button" parent="hudopacity"]
 layout_mode = 0
 offset_left = 233.0
 offset_top = 7.0
 offset_right = 281.0
 offset_bottom = 55.0
 scale = Vector2(0.3, 0.3)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k5uws")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_6wmig")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4qfax")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2re5t")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t06ls")
 toggle_mode = true
-texture_normal = ExtResource("3_lkdgu")
-texture_pressed = ExtResource("4_tgsiq")
+icon = ExtResource("3_lkdgu")
 
 [node name="unpause" type="TextureButton" parent="hudopacity"]
 layout_mode = 0
@@ -161,7 +173,7 @@ vertical_alignment = 1
 [connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="trashButton" to="." method="_on_trash_button_pressed"]
 [connection signal="pressed" from="hudopacity/settings" to="." method="_on_settings_pressed"]
-[connection signal="toggled" from="hudopacity/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="hudopacity/fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="hudopacity/unpause" to="." method="_on_unpause_pressed"]
 [connection signal="pressed" from="hudopacity/backmenu" to="." method="_on_backmenu_pressed"]
 [connection signal="pressed" from="hudopacity/helpmenu" to="." method="_on_helpmenu_pressed"]

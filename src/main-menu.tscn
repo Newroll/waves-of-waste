@@ -1,14 +1,23 @@
-[gd_scene load_steps=10 format=3 uid="uid://csa6smd3at7tf"]
+[gd_scene load_steps=14 format=3 uid="uid://csa6smd3at7tf"]
 
 [ext_resource type="FontFile" uid="uid://dpfp0r4gq6h4d" path="res://assets/ui/mainport.ttf" id="1_36ylp"]
 [ext_resource type="Texture2D" uid="uid://r3se4stfbo4m" path="res://assets/background/background.png" id="1_htada"]
 [ext_resource type="Script" path="res://src/main-menu.gd" id="1_x3e1o"]
 [ext_resource type="Texture2D" uid="uid://bw80od2udayp4" path="res://assets/ui/gear.png" id="3_evviu"]
 [ext_resource type="Texture2D" uid="uid://c3snw6owwn3cl" path="res://assets/ui/enter_fullscreen.png" id="4_2tbbo"]
-[ext_resource type="Texture2D" uid="uid://4uer7hkav8g7" path="res://assets/ui/exit_fullscreen.png" id="6_xqsbv"]
 [ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="7_gro0e"]
 [ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="8_iooh8"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="9_q18fm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybh8n"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dven5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klsmf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q7fvd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2qf0"]
 
 [node name="main-menu" type="Node2D"]
 script = ExtResource("1_x3e1o")
@@ -38,15 +47,19 @@ offset_bottom = 224.0
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("3_evviu")
 
-[node name="fullscreen" type="TextureButton" parent="."]
+[node name="fullscreen" type="Button" parent="."]
 offset_left = 233.0
 offset_top = 7.0
 offset_right = 281.0
 offset_bottom = 55.0
 scale = Vector2(0.3, 0.3)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ybh8n")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_dven5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_klsmf")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q7fvd")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2qf0")
 toggle_mode = true
-texture_normal = ExtResource("4_2tbbo")
-texture_pressed = ExtResource("6_xqsbv")
+icon = ExtResource("4_2tbbo")
 
 [node name="play" type="TextureButton" parent="."]
 offset_left = 62.0
@@ -109,7 +122,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
-[connection signal="toggled" from="fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="pressed" from="fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="trashmenu" to="." method="_on_trashmenu_pressed"]
 [connection signal="pressed" from="helpmenu" to="." method="_on_helpmenu_pressed"]
