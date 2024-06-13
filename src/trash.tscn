@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://xv6ifskepkl3"]
 
 [ext_resource type="Script" path="res://src/trash.gd" id="1_35l1h"]
-[ext_resource type="Texture2D" uid="uid://bq3clpt08kk0w" path="res://assets/trash/garbage_bag.png" id="1_p0lw2"]
+[ext_resource type="Texture2D" uid="uid://rxggx4n7wuxh" path="res://assets/trash/plastic_bag.png" id="2_i63t8"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="3_rua71"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_itv50"]
@@ -11,9 +11,9 @@ process_mode = 3
 script = ExtResource("1_35l1h")
 
 [node name="garbageBag" type="Sprite2D" parent="."]
-position = Vector2(0, 4.76837e-07)
-scale = Vector2(1.29545, 1.29545)
-texture = ExtResource("1_p0lw2")
+position = Vector2(-5.96046e-08, 0)
+scale = Vector2(0.291948, 0.291948)
+texture = ExtResource("2_i63t8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_itv50")
@@ -41,7 +41,6 @@ offset_left = 106.0
 offset_top = 38.0
 offset_right = 146.0
 offset_bottom = 78.0
-texture = ExtResource("1_p0lw2")
 
 [node name="Button" type="Button" parent="CanvasLayer"]
 offset_left = 38.0

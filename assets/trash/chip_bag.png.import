@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d203ypfvsnjiw"
-path="res://.godot/imported/glass_bottle.png-d44e6702aee21572baf514a6052bbb1e.ctex"
+uid="uid://ytj0b8ejvhde"
+path="res://.godot/imported/chip_bag.png-82599f636455c07675aad09716266fbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/trash/glass_bottle.png"
-dest_files=["res://.godot/imported/glass_bottle.png-d44e6702aee21572baf514a6052bbb1e.ctex"]
+source_file="res://assets/trash/chip_bag.png"
+dest_files=["res://.godot/imported/chip_bag.png-82599f636455c07675aad09716266fbe.ctex"]
 
 [params]
 
