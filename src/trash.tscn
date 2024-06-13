@@ -10,7 +10,7 @@
 process_mode = 3
 script = ExtResource("1_35l1h")
 
-[node name="garbageBag" type="Sprite2D" parent="."]
+[node name="trashSprite" type="Sprite2D" parent="."]
 position = Vector2(-5.96046e-08, 0)
 scale = Vector2(0.291948, 0.291948)
 texture = ExtResource("2_i63t8")
@@ -21,12 +21,12 @@ shape = SubResource("CircleShape2D_itv50")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="opacity" type="ColorRect" parent="CanvasLayer"]
 offset_right = 256.0
 offset_bottom = 224.0
 color = Color(0, 0, 0, 0.819608)
 
-[node name="Label" type="Label" parent="CanvasLayer"]
+[node name="description" type="Label" parent="CanvasLayer"]
 offset_top = 92.0
 offset_right = 256.0
 offset_bottom = 121.0
@@ -41,14 +41,17 @@ offset_left = 106.0
 offset_top = 38.0
 offset_right = 146.0
 offset_bottom = 78.0
+texture = ExtResource("2_i63t8")
+expand_mode = 2
+stretch_mode = 5
 
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="returnButton" type="Button" parent="CanvasLayer"]
 offset_left = 38.0
-offset_top = 132.0
+offset_top = 140.0
 offset_right = 217.0
-offset_bottom = 165.0
+offset_bottom = 173.0
 theme_override_fonts/font = ExtResource("3_rua71")
 text = "Got it"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/returnButton" to="." method="_on_return_button_pressed"]
