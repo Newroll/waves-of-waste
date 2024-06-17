@@ -2,6 +2,7 @@ extends Area2D
 
 var trash
 var rotationVar
+var rotateDir
 
 func _ready():
 	trash = int(randf_range(1, 9)) # randomizes the trash sprite
@@ -25,32 +26,38 @@ func _ready():
 	elif trash == 5:
 		$trashSprite.texture = load("res://assets/trash/plastic_wrap.png")
 		$CanvasLayer/TextureRect.texture = load("res://assets/trash/plastic_wrap.png")
-		$CanvasLayer/description.text = Main.trashList[4].description
+		$CanvasLayer/description.text = Main.trashList[6].description
 	elif trash == 6:
-		$trashSprite.texture = load("res://assets/trash/plastic_bag.png")
-		$CanvasLayer/TextureRect.texture = load("res://assets/trash/plastic_bag.png")
+		$trashSprite.texture = load("res://assets/trash/plastic_box.png")
+		$CanvasLayer/TextureRect.texture = load("res://assets/trash/plastic_box.png")
 		$CanvasLayer/description.text = Main.trashList[5].description
 	elif trash == 7:
 		$trashSprite.texture = load("res://assets/trash/plastic_bottle.png")
 		$CanvasLayer/TextureRect.texture = load("res://assets/trash/plastic_bottle.png")
-		$CanvasLayer/description.text = Main.trashList[6].description
+		$CanvasLayer/description.text = Main.trashList[4].description
 	elif trash == 8:
 		$trashSprite.texture = load("res://assets/trash/smoothie_bottle.png")
 		$CanvasLayer/TextureRect.texture = load("res://assets/trash/smoothie_bottle.png")
 		$CanvasLayer/description.text = Main.trashList[7].description
-	rotationVar = randf_range(0, 360)
+	rotationVar = randf_range(-3.14, 3.14)
 	$trashSprite.rotate(rotationVar) # randomizes the rotation of the trash
+	trash_animation()
 
-func _process(_delta):
-	# very very ghetto animation (why does this not work)
-	while true:
-		$trashSprite.rotate(rotationVar + 30)
+func trash_animation():
+	rotateDir = randf_range(-1, 1)
+	# why is the rotation property in radians
+	if rotateDir >= 0:
+		$trashSprite.rotate(0.3)
 		await get_tree().create_timer(1.0).timeout
-		$trashSprite.rotate(rotationVar - 30)
+		$trashSprite.rotate(-0.3)
 		await get_tree().create_timer(1.0).timeout
-		$trashSprite.rotate(rotationVar + 30)
+	if rotateDir < 0:
+		$trashSprite.rotate(-0.3)
 		await get_tree().create_timer(1.0).timeout
-		$trashSprite.rotate(rotationVar - 30)
+		$trashSprite.rotate(0.3)
+		await get_tree().create_timer(1.0).timeout
+	# look at this the function calls itself to play the animation again
+	trash_animation()
 
 func _on_body_entered(body):
 	if body.name == "player": # checks if it's really the player picking up the trash; we don't want trash picking each other up
