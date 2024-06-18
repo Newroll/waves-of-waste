@@ -65,6 +65,16 @@ func _on_body_entered(body):
 		Main.points += 1
 		$CanvasLayer.show()
 		get_tree().paused = true # pauses the game and show the ui
+		timerTick()
+
+func timerTick():
+	# for loop instead of manually setting everything
+	for i in 5: # kokomileaderofthewatatsu-
+		await get_tree().create_timer(1.0).timeout
+		$CanvasLayer/timeLabel.set_text(str(4-i))
+	$CanvasLayer.hide()
+	get_tree().paused = false # does the reverse of above
+	queue_free() # kills the child
 
 func _on_return_button_pressed():
 	$CanvasLayer.hide()

@@ -8,6 +8,8 @@ func _ready():
 func _process(_delta):
 	# sets the time
 	Main.eclapsedTime = $timer.get_time_left()
+	if Main.maxPoints[Main.currentLevel-1] <= Main.points:
+		_on_timer_timeout()
 
 func _on_timer_timeout():
 	get_tree().paused = true
