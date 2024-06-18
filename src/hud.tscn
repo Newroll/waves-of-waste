@@ -23,13 +23,13 @@ process_mode = 3
 script = ExtResource("1_4r25s")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 256.0
+offset_right = 398.0
 offset_bottom = 24.0
 color = Color(0.0470588, 0.290196, 0.431373, 1)
 
 [node name="textLabel" type="Label" parent="."]
 offset_top = 3.0
-offset_right = 256.0
+offset_right = 398.0
 offset_bottom = 22.0
 theme_override_fonts/font = ExtResource("1_q6lgt")
 theme_override_font_sizes/font_size = 18
@@ -47,9 +47,9 @@ toggle_mode = true
 texture_normal = ExtResource("2_t4h1s")
 
 [node name="trashButton" type="TextureButton" parent="."]
-offset_left = 215.0
+offset_left = 357.0
 offset_top = 3.0
-offset_right = 405.0
+offset_right = 547.0
 offset_bottom = 48.0
 scale = Vector2(0.2, 0.4)
 texture_normal = ExtResource("6_lbip0")

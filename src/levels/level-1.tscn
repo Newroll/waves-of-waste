@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bucpapvnaciav"]
+[gd_scene load_steps=13 format=3 uid="uid://bucpapvnaciav"]
 
 [ext_resource type="Script" path="res://src/levels/levels.gd" id="1_t8neb"]
 [ext_resource type="Texture2D" uid="uid://cwrjpo0nc0211" path="res://src/water.tres" id="1_wnk1e"]
 [ext_resource type="PackedScene" uid="uid://dk4j0c7hxew2h" path="res://src/player.tscn" id="2_3w4d7"]
 [ext_resource type="PackedScene" uid="uid://xv6ifskepkl3" path="res://src/trash.tscn" id="3_q1g1y"]
 [ext_resource type="PackedScene" uid="uid://dhgfxjldh32m1" path="res://src/hud.tscn" id="4_ijbxe"]
+[ext_resource type="PackedScene" uid="uid://brxwfd43b8t4x" path="res://src/end-scene.tscn" id="6_68vlw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdtsh"]
 texture = ExtResource("1_wnk1e")
@@ -51,6 +52,9 @@ position = Vector2(77, 86)
 position = Vector2(158, 135)
 
 [node name="hud" parent="." instance=ExtResource("4_ijbxe")]
+
+[node name="end-scene" parent="." instance=ExtResource("6_68vlw")]
+visible = false
 
 [node name="barriers" type="Node" parent="."]
 

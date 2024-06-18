@@ -23,4 +23,5 @@ func _on_timer_timeout():
 		Main.currentLevel = 1
 		Main.rating = [1.0, 2.0, 3.0, 4.0, 5.0]
 	# yes rico, kaboom
-	Main.change_scene("res://src/end-scene.tscn")
+	$hud.hide()
+	$"end-scene".show()

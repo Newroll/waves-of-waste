@@ -27,18 +27,6 @@ position = Vector2(162, 113)
 scale = Vector2(1.05093, 1.05093)
 texture = ExtResource("1_htada")
 
-[node name="logo" type="Label" parent="."]
-offset_left = 76.0
-offset_top = 9.0
-offset_right = 185.0
-offset_bottom = 72.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_36ylp")
-theme_override_font_sizes/font_size = 20
-text = "waves  
-   of 
-     waste"
-
 [node name="settings" type="TextureButton" parent="."]
 offset_left = 7.0
 offset_top = 192.0
@@ -48,9 +36,9 @@ scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("3_evviu")
 
 [node name="fullscreen" type="Button" parent="."]
-offset_left = 233.0
+offset_left = 376.0
 offset_top = 7.0
-offset_right = 281.0
+offset_right = 424.0
 offset_bottom = 55.0
 scale = Vector2(0.3, 0.3)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ybh8n")
@@ -61,19 +49,31 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_d2qf0")
 toggle_mode = true
 icon = ExtResource("4_2tbbo")
 
+[node name="logo" type="Label" parent="."]
+offset_left = 146.0
+offset_top = 9.0
+offset_right = 255.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_36ylp")
+theme_override_font_sizes/font_size = 20
+text = "waves  
+   of 
+     waste"
+
 [node name="play" type="TextureButton" parent="."]
-offset_left = 62.0
+offset_left = 132.0
 offset_top = 79.0
-offset_right = 252.0
+offset_right = 322.0
 offset_bottom = 128.0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("7_gro0e")
 texture_pressed = ExtResource("8_iooh8")
 
 [node name="playtext" type="Label" parent="."]
-offset_left = 62.0
+offset_left = 132.0
 offset_top = 79.0
-offset_right = 194.0
+offset_right = 264.0
 offset_bottom = 110.0
 theme_override_fonts/font = ExtResource("9_q18fm")
 theme_override_font_sizes/font_size = 20
@@ -82,18 +82,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="trashmenu" type="TextureButton" parent="."]
-offset_left = 62.0
+offset_left = 132.0
 offset_top = 115.0
-offset_right = 252.0
+offset_right = 322.0
 offset_bottom = 164.0
 scale = Vector2(0.7, 0.5)
 texture_normal = ExtResource("7_gro0e")
 texture_pressed = ExtResource("8_iooh8")
 
 [node name="trashtext" type="Label" parent="."]
-offset_left = 62.0
+offset_left = 132.0
 offset_top = 115.0
-offset_right = 193.0
+offset_right = 263.0
 offset_bottom = 137.0
 theme_override_fonts/font = ExtResource("9_q18fm")
 theme_override_font_sizes/font_size = 12
@@ -102,18 +102,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="helpmenu" type="TextureButton" parent="."]
-offset_left = 62.0
+offset_left = 132.0
 offset_top = 142.0
-offset_right = 252.0
+offset_right = 322.0
 offset_bottom = 191.0
 scale = Vector2(0.7, 0.5)
 texture_normal = ExtResource("7_gro0e")
 texture_pressed = ExtResource("8_iooh8")
 
 [node name="helptext" type="Label" parent="."]
-offset_left = 62.0
+offset_left = 132.0
 offset_top = 142.0
-offset_right = 193.0
+offset_right = 263.0
 offset_bottom = 164.0
 theme_override_fonts/font = ExtResource("9_q18fm")
 theme_override_font_sizes/font_size = 12
