@@ -3,7 +3,6 @@ extends CanvasLayer
 var selectedLevel
 
 func _ready():
-	get_tree().paused = true
 	if Main.currentLevel <= 5:
 		call("_on_lvl_" + str(Main.currentLevel) + "_pressed")
 	if Main.rating[Main.currentLevel-2] >= 0.5 && Main.rating[Main.currentLevel-2] < 1:
