@@ -45,4 +45,5 @@ func _on_helpmenu_pressed():
 func _on_trash_button_pressed():
 	get_tree().paused = true
 	$hudopacity.show()
+	# puts it on top of the hud instead of changing the scene
 	add_child(trashScene.instantiate())

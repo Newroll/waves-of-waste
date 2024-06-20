@@ -62,6 +62,7 @@ func trash_animation():
 func _on_body_entered(body):
 	if body.name == "player": # checks if it's really the player picking up the trash; we don't want trash picking each other up
 		self.visible = false
+		$AudioStreamPlayer.play()
 		Main.points += 1
 		$CanvasLayer.show()
 		get_tree().paused = true # pauses the game and show the ui

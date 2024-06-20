@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cs0uxv303kb6m"]
+[gd_scene load_steps=14 format=3 uid="uid://cs0uxv303kb6m"]
 
 [ext_resource type="Script" path="res://src/levels/levels.gd" id="1_wgp6s"]
 [ext_resource type="Texture2D" uid="uid://cwrjpo0nc0211" path="res://src/water.tres" id="1_wnk1e"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xv6ifskepkl3" path="res://src/trash.tscn" id="3_q1g1y"]
 [ext_resource type="PackedScene" uid="uid://dhgfxjldh32m1" path="res://src/hud.tscn" id="4_ijbxe"]
 [ext_resource type="PackedScene" uid="uid://brxwfd43b8t4x" path="res://src/end-scene.tscn" id="6_0w1sb"]
+[ext_resource type="AudioStream" uid="uid://cw2nmprael7ae" path="res://assets/sound/game-music.mp3" id="7_bsb7k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qdtsh"]
 texture = ExtResource("1_wnk1e")
@@ -87,5 +88,11 @@ shape = SubResource("WorldBoundaryShape2D_7ixxp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="barriers/bottomBarrier"]
 shape = SubResource("WorldBoundaryShape2D_abwkr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("7_bsb7k")
+volume_db = -10.0
+autoplay = true
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

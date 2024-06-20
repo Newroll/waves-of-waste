@@ -12,15 +12,21 @@ func _on_fullscreen_pressed():
 	if DisplayServer.window_get_mode() == 3:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	elif DisplayServer.window_get_mode() != 3:
+		$backsfx.play()
+		await get_tree().create_timer(0.2).timeout
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_settings_pressed():
 	pass # open the settings menu (not implemented atm)
 
 func _on_play_pressed():
+	$forwardsfx.play()
+	await get_tree().create_timer(0.2).timeout
 	Main.change_scene("res://src/levels/level-" + str(Main.currentLevel) + ".tscn")
 
 func _on_trashmenu_pressed():
+	$forwardsfx.play()
+	await get_tree().create_timer(0.2).timeout
 	Main.change_scene("res://src/trash_menu.tscn")
 
 func _on_helpmenu_pressed():
