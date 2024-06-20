@@ -17,4 +17,7 @@ func _ready():
 
 func _on_back_button_pressed():
 	get_tree().paused = false
-	Main.change_scene(previousScene)
+	if Main.currentScene.left(-7) == "res://src/levels/level":
+		queue_free()
+	else:
+		Main.change_scene(previousScene)

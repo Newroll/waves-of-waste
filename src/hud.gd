@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+var trashScene = preload("res://src/trash_menu.tscn")
+
 func _process(_delta):
 	# sets text, bit of string concactnation
 	$textLabel.text = str(Main.points) + "/" + str(Main.maxPoints[Main.currentLevel-1]) + " | " + str(Main.formattedTime)
@@ -42,6 +44,5 @@ func _on_helpmenu_pressed():
 
 func _on_trash_button_pressed():
 	get_tree().paused = true
-	$pause.show()
 	$hudopacity.show()
-	Main.change_scene("res://src/trash_menu.tscn")
+	add_child(trashScene.instantiate())

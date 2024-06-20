@@ -29,6 +29,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="Waves of Waste"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 move_left={
