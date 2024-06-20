@@ -30,7 +30,7 @@ func _on_fullscreen_pressed():
 
 func _on_continue_pressed():
 	Main.change_scene("res://src/levels/level-" + str(selectedLevel) + ".tscn")
-	get_tree().paused = false
+	#get_tree().paused = false
 
 func _on_trashmenu_pressed():
 	Main.change_scene("res://src/trash_menu.tscn")

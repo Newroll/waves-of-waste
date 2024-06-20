@@ -2,7 +2,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	get_tree().paused = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -13,7 +13,7 @@ func _process(_delta):
 
 func _on_timer_timeout():
 	get_tree().paused = true
-	# scorekeeping stuff
+	# scorekeeaping stuff
 	Main.rating[Main.currentLevel-1] = float(Main.points)/float(Main.maxPoints[Main.currentLevel-1])
 	Main.points = 0
 	# make sure this is saved

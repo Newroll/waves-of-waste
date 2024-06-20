@@ -25,7 +25,7 @@ script = ExtResource("1_4r25s")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 398.0
 offset_bottom = 24.0
-color = Color(0.0470588, 0.290196, 0.431373, 1)
+color = Color(0.160784, 0.560784, 0.803922, 0.823529)
 
 [node name="textLabel" type="Label" parent="."]
 offset_top = 3.0
@@ -66,15 +66,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="hudopacity" type="ColorRect" parent="."]
-visible = false
-offset_right = 256.0
+offset_right = 398.0
 offset_bottom = 224.0
 color = Color(0, 0, 0, 0.623529)
 
 [node name="logo" type="Label" parent="hudopacity"]
 layout_mode = 0
+offset_left = 70.0
 offset_top = 15.0
-offset_right = 256.0
+offset_right = 326.0
 offset_bottom = 48.0
 theme_override_fonts/font = ExtResource("1_q6lgt")
 theme_override_font_sizes/font_size = 32
@@ -92,9 +92,9 @@ texture_normal = ExtResource("2_2ajp7")
 
 [node name="fullscreen" type="Button" parent="hudopacity"]
 layout_mode = 0
-offset_left = 233.0
+offset_left = 375.0
 offset_top = 7.0
-offset_right = 281.0
+offset_right = 423.0
 offset_bottom = 55.0
 scale = Vector2(0.3, 0.3)
 theme_override_styles/normal = SubResource("StyleBoxEmpty_k5uws")
@@ -107,9 +107,9 @@ icon = ExtResource("3_lkdgu")
 
 [node name="unpause" type="TextureButton" parent="hudopacity"]
 layout_mode = 0
-offset_left = 62.0
+offset_left = 132.0
 offset_top = 61.0
-offset_right = 252.0
+offset_right = 322.0
 offset_bottom = 110.0
 scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("5_nbkal")
@@ -117,9 +117,9 @@ texture_pressed = ExtResource("6_lbip0")
 
 [node name="unpausetext" type="Label" parent="hudopacity"]
 layout_mode = 0
-offset_left = 62.0
+offset_left = 132.0
 offset_top = 61.0
-offset_right = 194.0
+offset_right = 264.0
 offset_bottom = 92.0
 theme_override_fonts/font = ExtResource("1_q6lgt")
 theme_override_font_sizes/font_size = 20
@@ -129,9 +129,9 @@ vertical_alignment = 1
 
 [node name="backmenu" type="TextureButton" parent="hudopacity"]
 layout_mode = 0
-offset_left = 62.0
+offset_left = 132.0
 offset_top = 97.0
-offset_right = 252.0
+offset_right = 322.0
 offset_bottom = 146.0
 scale = Vector2(0.7, 0.5)
 texture_normal = ExtResource("5_nbkal")
@@ -139,9 +139,9 @@ texture_pressed = ExtResource("6_lbip0")
 
 [node name="backmenutext" type="Label" parent="hudopacity"]
 layout_mode = 0
-offset_left = 62.0
+offset_left = 132.0
 offset_top = 97.0
-offset_right = 193.0
+offset_right = 263.0
 offset_bottom = 119.0
 theme_override_fonts/font = ExtResource("1_q6lgt")
 theme_override_font_sizes/font_size = 12
@@ -151,9 +151,9 @@ vertical_alignment = 1
 
 [node name="helpmenu" type="TextureButton" parent="hudopacity"]
 layout_mode = 0
-offset_left = 62.0
+offset_left = 132.0
 offset_top = 124.0
-offset_right = 252.0
+offset_right = 322.0
 offset_bottom = 173.0
 scale = Vector2(0.7, 0.5)
 texture_normal = ExtResource("5_nbkal")
@@ -161,9 +161,9 @@ texture_pressed = ExtResource("6_lbip0")
 
 [node name="helptext" type="Label" parent="hudopacity"]
 layout_mode = 0
-offset_left = 62.0
+offset_left = 132.0
 offset_top = 124.0
-offset_right = 193.0
+offset_right = 263.0
 offset_bottom = 146.0
 theme_override_fonts/font = ExtResource("1_q6lgt")
 theme_override_font_sizes/font_size = 12
