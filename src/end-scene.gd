@@ -10,12 +10,16 @@ func _ready():
 	if Main.rating[Main.currentLevel-2] >= 0 && Main.rating[Main.currentLevel-2] < 0.5:
 		$star2.set_animation("empty") # sets only one star to full
 		$star3.set_animation("empty")
+	else:
+		$star1.set_animation("empty") # no stars full
+		$star2.set_animation("empty") 
+		$star3.set_animation("empty")
 
 func _process(_delta):
 	# checks fullscreen status and sets texture
 	if DisplayServer.window_get_mode() == 3:
 		$fullscreen.icon = load("res://assets/ui/exit_fullscreen.png")
-	if DisplayServer.window_get_mode() != 3:
+	else:
 		$fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
 
 func _on_settings_pressed():
@@ -25,7 +29,7 @@ func _on_fullscreen_pressed():
 	# checks fullscreen status and enters/exits fullscreen mode
 	if DisplayServer.window_get_mode() == 3:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	elif DisplayServer.window_get_mode() != 3:
+	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_continue_pressed():

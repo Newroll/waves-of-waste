@@ -3,7 +3,6 @@ extends Node2D
 var previousScene
 
 func _ready():
-	previousScene = Main.previousScene
 	# time to mess with arrays (yay)
 	for i in Main.trashList.size():
 		# duplicates the template container (templateContainer) as to how many trash there are
@@ -20,4 +19,4 @@ func _on_back_button_pressed():
 	if Main.currentScene.left(-7) == "res://src/levels/level":
 		queue_free()
 	else:
-		Main.change_scene(previousScene)
+		Main.change_scene(Main.previousScene)
