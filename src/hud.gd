@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var trashScene = preload("res://src/trash_menu.tscn")
+var settingsScene = preload("res://src/settings.tscn")
 var paused = false
 
 func _process(_delta):
@@ -40,7 +41,11 @@ func _on_fullscreen_pressed():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_settings_pressed():
-	pass # open the settings menu (not implemented atm)
+	$forwardsfx.play()
+	get_tree().paused = true
+	$hudopacity.show()
+	# puts it on top of the hud instead of changing the scene
+	add_child(settingsScene.instantiate())
 
 func _on_unpause_pressed():
 	paused = false

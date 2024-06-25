@@ -15,9 +15,17 @@ run/main_scene="res://src/main-menu.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://src/default_bus_layout.tres"
+
 [autoload]
 
 Main="*res://src/main.gd"
+
+[debug]
+
+gdscript/warnings/integer_division=0
 
 [display]
 

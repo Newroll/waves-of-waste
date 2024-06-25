@@ -177,10 +177,12 @@ vertical_alignment = 1
 [node name="backsfx" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("8_6b03o")
+bus = &"sfx"
 
 [node name="forwardsfx" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("9_4euiv")
+bus = &"sfx"
 
 [connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="trashButton" to="." method="_on_trash_button_pressed"]

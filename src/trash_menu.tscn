@@ -23,6 +23,7 @@ offset_top = 49.0
 offset_right = 388.0
 offset_bottom = 214.0
 color = Color(0.0825711, 0.265946, 0.368267, 0.870588)
+metadata/_edit_use_anchors_ = true
 
 [node name="scrollHint" type="Label" parent="ColorRect"]
 layout_mode = 0
@@ -96,7 +97,7 @@ theme_override_font_sizes/font_size = 8
 text = "It is bad for the environment"
 autowrap_mode = 2
 
-[node name="Label" type="Label" parent="."]
+[node name="title" type="Label" parent="."]
 offset_top = -1.0
 offset_right = 399.0
 offset_bottom = 49.0
@@ -125,5 +126,6 @@ vertical_alignment = 1
 
 [node name="backsfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_yehj6")
+bus = &"sfx"
 
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

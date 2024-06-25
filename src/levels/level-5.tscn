@@ -97,5 +97,6 @@ process_mode = 3
 stream = ExtResource("7_su4gx")
 volume_db = -10.0
 autoplay = true
+bus = &"music"
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

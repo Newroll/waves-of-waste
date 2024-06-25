@@ -21,7 +21,7 @@ func _on_fullscreen_pressed():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_settings_pressed():
-	pass # open the settings menu (not implemented atm)
+	Main.change_scene("res://src/settings.tscn")
 
 func _on_play_pressed():
 	$forwardsfx.play()
