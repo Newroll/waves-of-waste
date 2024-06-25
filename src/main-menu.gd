@@ -7,6 +7,10 @@ func _process(_delta):
 	else:
 		$fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
 
+func _input(event):
+	if event.is_action_pressed("fullscreen"):
+		_on_fullscreen_pressed()
+
 func _on_fullscreen_pressed():
 	# checks fullscreen status and enters/exits fullscreen mode
 	if DisplayServer.window_get_mode() == 3:

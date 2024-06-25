@@ -14,6 +14,10 @@ func _ready():
 		%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(0).set_text(Main.trashList[i].name)
 		%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(1).set_text(Main.trashList[i].description)
 
+func _input(event):
+	if event.is_action_pressed("escape"):
+		_on_back_button_pressed()
+
 func _on_back_button_pressed():
 	get_tree().paused = false
 	$backsfx.play()

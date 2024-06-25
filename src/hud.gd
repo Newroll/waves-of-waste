@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var trashScene = preload("res://src/trash_menu.tscn")
+var paused = false
 
 func _process(_delta):
 	# sets text, bit of string concactnation
@@ -11,7 +12,17 @@ func _process(_delta):
 	else:
 		$hudopacity/fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
 
+func _input(event):
+	if event.is_action_pressed("fullscreen"):
+		_on_fullscreen_pressed()
+	if event.is_action_pressed("escape"):
+		if paused == true:
+			_on_unpause_pressed()
+		else:
+			_on_pause_pressed()
+
 func _on_pause_pressed():
+	paused = true
 	$forwardsfx.play()
 	get_tree().paused = true
 	$pause.hide()
@@ -32,6 +43,7 @@ func _on_settings_pressed():
 	pass # open the settings menu (not implemented atm)
 
 func _on_unpause_pressed():
+	paused = false
 	get_tree().paused = false
 	$backsfx.play()
 	$pause.show()
