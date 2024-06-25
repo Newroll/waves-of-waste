@@ -57,18 +57,8 @@ texture = ExtResource("2_i63t8")
 expand_mode = 2
 stretch_mode = 5
 
-[node name="returnButton" type="Button" parent="CanvasLayer"]
-visible = false
-offset_left = 38.0
-offset_top = 140.0
-offset_right = 217.0
-offset_bottom = 173.0
-theme_override_fonts/font = ExtResource("3_rua71")
-text = "Got it"
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_2byid")
 volume_db = 10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="pressed" from="CanvasLayer/returnButton" to="." method="_on_return_button_pressed"]

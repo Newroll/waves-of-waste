@@ -47,10 +47,5 @@ func timerTick():
 		await get_tree().create_timer(1.0).timeout
 		$CanvasLayer/timeLabel.set_text(str(4-i))
 	$CanvasLayer.hide()
-	get_tree().paused = false # does the reverse of above
-	queue_free() # kills the child
-
-func _on_return_button_pressed():
-	$CanvasLayer.hide()
-	get_tree().paused = false # does the reverse of above
+	get_tree().paused = false # does the reverse of above function
 	queue_free() # kills the child

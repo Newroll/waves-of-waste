@@ -28,23 +28,32 @@ func _on_settings_pressed():
 func _on_fullscreen_pressed():
 	# checks fullscreen status and enters/exits fullscreen mode
 	if DisplayServer.window_get_mode() == 3:
+		$backsfx.play()
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	else:
+		$forwardsfx.play()
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_continue_pressed():
+	$forwardsfx.play()
+	await get_tree().create_timer(0.17).timeout
 	Main.change_scene("res://src/levels/level-" + str(selectedLevel) + ".tscn")
 	#get_tree().paused = false
 
 func _on_trashmenu_pressed():
+	$backsfx.play()
+	await get_tree().create_timer(0.23).timeout
 	Main.change_scene("res://src/trash_menu.tscn")
 
 func _on_quitmenu_pressed():
+	$backsfx.play()
+	await get_tree().create_timer(0.23).timeout
 	get_tree().paused = false
 	hide()
 	Main.change_scene("res://src/main-menu.tscn")
 
 func _on_lvl_1_pressed():
+	$forwardsfx.play()
 	if Main.currentLevel >= 1:
 		selectedLevel = 1
 		$pointer.show()
@@ -52,24 +61,28 @@ func _on_lvl_1_pressed():
 
 # same thing
 func _on_lvl_2_pressed():
+	$forwardsfx.play()
 	if Main.currentLevel >= 2:
 		selectedLevel = 2
 		$pointer.show()
 		$pointer.set_position(Vector2(164,74))
 
 func _on_lvl_3_pressed():
+	$forwardsfx.play()
 	if Main.currentLevel >= 3:
 		selectedLevel = 3
 		$pointer.show()
 		$pointer.set_position(Vector2(199,74))
 
 func _on_lvl_4_pressed():
+	$forwardsfx.play()
 	if Main.currentLevel >= 4:
 		selectedLevel = 4
 		$pointer.show()
 		$pointer.set_position(Vector2(234,74))
 
 func _on_lvl_5_pressed():
+	$forwardsfx.play()
 	if Main.currentLevel >= 5:
 		selectedLevel = 5
 		$pointer.show()

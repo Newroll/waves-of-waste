@@ -12,6 +12,7 @@ func _process(_delta):
 		$hudopacity/fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
 
 func _on_pause_pressed():
+	$forwardsfx.play()
 	get_tree().paused = true
 	$pause.hide()
 	$hudopacity.show()
@@ -21,8 +22,10 @@ func _on_pause_pressed():
 func _on_fullscreen_pressed():
 	# checks fullscreen status and enters/exits fullscreen mode
 	if DisplayServer.window_get_mode() == 3:
+		$backsfx.play()
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	else:
+		$forwardsfx.play()
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_settings_pressed():
@@ -30,11 +33,13 @@ func _on_settings_pressed():
 
 func _on_unpause_pressed():
 	get_tree().paused = false
+	$backsfx.play()
 	$pause.show()
 	$hudopacity.hide()
 
 func _on_backmenu_pressed():
 	get_tree().paused = false
+	$backsfx.play()
 	$pause.show()
 	$hudopacity.hide()
 	Main.change_scene("res://src/main-menu.tscn")
@@ -43,6 +48,7 @@ func _on_helpmenu_pressed():
 	pass # open the help menu (not implemented atm)
 
 func _on_trash_button_pressed():
+	$forwardsfx.play()
 	get_tree().paused = true
 	$hudopacity.show()
 	# puts it on top of the hud instead of changing the scene

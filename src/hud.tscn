@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhgfxjldh32m1"]
+[gd_scene load_steps=15 format=3 uid="uid://dhgfxjldh32m1"]
 
 [ext_resource type="Script" path="res://src/hud.gd" id="1_4r25s"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="1_q6lgt"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://c3snw6owwn3cl" path="res://assets/ui/enter_fullscreen.png" id="3_lkdgu"]
 [ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="5_nbkal"]
 [ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="6_lbip0"]
+[ext_resource type="AudioStream" uid="uid://dylo1sbyjkg2p" path="res://assets/sound/back.wav" id="8_6b03o"]
+[ext_resource type="AudioStream" uid="uid://duume0iti6ox" path="res://assets/sound/forward.wav" id="9_4euiv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5uws"]
 
@@ -171,6 +173,14 @@ theme_override_font_sizes/font_size = 12
 text = "Help"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="backsfx" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("8_6b03o")
+
+[node name="forwardsfx" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("9_4euiv")
 
 [connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="trashButton" to="." method="_on_trash_button_pressed"]

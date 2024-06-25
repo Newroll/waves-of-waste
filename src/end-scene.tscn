@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://brxwfd43b8t4x"]
+[gd_scene load_steps=31 format=3 uid="uid://brxwfd43b8t4x"]
 
 [ext_resource type="Texture2D" uid="uid://b34d6j0o5i473" path="res://assets/ui/star-empty.png" id="1_j77f4"]
 [ext_resource type="Script" path="res://src/end-scene.gd" id="1_srch7"]
@@ -8,7 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="7_ovxpd"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="8_mccgr"]
 [ext_resource type="Texture2D" uid="uid://c36nbshdroxv5" path="res://assets/ui/buttons/yellow_button12.png" id="9_k4jl4"]
+[ext_resource type="AudioStream" uid="uid://dylo1sbyjkg2p" path="res://assets/sound/back.wav" id="10_lgnok"]
 [ext_resource type="Texture2D" uid="uid://bjrkm04it1qdf" path="res://assets/ui/buttons/red_sliderDown.png" id="11_c7l5m"]
+[ext_resource type="AudioStream" uid="uid://duume0iti6ox" path="res://assets/sound/forward.wav" id="11_nxtwk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vce4"]
 atlas = ExtResource("2_bxkvv")
@@ -344,6 +346,12 @@ vertical_alignment = 2
 position = Vector2(199, 74)
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("11_c7l5m")
+
+[node name="backsfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_lgnok")
+
+[node name="forwardsfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_nxtwk")
 
 [connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="fullscreen" to="." method="_on_fullscreen_pressed"]
