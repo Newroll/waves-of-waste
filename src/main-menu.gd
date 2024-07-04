@@ -34,4 +34,4 @@ func _on_trashmenu_pressed():
 	Main.change_scene("res://src/trash_menu.tscn")
 
 func _on_helpmenu_pressed():
-	pass # open the help menu (not implemented atm)
+	Main.change_scene("res://src/help-menu.tscn")

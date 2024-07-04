@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://con6303u5iyev"
+path="res://.godot/imported/pickUp.gif-2828824858908c5988fef21b27cd1828.tres"
+
+[deps]
+
+source_file="res://assets/ui/buttons/pickUp.gif"
+dest_files=["res://.godot/imported/pickUp.gif-2828824858908c5988fef21b27cd1828.tres"]
+
+[params]
+
+frames_per_second=30

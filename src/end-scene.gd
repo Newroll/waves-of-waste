@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+var trashScene = preload("res://src/trash_menu.tscn")
+var settingsScene = preload("res://src/settings.tscn")
+
 var selectedLevel
 
 func _ready():
@@ -23,7 +26,10 @@ func _process(_delta):
 		$fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
 
 func _on_settings_pressed():
-	pass # open the settings menu (not implemented atm)
+	$forwardsfx.play()
+	get_tree().paused = true
+	# puts it on top of the hud instead of changing the scene
+	add_child(settingsScene.instantiate())
 
 func _on_fullscreen_pressed():
 	# checks fullscreen status and enters/exits fullscreen mode
@@ -41,9 +47,10 @@ func _on_continue_pressed():
 	#get_tree().paused = false
 
 func _on_trashmenu_pressed():
-	$backsfx.play()
-	await get_tree().create_timer(0.23).timeout
-	Main.change_scene("res://src/trash_menu.tscn")
+	$forwardsfx.play()
+	get_tree().paused = true
+	# puts it on top of the hud instead of changing the scene
+	add_child(trashScene.instantiate())
 
 func _on_quitmenu_pressed():
 	$backsfx.play()

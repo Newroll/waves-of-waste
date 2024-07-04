@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var trashScene = preload("res://src/trash_menu.tscn")
 var settingsScene = preload("res://src/settings.tscn")
+var helpScene = preload("res://src/help-menu.tscn")
 var paused = false
 
 func _process(_delta):
@@ -62,7 +63,11 @@ func _on_backmenu_pressed():
 	Main.change_scene("res://src/main-menu.tscn")
 
 func _on_helpmenu_pressed():
-	pass # open the help menu (not implemented atm)
+	$forwardsfx.play()
+	get_tree().paused = true
+	$hudopacity.show()
+	# puts it on top of the hud instead of changing the scene
+	add_child(helpScene.instantiate())
 
 func _on_trash_button_pressed():
 	$forwardsfx.play()
