@@ -1,4 +1,4 @@
-[gd_scene load_steps=243 format=3 uid="uid://bevpdcjf66scx"]
+[gd_scene load_steps=242 format=3 uid="uid://bevpdcjf66scx"]
 
 [ext_resource type="Script" path="res://src/help-menu.gd" id="1_2k8c8"]
 [ext_resource type="Texture2D" uid="uid://r3se4stfbo4m" path="res://assets/background/background.png" id="2_bwvji"]
@@ -117,7 +117,6 @@
 [ext_resource type="Texture2D" uid="uid://dnmwivthtpgul" path="res://assets/help/lvlSwitch/frame_40_delay-0.1s.jpg" id="112_i066u"]
 [ext_resource type="Texture2D" uid="uid://db1ubk0rgro3r" path="res://assets/help/lvlSwitch/frame_41_delay-0.1s.jpg" id="113_8qf64"]
 [ext_resource type="Texture2D" uid="uid://drak12benw2id" path="res://assets/help/lvlSwitch/frame_42_delay-0.1s.jpg" id="114_hx20u"]
-[ext_resource type="Texture2D" uid="uid://byue0jyn2lai3" path="res://assets/help/lvlSwitch/frame_43_delay-0.1s.jpg" id="115_uivup"]
 [ext_resource type="Texture2D" uid="uid://ba2c4wkkyin6r" path="res://assets/help/lvlSwitch/frame_44_delay-0.1s.jpg" id="116_mecq5"]
 [ext_resource type="Texture2D" uid="uid://ciyrch6orncfy" path="res://assets/help/lvlSwitch/frame_45_delay-0.1s.jpg" id="117_timsf"]
 [ext_resource type="Texture2D" uid="uid://2aiypcb41d1k" path="res://assets/help/lvlSwitch/frame_46_delay-0.1s.jpg" id="118_mhvxc"]
@@ -581,9 +580,6 @@ animations = [{
 "texture": ExtResource("114_hx20u")
 }, {
 "duration": 1.0,
-"texture": ExtResource("115_uivup")
-}, {
-"duration": 1.0,
 "texture": ExtResource("116_mecq5")
 }, {
 "duration": 1.0,
@@ -1000,6 +996,12 @@ scale = Vector2(0.39, 0.47)
 theme_override_constants/separation = 15
 alignment = 1
 
+[node name="helpButton0" type="TextureButton" parent="leftBG/leftStack"]
+layout_mode = 2
+texture_normal = ExtResource("3_u60vt")
+texture_pressed = ExtResource("4_118xj")
+stretch_mode = 3
+
 [node name="helpButton1" type="TextureButton" parent="leftBG/leftStack"]
 layout_mode = 2
 texture_normal = ExtResource("3_u60vt")
@@ -1024,15 +1026,9 @@ texture_normal = ExtResource("3_u60vt")
 texture_pressed = ExtResource("4_118xj")
 stretch_mode = 3
 
-[node name="helpButton5" type="TextureButton" parent="leftBG/leftStack"]
-layout_mode = 2
-texture_normal = ExtResource("3_u60vt")
-texture_pressed = ExtResource("4_118xj")
-stretch_mode = 3
-
 [node name="leftStackText" type="Node" parent="."]
 
-[node name="helpText1" type="Label" parent="leftStackText"]
+[node name="helpText0" type="Label" parent="leftStackText"]
 offset_left = 18.0
 offset_top = 62.0
 offset_right = 88.0
@@ -1043,7 +1039,7 @@ text = "Movement"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="helpText2" type="Label" parent="leftStackText"]
+[node name="helpText1" type="Label" parent="leftStackText"]
 offset_left = 18.0
 offset_top = 92.0
 offset_right = 88.0
@@ -1054,7 +1050,7 @@ text = "Picking up trash"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="helpText3" type="Label" parent="leftStackText"]
+[node name="helpText2" type="Label" parent="leftStackText"]
 offset_left = 18.0
 offset_top = 122.0
 offset_right = 88.0
@@ -1065,7 +1061,7 @@ text = "The goal"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="helpText4" type="Label" parent="leftStackText"]
+[node name="helpText3" type="Label" parent="leftStackText"]
 offset_left = 18.0
 offset_top = 152.0
 offset_right = 88.0
@@ -1076,7 +1072,7 @@ text = "Switching levels"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="helpText5" type="Label" parent="leftStackText"]
+[node name="helpText4" type="Label" parent="leftStackText"]
 offset_left = 18.0
 offset_top = 182.0
 offset_right = 88.0
@@ -1095,6 +1091,7 @@ offset_bottom = 214.0
 color = Color(0.0825711, 0.265946, 0.368267, 0.870588)
 
 [node name="title" type="Label" parent="rightBG"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 6.0
 offset_top = 3.0
@@ -1105,6 +1102,7 @@ theme_override_font_sizes/font_size = 26
 text = "How to bake a cake"
 
 [node name="description" type="Label" parent="rightBG"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 6.0
 offset_top = 36.0
@@ -1116,11 +1114,12 @@ text = "Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. Hal
 autowrap_mode = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="rightBG"]
+unique_name_in_owner = true
 position = Vector2(218, 84)
 scale = Vector2(0.227381, 0.227381)
 sprite_frames = SubResource("SpriteFrames_7aq61")
-animation = &"lvlComplete"
-frame_progress = 0.651423
+animation = &"movement"
+autoplay = "movement"
 
 [node name="sceneTitle" type="Label" parent="."]
 offset_top = -1.0
@@ -1153,4 +1152,9 @@ vertical_alignment = 1
 stream = ExtResource("5_q2jjq")
 bus = &"sfx"
 
+[connection signal="pressed" from="leftBG/leftStack/helpButton0" to="." method="_on_help_button_0_pressed"]
+[connection signal="pressed" from="leftBG/leftStack/helpButton1" to="." method="_on_help_button_1_pressed"]
+[connection signal="pressed" from="leftBG/leftStack/helpButton2" to="." method="_on_help_button_2_pressed"]
+[connection signal="pressed" from="leftBG/leftStack/helpButton3" to="." method="_on_help_button_3_pressed"]
+[connection signal="pressed" from="leftBG/leftStack/helpButton4" to="." method="_on_help_button_4_pressed"]
 [connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]

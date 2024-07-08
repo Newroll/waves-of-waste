@@ -5,6 +5,7 @@ var points = 0
 var eclapsedTime
 var formattedTime
 var trashList
+var helpList
 var currentScene = "res://src/main-menu.tscn"
 var previousScene
 var currentSave
@@ -16,8 +17,11 @@ var rating = [1.0, 2.0, 3.0, 4.0, 5.0]
 func _ready():
 	# loads the trash database
 	var trashDatabase = TextDatabase.new()
+	var helpDatabase = TextDatabase.new()
 	trashDatabase.load_from_path("res://assets/trash/text.cfg")
+	helpDatabase.load_from_path("res://assets/help/helpText.cfg")
 	trashList = trashDatabase.get_array()
+	helpList = helpDatabase.get_array()
 	readSave()
 
 func _process(_delta):
