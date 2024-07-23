@@ -7,6 +7,7 @@ func _ready():
 	get_tree().paused = false
 	$AudioStreamPlayer.play(120)
 	
+	# automatic trash spawning
 	for i in Main.maxPoints[Main.currentLevel-1]:
 		$trash.add_child(trash.instantiate())
 		$trash.get_child(i).position = Vector2(randf_range(30, 740), randf_range(50, 740))
