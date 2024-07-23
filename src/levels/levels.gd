@@ -1,9 +1,15 @@
 extends Node2D
 
+var trash = preload("res://src/trash.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_tree().paused = false
 	$AudioStreamPlayer.play(120)
+	
+	for i in Main.maxPoints[Main.currentLevel]:
+		$trash.add_child(trash.instantiate())
+		$trash.get_child(i).position = Vector2(randf_range(30, 740), randf_range(50, 740))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

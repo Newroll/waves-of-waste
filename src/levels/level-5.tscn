@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://c1efo6hy2o2ix"]
+[gd_scene load_steps=13 format=3 uid="uid://c1efo6hy2o2ix"]
 
 [ext_resource type="Script" path="res://src/levels/levels.gd" id="1_d5hs6"]
 [ext_resource type="Texture2D" uid="uid://cwrjpo0nc0211" path="res://assets/background/water.tres" id="1_wnk1e"]
 [ext_resource type="PackedScene" uid="uid://dk4j0c7hxew2h" path="res://src/player.tscn" id="2_3w4d7"]
-[ext_resource type="PackedScene" uid="uid://xv6ifskepkl3" path="res://src/trash.tscn" id="3_q1g1y"]
 [ext_resource type="PackedScene" uid="uid://dhgfxjldh32m1" path="res://src/hud.tscn" id="4_ijbxe"]
 [ext_resource type="PackedScene" uid="uid://brxwfd43b8t4x" path="res://src/end-scene.tscn" id="6_7vhsg"]
 [ext_resource type="AudioStream" uid="uid://cw2nmprael7ae" path="res://assets/sound/game-music.mp3" id="7_su4gx"]
@@ -30,7 +29,7 @@ distance = 1.0
 normal = Vector2(1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8ij61"]
-distance = -769.0
+distance = -770.0
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_d5hs6")
@@ -48,21 +47,6 @@ layer_0/tile_data = PackedInt32Array(0, 2, 0, 65536, 2, 1, 1, 65538, 0, 65537, 6
 
 [node name="player" parent="." instance=ExtResource("2_3w4d7")]
 position = Vector2(77, 86)
-
-[node name="trash" parent="." instance=ExtResource("3_q1g1y")]
-position = Vector2(99, 174)
-
-[node name="trash2" parent="." instance=ExtResource("3_q1g1y")]
-position = Vector2(13, 170)
-
-[node name="trash3" parent="." instance=ExtResource("3_q1g1y")]
-position = Vector2(192, 60)
-
-[node name="trash4" parent="." instance=ExtResource("3_q1g1y")]
-position = Vector2(154, 138)
-
-[node name="trash5" parent="." instance=ExtResource("3_q1g1y")]
-position = Vector2(204, 194)
 
 [node name="hud" parent="." instance=ExtResource("4_ijbxe")]
 
@@ -98,5 +82,7 @@ stream = ExtResource("7_su4gx")
 volume_db = -10.0
 autoplay = true
 bus = &"music"
+
+[node name="trash" type="Node2D" parent="."]
 
 [connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]
