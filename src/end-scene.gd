@@ -5,25 +5,25 @@ var settingsScene = preload("res://src/settings.tscn")
 
 var selectedLevel
 
-func _ready():
-	if Main.currentLevel <= 5:
-		call("_on_lvl_" + str(Main.currentLevel) + "_pressed")
-	if Main.rating[Main.currentLevel-2] >= 0.5 && Main.rating[Main.currentLevel-2] < 1:
-		$star3.set_animation("empty") # sets two stars to full
-	if Main.rating[Main.currentLevel-2] >= 0 && Main.rating[Main.currentLevel-2] < 0.5:
-		$star2.set_animation("empty") # sets only one star to full
-		$star3.set_animation("empty")
-	else:
-		$star1.set_animation("empty") # no stars full
-		$star2.set_animation("empty") 
-		$star3.set_animation("empty")
-
 func _process(_delta):
 	# checks fullscreen status and sets texture
 	if DisplayServer.window_get_mode() == 3:
 		$fullscreen.icon = load("res://assets/ui/exit_fullscreen.png")
 	else:
 		$fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
+
+func levelEnded():
+	if Main.currentLevel <= 5:
+		call("_on_lvl_" + str(Main.currentLevel) + "_pressed")
+	if Main.rating[Main.currentLevel-2] >= 0.5 && Main.rating[Main.currentLevel-2] < 1:
+		$star3.set_animation("empty") # sets two stars to full
+	elif Main.rating[Main.currentLevel-2] >= 0 && Main.rating[Main.currentLevel-2] < 0.5:
+		$star2.set_animation("empty") # sets only one star to full
+		$star3.set_animation("empty")
+	elif Main.rating[Main.currentLevel-2] <= 0.5:
+		$star1.set_animation("empty") # no stars full
+		$star2.set_animation("empty") 
+		$star3.set_animation("empty")
 
 func _on_settings_pressed():
 	$forwardsfx.play()
@@ -43,8 +43,8 @@ func _on_fullscreen_pressed():
 func _on_continue_pressed():
 	$forwardsfx.play()
 	await get_tree().create_timer(0.17).timeout
+	Main.currentLevel = selectedLevel
 	Main.change_scene("res://src/levels/level-" + str(selectedLevel) + ".tscn")
-	#get_tree().paused = false
 
 func _on_trashmenu_pressed():
 	$forwardsfx.play()

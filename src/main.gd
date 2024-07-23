@@ -12,7 +12,7 @@ var currentSave
 
 # scorekeeping stuff
 var maxPoints =  [5, 10, 20, 30, 50]
-var rating = [5.0, 10.0, 20.0, 30.0, 50.0]
+var rating = [0, 0, 0, 0, 0]
 
 func _ready():
 	# loads the trash database

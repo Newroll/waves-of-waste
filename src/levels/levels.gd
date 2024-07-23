@@ -7,7 +7,7 @@ func _ready():
 	get_tree().paused = false
 	$AudioStreamPlayer.play(120)
 	
-	for i in Main.maxPoints[Main.currentLevel]:
+	for i in Main.maxPoints[Main.currentLevel-1]:
 		$trash.add_child(trash.instantiate())
 		$trash.get_child(i).position = Vector2(randf_range(30, 740), randf_range(50, 740))
 
@@ -28,7 +28,8 @@ func _on_timer_timeout():
 	Main.writeSave()
 	if Main.currentLevel > 5:
 		Main.currentLevel = 1
-		Main.rating = [1.0, 2.0, 3.0, 4.0, 5.0]
+		Main.rating = [0, 0, 0, 0, 0]
 	# yes rico, kaboom
 	$hud.hide()
 	$"end-scene".show()
+	$"end-scene".levelEnded()
