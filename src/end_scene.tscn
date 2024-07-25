@@ -1,7 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://brxwfd43b8t4x"]
 
-[ext_resource type="Texture2D" uid="uid://b34d6j0o5i473" path="res://assets/ui/star-empty.png" id="1_j77f4"]
-[ext_resource type="Script" path="res://src/end-scene.gd" id="1_srch7"]
+[ext_resource type="Texture2D" uid="uid://b34d6j0o5i473" path="res://assets/ui/star_empty.png" id="1_j77f4"]
+[ext_resource type="Script" path="res://src/end_scene.gd" id="1_srch7"]
 [ext_resource type="Texture2D" uid="uid://si5ss1ux6tch" path="res://assets/ui/star.png" id="2_bxkvv"]
 [ext_resource type="Texture2D" uid="uid://bw80od2udayp4" path="res://assets/ui/gear.png" id="3_ln0xr"]
 [ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="6_mh7er"]
@@ -129,16 +129,16 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmlku"]
 
-[node name="end-scene" type="CanvasLayer"]
+[node name="EndScene" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_srch7")
 
-[node name="opacity" type="ColorRect" parent="."]
+[node name="Opacity" type="ColorRect" parent="."]
 offset_right = 398.0
 offset_bottom = 224.0
 color = Color(0, 0, 0, 0.490196)
 
-[node name="star1" type="AnimatedSprite2D" parent="."]
+[node name="Star1" type="AnimatedSprite2D" parent="."]
 position = Vector2(167, 46)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_trmxs")
@@ -146,14 +146,14 @@ animation = &"filled"
 autoplay = "filled"
 frame_progress = 0.931275
 
-[node name="star2" type="AnimatedSprite2D" parent="."]
+[node name="Star2" type="AnimatedSprite2D" parent="."]
 position = Vector2(199, 28)
 scale = Vector2(1.75, 1.75)
 sprite_frames = SubResource("SpriteFrames_trmxs")
 animation = &"filled"
 autoplay = "filled"
 
-[node name="star3" type="AnimatedSprite2D" parent="."]
+[node name="Star3" type="AnimatedSprite2D" parent="."]
 position = Vector2(231, 46)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_trmxs")
@@ -161,7 +161,7 @@ animation = &"filled"
 autoplay = "filled"
 frame_progress = 0.617965
 
-[node name="settings" type="TextureButton" parent="."]
+[node name="Settings" type="TextureButton" parent="."]
 offset_left = 7.0
 offset_top = 192.0
 offset_right = 39.0
@@ -169,7 +169,7 @@ offset_bottom = 224.0
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("3_ln0xr")
 
-[node name="fullscreen" type="Button" parent="."]
+[node name="Fullscreen" type="Button" parent="."]
 offset_left = 380.0
 offset_top = 3.0
 offset_right = 428.0
@@ -182,7 +182,7 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_iqrrp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cmlku")
 toggle_mode = true
 
-[node name="continue" type="TextureButton" parent="."]
+[node name="Continue" type="TextureButton" parent="."]
 offset_left = 131.0
 offset_top = 119.0
 offset_right = 321.0
@@ -191,7 +191,7 @@ scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("6_mh7er")
 texture_pressed = ExtResource("7_ovxpd")
 
-[node name="continuetext" type="Label" parent="."]
+[node name="ContinueText" type="Label" parent="."]
 offset_left = 131.0
 offset_top = 119.0
 offset_right = 263.0
@@ -202,7 +202,7 @@ text = "Continue"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="trashmenu" type="TextureButton" parent="."]
+[node name="TrashMenu" type="TextureButton" parent="."]
 offset_left = 131.0
 offset_top = 155.0
 offset_right = 321.0
@@ -211,7 +211,7 @@ scale = Vector2(0.7, 0.5)
 texture_normal = ExtResource("6_mh7er")
 texture_pressed = ExtResource("7_ovxpd")
 
-[node name="trashtext" type="Label" parent="."]
+[node name="TrashText" type="Label" parent="."]
 offset_left = 131.0
 offset_top = 155.0
 offset_right = 262.0
@@ -222,7 +222,7 @@ text = "View trash"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="quitmenu" type="TextureButton" parent="."]
+[node name="QuitMenu" type="TextureButton" parent="."]
 offset_left = 131.0
 offset_top = 182.0
 offset_right = 321.0
@@ -231,7 +231,7 @@ scale = Vector2(0.7, 0.5)
 texture_normal = ExtResource("6_mh7er")
 texture_pressed = ExtResource("7_ovxpd")
 
-[node name="quittext" type="Label" parent="."]
+[node name="QuitText" type="Label" parent="."]
 offset_left = 131.0
 offset_top = 182.0
 offset_right = 262.0
@@ -242,7 +242,7 @@ text = "Quit to menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="lvl1" type="TextureButton" parent="."]
+[node name="Lvl1" type="TextureButton" parent="."]
 offset_left = 116.0
 offset_top = 84.0825
 offset_right = 165.0
@@ -250,7 +250,7 @@ offset_bottom = 129.083
 scale = Vector2(0.537, 0.537)
 texture_normal = ExtResource("9_k4jl4")
 
-[node name="Label" type="Label" parent="lvl1"]
+[node name="Label" type="Label" parent="Lvl1"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
@@ -262,7 +262,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="lvl2" type="TextureButton" parent="."]
+[node name="Lvl2" type="TextureButton" parent="."]
 offset_left = 151.0
 offset_top = 84.0825
 offset_right = 200.0
@@ -270,7 +270,7 @@ offset_bottom = 129.083
 scale = Vector2(0.537, 0.537)
 texture_normal = ExtResource("9_k4jl4")
 
-[node name="Label" type="Label" parent="lvl2"]
+[node name="Label" type="Label" parent="Lvl2"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
@@ -282,7 +282,7 @@ text = "2"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="lvl3" type="TextureButton" parent="."]
+[node name="Lvl3" type="TextureButton" parent="."]
 offset_left = 185.843
 offset_top = 84.0
 offset_right = 234.844
@@ -290,7 +290,7 @@ offset_bottom = 129.0
 scale = Vector2(0.5375, 0.5375)
 texture_normal = ExtResource("9_k4jl4")
 
-[node name="Label" type="Label" parent="lvl3"]
+[node name="Label" type="Label" parent="Lvl3"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
@@ -302,7 +302,7 @@ text = "3"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="lvl4" type="TextureButton" parent="."]
+[node name="Lvl4" type="TextureButton" parent="."]
 offset_left = 220.844
 offset_top = 84.0
 offset_right = 269.844
@@ -310,7 +310,7 @@ offset_bottom = 129.0
 scale = Vector2(0.537, 0.537)
 texture_normal = ExtResource("9_k4jl4")
 
-[node name="Label" type="Label" parent="lvl4"]
+[node name="Label" type="Label" parent="Lvl4"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
@@ -322,7 +322,7 @@ text = "4"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="lvl5" type="TextureButton" parent="."]
+[node name="Lvl5" type="TextureButton" parent="."]
 offset_left = 255.844
 offset_top = 84.0
 offset_right = 304.844
@@ -330,7 +330,7 @@ offset_bottom = 129.0
 scale = Vector2(0.537, 0.537)
 texture_normal = ExtResource("9_k4jl4")
 
-[node name="Label" type="Label" parent="lvl5"]
+[node name="Label" type="Label" parent="Lvl5"]
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
@@ -342,24 +342,24 @@ text = "5"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="pointer" type="Sprite2D" parent="."]
+[node name="Pointer" type="Sprite2D" parent="."]
 position = Vector2(199, 74)
 scale = Vector2(0.375, 0.375)
 texture = ExtResource("11_c7l5m")
 
-[node name="backsfx" type="AudioStreamPlayer" parent="."]
+[node name="BackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_lgnok")
 
-[node name="forwardsfx" type="AudioStreamPlayer" parent="."]
+[node name="ForwardSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_nxtwk")
 
-[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="fullscreen" to="." method="_on_fullscreen_pressed"]
-[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="trashmenu" to="." method="_on_trashmenu_pressed"]
-[connection signal="pressed" from="quitmenu" to="." method="_on_quitmenu_pressed"]
-[connection signal="pressed" from="lvl1" to="." method="_on_lvl_1_pressed"]
-[connection signal="pressed" from="lvl2" to="." method="_on_lvl_2_pressed"]
-[connection signal="pressed" from="lvl3" to="." method="_on_lvl_3_pressed"]
-[connection signal="pressed" from="lvl4" to="." method="_on_lvl_4_pressed"]
-[connection signal="pressed" from="lvl5" to="." method="_on_lvl_5_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="TrashMenu" to="." method="_on_trashmenu_pressed"]
+[connection signal="pressed" from="QuitMenu" to="." method="_on_quitmenu_pressed"]
+[connection signal="pressed" from="Lvl1" to="." method="_on_lvl_1_pressed"]
+[connection signal="pressed" from="Lvl2" to="." method="_on_lvl_2_pressed"]
+[connection signal="pressed" from="Lvl3" to="." method="_on_lvl_3_pressed"]
+[connection signal="pressed" from="Lvl4" to="." method="_on_lvl_4_pressed"]
+[connection signal="pressed" from="Lvl5" to="." method="_on_lvl_5_pressed"]

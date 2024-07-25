@@ -1,6 +1,6 @@
 [gd_scene load_steps=242 format=3 uid="uid://bevpdcjf66scx"]
 
-[ext_resource type="Script" path="res://src/help-menu.gd" id="1_2k8c8"]
+[ext_resource type="Script" path="res://src/help_menu.gd" id="1_2k8c8"]
 [ext_resource type="Texture2D" uid="uid://r3se4stfbo4m" path="res://assets/background/background.png" id="2_bwvji"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="3_sf1g4"]
 [ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="3_u60vt"]
@@ -963,23 +963,23 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="help-menu" type="Node2D"]
+[node name="HelpMenu" type="Node2D"]
 script = ExtResource("1_2k8c8")
 
-[node name="background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(162, 113)
 scale = Vector2(1.05093, 1.05093)
 texture = ExtResource("2_bwvji")
 metadata/_edit_lock_ = true
 
-[node name="leftBG" type="ColorRect" parent="."]
+[node name="LeftBG" type="ColorRect" parent="."]
 offset_left = 10.0
 offset_top = 49.0
 offset_right = 96.0
 offset_bottom = 214.0
 color = Color(0.0825711, 0.265946, 0.368267, 0.870588)
 
-[node name="leftStack" type="VBoxContainer" parent="leftBG"]
+[node name="LeftStack" type="VBoxContainer" parent="LeftBG"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -996,39 +996,39 @@ scale = Vector2(0.39, 0.47)
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="helpButton0" type="TextureButton" parent="leftBG/leftStack"]
+[node name="HelpButton0" type="TextureButton" parent="LeftBG/LeftStack"]
 layout_mode = 2
 texture_normal = ExtResource("3_u60vt")
 texture_pressed = ExtResource("4_118xj")
 stretch_mode = 3
 
-[node name="helpButton1" type="TextureButton" parent="leftBG/leftStack"]
+[node name="HelpButton1" type="TextureButton" parent="LeftBG/LeftStack"]
 layout_mode = 2
 texture_normal = ExtResource("3_u60vt")
 texture_pressed = ExtResource("4_118xj")
 stretch_mode = 3
 
-[node name="helpButton2" type="TextureButton" parent="leftBG/leftStack"]
+[node name="HelpButton2" type="TextureButton" parent="LeftBG/LeftStack"]
 layout_mode = 2
 texture_normal = ExtResource("3_u60vt")
 texture_pressed = ExtResource("4_118xj")
 stretch_mode = 3
 
-[node name="helpButton3" type="TextureButton" parent="leftBG/leftStack"]
+[node name="HelpButton3" type="TextureButton" parent="LeftBG/LeftStack"]
 layout_mode = 2
 texture_normal = ExtResource("3_u60vt")
 texture_pressed = ExtResource("4_118xj")
 stretch_mode = 3
 
-[node name="helpButton4" type="TextureButton" parent="leftBG/leftStack"]
+[node name="HelpButton4" type="TextureButton" parent="LeftBG/LeftStack"]
 layout_mode = 2
 texture_normal = ExtResource("3_u60vt")
 texture_pressed = ExtResource("4_118xj")
 stretch_mode = 3
 
-[node name="leftStackText" type="Node" parent="."]
+[node name="LeftStackText" type="Node" parent="."]
 
-[node name="helpText0" type="Label" parent="leftStackText"]
+[node name="HelpText0" type="Label" parent="LeftStackText"]
 offset_left = 18.0
 offset_top = 62.0
 offset_right = 88.0
@@ -1039,7 +1039,7 @@ text = "Movement"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="helpText1" type="Label" parent="leftStackText"]
+[node name="HelpText1" type="Label" parent="LeftStackText"]
 offset_left = 18.0
 offset_top = 92.0
 offset_right = 88.0
@@ -1050,7 +1050,7 @@ text = "Picking up trash"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="helpText2" type="Label" parent="leftStackText"]
+[node name="HelpText2" type="Label" parent="LeftStackText"]
 offset_left = 18.0
 offset_top = 122.0
 offset_right = 88.0
@@ -1061,7 +1061,7 @@ text = "The goal"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="helpText3" type="Label" parent="leftStackText"]
+[node name="HelpText3" type="Label" parent="LeftStackText"]
 offset_left = 18.0
 offset_top = 152.0
 offset_right = 88.0
@@ -1072,7 +1072,7 @@ text = "Switching levels"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="helpText4" type="Label" parent="leftStackText"]
+[node name="HelpText4" type="Label" parent="LeftStackText"]
 offset_left = 18.0
 offset_top = 182.0
 offset_right = 88.0
@@ -1083,14 +1083,14 @@ text = "Placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="rightBG" type="ColorRect" parent="."]
+[node name="RightBG" type="ColorRect" parent="."]
 offset_left = 103.0
 offset_top = 49.0
 offset_right = 388.0
 offset_bottom = 214.0
 color = Color(0.0825711, 0.265946, 0.368267, 0.870588)
 
-[node name="title" type="Label" parent="rightBG"]
+[node name="Title" type="Label" parent="RightBG"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 6.0
@@ -1101,7 +1101,7 @@ theme_override_fonts/font = ExtResource("3_sf1g4")
 theme_override_font_sizes/font_size = 26
 text = "How to bake a cake"
 
-[node name="description" type="Label" parent="rightBG"]
+[node name="Description" type="Label" parent="RightBG"]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 6.0
@@ -1113,7 +1113,7 @@ theme_override_font_sizes/font_size = 12
 text = "Cupcake ipsum dolor. Sit amet marshmallow topping cheesecake muffin. Halvah croissant candy canes bonbon candy. "
 autowrap_mode = 2
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="rightBG"]
+[node name="Animation" type="AnimatedSprite2D" parent="RightBG"]
 unique_name_in_owner = true
 position = Vector2(218, 84)
 scale = Vector2(0.227381, 0.227381)
@@ -1121,7 +1121,7 @@ sprite_frames = SubResource("SpriteFrames_7aq61")
 animation = &"movement"
 autoplay = "movement"
 
-[node name="sceneTitle" type="Label" parent="."]
+[node name="SceneTitle" type="Label" parent="."]
 offset_top = -1.0
 offset_right = 399.0
 offset_bottom = 49.0
@@ -1131,7 +1131,7 @@ text = "Help"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="backButton" type="TextureButton" parent="."]
+[node name="BackButton" type="TextureButton" parent="."]
 offset_left = 10.0
 offset_top = 9.0
 offset_right = 59.0
@@ -1139,7 +1139,7 @@ offset_bottom = 58.0
 scale = Vector2(0.6, 0.6)
 texture_normal = ExtResource("4_sbr7t")
 
-[node name="text" type="Label" parent="backButton"]
+[node name="Text" type="Label" parent="BackButton"]
 layout_mode = 0
 offset_right = 48.0
 offset_bottom = 45.0
@@ -1148,13 +1148,13 @@ text = "Back"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="backsfx" type="AudioStreamPlayer" parent="."]
+[node name="BackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_q2jjq")
 bus = &"sfx"
 
-[connection signal="pressed" from="leftBG/leftStack/helpButton0" to="." method="_on_help_button_0_pressed"]
-[connection signal="pressed" from="leftBG/leftStack/helpButton1" to="." method="_on_help_button_1_pressed"]
-[connection signal="pressed" from="leftBG/leftStack/helpButton2" to="." method="_on_help_button_2_pressed"]
-[connection signal="pressed" from="leftBG/leftStack/helpButton3" to="." method="_on_help_button_3_pressed"]
-[connection signal="pressed" from="leftBG/leftStack/helpButton4" to="." method="_on_help_button_4_pressed"]
-[connection signal="pressed" from="backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="LeftBG/LeftStack/HelpButton0" to="." method="_on_help_button_0_pressed"]
+[connection signal="pressed" from="LeftBG/LeftStack/HelpButton1" to="." method="_on_help_button_1_pressed"]
+[connection signal="pressed" from="LeftBG/LeftStack/HelpButton2" to="." method="_on_help_button_2_pressed"]
+[connection signal="pressed" from="LeftBG/LeftStack/HelpButton3" to="." method="_on_help_button_3_pressed"]
+[connection signal="pressed" from="LeftBG/LeftStack/HelpButton4" to="." method="_on_help_button_4_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

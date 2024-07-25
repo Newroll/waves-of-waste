@@ -7,7 +7,7 @@ const DECELERATION = 3 # same as above but deceleration
 
 var speed = 0 # the current speed of the player
 
-var currentDirection = "down" # for animation purposes
+var current_direction = "down" # for animation purposes
 
 func _physics_process(_delta):
 	movement()
@@ -15,14 +15,14 @@ func _physics_process(_delta):
 
 func movement():
 	# gets inputs
-	var directionVertical = Input.get_axis("move_up", "move_down")
-	var directionHorizontal = Input.get_axis("move_left", "move_right")
+	var direction_vertical = Input.get_axis("move_up", "move_down")
+	var direction_horizontal = Input.get_axis("move_left", "move_right")
 
 	# horizontal movement
-	if directionHorizontal && !directionVertical: # if player is moving horizontally and not vertically. prevents diagonal movement
+	if direction_horizontal&&!direction_vertical: # if player is moving horizontally and not vertically. prevents diagonal movement
 		if speed < MAXSPEED:
 			speed += ACCELERATION
-		velocity.x = directionHorizontal * speed
+		velocity.x = direction_horizontal * speed
 		velocity.y = 0
 	else:
 		# deceleration shenanigans
@@ -31,15 +31,15 @@ func movement():
 		if velocity.x < 0:
 			velocity.x += DECELERATION
 		# make sure velocity returns to 0 if it's close enough
-		if velocity.x < 6 && velocity.x > -6 && velocity.x != 0:
+		if velocity.x < 6&&velocity.x > - 6&&velocity.x != 0:
 			velocity.x = 0
 			speed = 0
 	
 	# vertical movement
-	if directionVertical && !directionHorizontal: # if player is moving horizontally and not vertically. prevents diagonal movement
+	if direction_vertical&&!direction_horizontal: # if player is moving horizontally and not vertically. prevents diagonal movement
 		if speed < MAXSPEED:
 			speed += ACCELERATION
-		velocity.y = directionVertical * speed
+		velocity.y = direction_vertical * speed
 		velocity.x = 0
 	else:
 		# deceleration shenanigans
@@ -48,30 +48,30 @@ func movement():
 		if velocity.y < 0:
 			velocity.y += DECELERATION
 		# make sure velocity returns to 0 if it's close enough
-		if velocity.y < 6 && velocity.y > -6 && velocity.y != 0:
+		if velocity.y < 6&&velocity.y > - 6&&velocity.y != 0:
 			velocity.y = 0
 			speed = 0
 
 func sprite_animation():
 	# sets animation of player sprite depending on velocity
 	if velocity.x < 0:
-		$move.set_animation("left")
-		currentDirection = "left"
-	if velocity.x > 0: 
-		$move.set_animation("right")
-		currentDirection = "right"
+		$Move.set_animation("left")
+		current_direction = "left"
+	if velocity.x > 0:
+		$Move.set_animation("right")
+		current_direction = "right"
 	if velocity.y < 0:
-		$move.set_animation("up")
-		currentDirection = "up"
+		$Move.set_animation("up")
+		current_direction = "up"
 	if velocity.y > 0:
-		$move.set_animation("down")
-		currentDirection = "down"
-	if velocity.y == 0 && velocity.x == 0:
-		$move.hide()
-		$idle.show()
-		$idle.set_animation(currentDirection)
+		$Move.set_animation("down")
+		current_direction = "down"
+	if velocity.y == 0&&velocity.x == 0:
+		$Move.hide()
+		$Idle.show()
+		$Idle.set_animation(current_direction)
 	else:
-		$move.show()
-		$idle.hide()
+		$Move.show()
+		$Idle.hide()
 
 	move_and_slide()

@@ -2,12 +2,12 @@
 
 [ext_resource type="FontFile" uid="uid://dpfp0r4gq6h4d" path="res://assets/ui/mainport.ttf" id="1_36ylp"]
 [ext_resource type="Texture2D" uid="uid://r3se4stfbo4m" path="res://assets/background/background.png" id="1_htada"]
-[ext_resource type="Script" path="res://src/main-menu.gd" id="1_x3e1o"]
+[ext_resource type="Script" path="res://src/main_menu.gd" id="1_x3e1o"]
 [ext_resource type="Texture2D" uid="uid://bw80od2udayp4" path="res://assets/ui/gear.png" id="3_evviu"]
 [ext_resource type="Texture2D" uid="uid://c3snw6owwn3cl" path="res://assets/ui/enter_fullscreen.png" id="4_2tbbo"]
 [ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="7_gro0e"]
 [ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="8_iooh8"]
-[ext_resource type="AudioStream" uid="uid://cw2nmprael7ae" path="res://assets/sound/game-music.mp3" id="9_7sy6c"]
+[ext_resource type="AudioStream" uid="uid://cw2nmprael7ae" path="res://assets/sound/game_music.mp3" id="9_7sy6c"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="9_q18fm"]
 [ext_resource type="AudioStream" uid="uid://duume0iti6ox" path="res://assets/sound/forward.wav" id="10_lkhpe"]
 [ext_resource type="AudioStream" uid="uid://dylo1sbyjkg2p" path="res://assets/sound/back.wav" id="11_vmnpl"]
@@ -22,15 +22,15 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2qf0"]
 
-[node name="main-menu" type="Node2D"]
+[node name="MainMenu" type="Node2D"]
 script = ExtResource("1_x3e1o")
 
-[node name="background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="."]
 position = Vector2(162, 113)
 scale = Vector2(1.05093, 1.05093)
 texture = ExtResource("1_htada")
 
-[node name="settings" type="TextureButton" parent="."]
+[node name="Settings" type="TextureButton" parent="."]
 offset_left = 7.0
 offset_top = 192.0
 offset_right = 39.0
@@ -38,7 +38,7 @@ offset_bottom = 224.0
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("3_evviu")
 
-[node name="fullscreen" type="Button" parent="."]
+[node name="Fullscreen" type="Button" parent="."]
 offset_left = 376.0
 offset_top = 7.0
 offset_right = 424.0
@@ -52,7 +52,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_d2qf0")
 toggle_mode = true
 icon = ExtResource("4_2tbbo")
 
-[node name="logo" type="Label" parent="."]
+[node name="Logo" type="Label" parent="."]
 offset_left = 146.0
 offset_top = 9.0
 offset_right = 255.0
@@ -64,7 +64,7 @@ text = "waves
    of 
      waste"
 
-[node name="play" type="TextureButton" parent="."]
+[node name="Play" type="TextureButton" parent="."]
 offset_left = 132.0
 offset_top = 79.0
 offset_right = 322.0
@@ -73,7 +73,7 @@ scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("7_gro0e")
 texture_pressed = ExtResource("8_iooh8")
 
-[node name="playtext" type="Label" parent="."]
+[node name="PlayText" type="Label" parent="."]
 offset_left = 132.0
 offset_top = 79.0
 offset_right = 264.0
@@ -84,7 +84,7 @@ text = "Play game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="trashmenu" type="TextureButton" parent="."]
+[node name="TrashMenu" type="TextureButton" parent="."]
 offset_left = 132.0
 offset_top = 115.0
 offset_right = 322.0
@@ -93,7 +93,7 @@ scale = Vector2(0.7, 0.5)
 texture_normal = ExtResource("7_gro0e")
 texture_pressed = ExtResource("8_iooh8")
 
-[node name="trashtext" type="Label" parent="."]
+[node name="TrashText" type="Label" parent="."]
 offset_left = 132.0
 offset_top = 115.0
 offset_right = 263.0
@@ -104,7 +104,7 @@ text = "View trash"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="helpmenu" type="TextureButton" parent="."]
+[node name="HelpMenu" type="TextureButton" parent="."]
 offset_left = 132.0
 offset_top = 142.0
 offset_right = 322.0
@@ -113,7 +113,7 @@ scale = Vector2(0.7, 0.5)
 texture_normal = ExtResource("7_gro0e")
 texture_pressed = ExtResource("8_iooh8")
 
-[node name="helptext" type="Label" parent="."]
+[node name="HelpText" type="Label" parent="."]
 offset_left = 132.0
 offset_top = 142.0
 offset_right = 263.0
@@ -124,23 +124,23 @@ text = "Help"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="gamemusic" type="AudioStreamPlayer" parent="."]
+[node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_7sy6c")
 autoplay = true
 bus = &"music"
 
-[node name="forwardsfx" type="AudioStreamPlayer" parent="."]
+[node name="ForwardSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_lkhpe")
 volume_db = 10.0
 bus = &"sfx"
 
-[node name="backsfx" type="AudioStreamPlayer" parent="."]
+[node name="BackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_vmnpl")
 volume_db = 3.0
 bus = &"sfx"
 
-[connection signal="pressed" from="settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="fullscreen" to="." method="_on_fullscreen_pressed"]
-[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="trashmenu" to="." method="_on_trashmenu_pressed"]
-[connection signal="pressed" from="helpmenu" to="." method="_on_helpmenu_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="TrashMenu" to="." method="_on_trashmenu_pressed"]
+[connection signal="pressed" from="HelpMenu" to="." method="_on_helpmenu_pressed"]

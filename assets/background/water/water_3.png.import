@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b34d6j0o5i473"
-path="res://.godot/imported/star-empty.png-8ba74781e942c8171c0ab98d9783925b.ctex"
+uid="uid://o07ebf6p8neh"
+path="res://.godot/imported/water_3.png-1da637defd4804bd2b50460150ca8644.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/star-empty.png"
-dest_files=["res://.godot/imported/star-empty.png-8ba74781e942c8171c0ab98d9783925b.ctex"]
+source_file="res://assets/background/water/water_3.png"
+dest_files=["res://.godot/imported/water_3.png-1da637defd4804bd2b50460150ca8644.ctex"]
 
 [params]
 

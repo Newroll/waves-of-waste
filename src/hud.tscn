@@ -20,7 +20,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t06ls"]
 
-[node name="hud" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_4r25s")
 
@@ -29,7 +29,7 @@ offset_right = 398.0
 offset_bottom = 24.0
 color = Color(0.160784, 0.560784, 0.803922, 0.823529)
 
-[node name="textLabel" type="Label" parent="."]
+[node name="TextLabel" type="Label" parent="."]
 offset_top = 3.0
 offset_right = 398.0
 offset_bottom = 22.0
@@ -39,7 +39,7 @@ text = "6/9 | 4:20"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="pause" type="TextureButton" parent="."]
+[node name="Pause" type="TextureButton" parent="."]
 offset_left = 4.0
 offset_top = 3.0
 offset_right = 53.0
@@ -48,7 +48,7 @@ scale = Vector2(0.4, 0.4)
 toggle_mode = true
 texture_normal = ExtResource("2_t4h1s")
 
-[node name="trashButton" type="TextureButton" parent="."]
+[node name="TrashButton" type="TextureButton" parent="."]
 offset_left = 357.0
 offset_top = 3.0
 offset_right = 547.0
@@ -56,7 +56,7 @@ offset_bottom = 48.0
 scale = Vector2(0.2, 0.4)
 texture_normal = ExtResource("6_lbip0")
 
-[node name="Label" type="Label" parent="trashButton"]
+[node name="Label" type="Label" parent="TrashButton"]
 layout_mode = 0
 offset_right = 95.0
 offset_bottom = 45.0
@@ -67,13 +67,13 @@ text = "View Trash"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="hudopacity" type="ColorRect" parent="."]
+[node name="HUDOpacity" type="ColorRect" parent="."]
 visible = false
 offset_right = 398.0
 offset_bottom = 224.0
 color = Color(0, 0, 0, 0.623529)
 
-[node name="logo" type="Label" parent="hudopacity"]
+[node name="Title" type="Label" parent="HUDOpacity"]
 layout_mode = 0
 offset_left = 70.0
 offset_top = 15.0
@@ -84,7 +84,7 @@ theme_override_font_sizes/font_size = 32
 text = "Game Paused"
 horizontal_alignment = 1
 
-[node name="settings" type="TextureButton" parent="hudopacity"]
+[node name="Settings" type="TextureButton" parent="HUDOpacity"]
 layout_mode = 0
 offset_left = 7.0
 offset_top = 192.0
@@ -93,7 +93,7 @@ offset_bottom = 224.0
 scale = Vector2(0.8, 0.8)
 texture_normal = ExtResource("2_2ajp7")
 
-[node name="fullscreen" type="Button" parent="hudopacity"]
+[node name="Fullscreen" type="Button" parent="HUDOpacity"]
 layout_mode = 0
 offset_left = 375.0
 offset_top = 7.0
@@ -108,7 +108,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_t06ls")
 toggle_mode = true
 icon = ExtResource("3_lkdgu")
 
-[node name="unpause" type="TextureButton" parent="hudopacity"]
+[node name="Unpause" type="TextureButton" parent="HUDOpacity"]
 layout_mode = 0
 offset_left = 132.0
 offset_top = 61.0
@@ -118,7 +118,7 @@ scale = Vector2(0.7, 0.7)
 texture_normal = ExtResource("5_nbkal")
 texture_pressed = ExtResource("6_lbip0")
 
-[node name="unpausetext" type="Label" parent="hudopacity"]
+[node name="UnpauseText" type="Label" parent="HUDOpacity"]
 layout_mode = 0
 offset_left = 132.0
 offset_top = 61.0
@@ -130,7 +130,7 @@ text = "Resume game"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="backmenu" type="TextureButton" parent="hudopacity"]
+[node name="BackMenu" type="TextureButton" parent="HUDOpacity"]
 layout_mode = 0
 offset_left = 132.0
 offset_top = 97.0
@@ -140,7 +140,7 @@ scale = Vector2(0.7, 0.5)
 texture_normal = ExtResource("5_nbkal")
 texture_pressed = ExtResource("6_lbip0")
 
-[node name="backmenutext" type="Label" parent="hudopacity"]
+[node name="BackMenuText" type="Label" parent="HUDOpacity"]
 layout_mode = 0
 offset_left = 132.0
 offset_top = 97.0
@@ -152,7 +152,7 @@ text = "Exit to menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="helpmenu" type="TextureButton" parent="hudopacity"]
+[node name="HelpMenu" type="TextureButton" parent="HUDOpacity"]
 layout_mode = 0
 offset_left = 132.0
 offset_top = 124.0
@@ -162,7 +162,7 @@ scale = Vector2(0.7, 0.5)
 texture_normal = ExtResource("5_nbkal")
 texture_pressed = ExtResource("6_lbip0")
 
-[node name="helptext" type="Label" parent="hudopacity"]
+[node name="HelpText" type="Label" parent="HUDOpacity"]
 layout_mode = 0
 offset_left = 132.0
 offset_top = 124.0
@@ -174,20 +174,20 @@ text = "Help"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="backsfx" type="AudioStreamPlayer" parent="."]
+[node name="BackSFX" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("8_6b03o")
 bus = &"sfx"
 
-[node name="forwardsfx" type="AudioStreamPlayer" parent="."]
+[node name="ForwardSFX" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("9_4euiv")
 bus = &"sfx"
 
-[connection signal="pressed" from="pause" to="." method="_on_pause_pressed"]
-[connection signal="pressed" from="trashButton" to="." method="_on_trash_button_pressed"]
-[connection signal="pressed" from="hudopacity/settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="hudopacity/fullscreen" to="." method="_on_fullscreen_pressed"]
-[connection signal="pressed" from="hudopacity/unpause" to="." method="_on_unpause_pressed"]
-[connection signal="pressed" from="hudopacity/backmenu" to="." method="_on_backmenu_pressed"]
-[connection signal="pressed" from="hudopacity/helpmenu" to="." method="_on_helpmenu_pressed"]
+[connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
+[connection signal="pressed" from="TrashButton" to="." method="_on_trash_button_pressed"]
+[connection signal="pressed" from="HUDOpacity/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="HUDOpacity/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="HUDOpacity/Unpause" to="." method="_on_unpause_pressed"]
+[connection signal="pressed" from="HUDOpacity/BackMenu" to="." method="_on_backmenu_pressed"]
+[connection signal="pressed" from="HUDOpacity/HelpMenu" to="." method="_on_helpmenu_pressed"]
