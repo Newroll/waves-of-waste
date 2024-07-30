@@ -13,6 +13,8 @@ func _ready():
 		%VBoxContainer.get_child(i).get_child(0).get_child(0).get_child(0).set_texture(load("res://assets/trash/" + Main.trash_list[i].path))
 		%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(0).set_text(Main.trash_list[i].name)
 		%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(1).set_text(Main.trash_list[i].description)
+		if Main.trash_seen[i] == 0:
+			%VBoxContainer.get_child(i).get_child(0).get_child(0).get_child(0).self_modulate = Color(0, 0, 0, 255)
 
 func _input(event):
 	if event.is_action_pressed("escape"):

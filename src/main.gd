@@ -9,6 +9,7 @@ var help_list
 var current_scene = "res://src/main_menu.tscn"
 var previous_scene
 var current_save
+var trash_seen:Array # gdscript supports dynamic typing but we need to initialize this variable as an array so we can append to it
 
 # scorekeeping stuff
 var max_points = [5, 10, 20, 30, 50]
@@ -22,6 +23,10 @@ func _ready():
 	help_database.load_from_path("res://assets/help/helpText.cfg")
 	trash_list = trash_database.get_array()
 	help_list = help_database.get_array()
+	# trash saving stuff
+	for i in trash_list.size():
+		trash_seen.append(0) 
+	# finally reads the save
 	read_save()
 
 func _process(_delta):
@@ -48,14 +53,15 @@ func time_convert(time_in_sec):
 func write_save():
 	current_save = {
 		"level": current_level,
-		"rating": rating
+		"rating": rating,
+		"trash_seen": trash_seen
 	}
 	# writes the save array to a file
-	FileAccess.open("user://savegame.save", FileAccess.WRITE).store_line(JSON.stringify(current_save))
+	FileAccess.open("user://wavesofwaste.save", FileAccess.WRITE).store_line(JSON.stringify(current_save))
 
 func read_save():
-	if FileAccess.file_exists("user://savegame.save"): # checks if the save file exists
-		var save_game = FileAccess.open("user://savegame.save", FileAccess.READ)
+	if FileAccess.file_exists("user://wavesofwaste.save"): # checks if the save file exists
+		var save_game = FileAccess.open("user://wavesofwaste.save", FileAccess.READ)
 		# json parsing stuff
 		while save_game.get_position() < save_game.get_length():
 			var json_string = save_game.get_line()
@@ -66,3 +72,5 @@ func read_save():
 			else:
 				print("Error parsing save file")
 			current_level = current_save["level"] # actually loads the value
+			rating = current_save["rating"]
+			trash_seen = current_save["trash_seen"]
