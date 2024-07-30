@@ -37,10 +37,11 @@ func _on_body_entered(body):
 		self.visible = false
 		$SFX.play()
 		Main.points += 1
+		if Main.trash_seen[trash] == 0:
+			$CanvasLayer.show()
+			get_tree().paused = true # pauses the game and show the ui
+			timer_tick()
 		Main.trash_seen[trash] = 1
-		$CanvasLayer.show()
-		get_tree().paused = true # pauses the game and show the ui
-		timer_tick()
 
 func timer_tick():
 	# for loop instead of manually setting everything
