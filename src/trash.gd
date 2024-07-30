@@ -15,6 +15,7 @@ func _ready():
 	rotation_var = randf_range(-3.14, 3.14)
 	$TrashSprite.rotate(rotation_var) # randomizes the rotation of the trash
 	trash_animation()
+	
 
 func trash_animation():
 	rotate_dir = randf_range(-1, 1)
@@ -39,6 +40,8 @@ func _on_body_entered(body):
 		Main.points += 1
 		if Main.trash_seen[trash] == 0:
 			$CanvasLayer.show()
+			if Main.auto_tts == true:
+				DisplayServer.tts_speak(Main.trash_list[trash].description, Main.voice_id, Main.tts_volume)
 			get_tree().paused = true # pauses the game and show the ui
 			timer_tick()
 		Main.trash_seen[trash] = 1

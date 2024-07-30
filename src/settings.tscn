@@ -34,10 +34,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 65.0
-offset_top = 50.0
-offset_right = 333.0
-offset_bottom = 214.0
+offset_left = 90.0
+offset_top = 56.0
+offset_right = 362.0
+offset_bottom = 234.0
+scale = Vector2(0.8, 0.8)
 alignment = 1
 
 [node name="MasterVolumeLabel" type="Label" parent="VBoxContainer"]
@@ -76,6 +77,29 @@ layout_mode = 2
 max_value = 2.0
 step = 0.001
 
+[node name="TTSVolumeLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8255a")
+theme_override_font_sizes/font_size = 12
+text = "TTS Volume"
+horizontal_alignment = 1
+
+[node name="TTSVolume" type="HSlider" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TTSContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TTSCheck" type="CheckBox" parent="VBoxContainer/TTSContainer"]
+layout_mode = 2
+
+[node name="TTSLabel" type="Label" parent="VBoxContainer/TTSContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8255a")
+theme_override_font_sizes/font_size = 12
+text = "Auto Text to Speech (TTS)"
+
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_5o4kt")
 
@@ -99,4 +123,6 @@ vertical_alignment = 1
 [connection signal="value_changed" from="VBoxContainer/MasterVolume" to="." method="_on_master_volume_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/TTSVolume" to="." method="_on_tts_volume_value_changed"]
+[connection signal="toggled" from="VBoxContainer/TTSContainer/TTSCheck" to="." method="_on_tts_check_toggled"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

@@ -11,6 +11,12 @@ var previous_scene
 var current_save
 var trash_seen:Array # gdscript supports dynamic typing but we need to initialize this variable as an array so we can append to it
 
+# text to speech stuff
+var auto_tts = false
+var tts_volume = 50
+var voices = DisplayServer.tts_get_voices_for_language("en")
+var voice_id = voices[0]
+
 # scorekeeping stuff
 var max_points = [5, 10, 20, 30, 50]
 var rating = [0, 0, 0, 0, 0]
