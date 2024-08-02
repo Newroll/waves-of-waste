@@ -71,8 +71,8 @@ func _on_lvl_2_pressed():
 	$ForwardSFX.play()
 	if Main.current_level >= 2:
 		selected_level = 2
-		$pointer.show()
-		$pointer.set_position(Vector2(164, 74))
+		$Pointer.show()
+		$Pointer.set_position(Vector2(164, 74))
 
 func _on_lvl_3_pressed():
 	$ForwardSFX.play()
