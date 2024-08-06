@@ -5,6 +5,7 @@ const ACCELERATION = 2 # defines acceleration per frame
 const DECELERATION = 2 # same as above but deceleration
 
 func _physics_process(_delta):
+	Main.camera_position = $Camera2D.get_screen_center_position()
 	var direction_vertical = Input.get_axis("move_up", "move_down")
 	var direction_horizontal = Input.get_axis("move_left", "move_right")
 

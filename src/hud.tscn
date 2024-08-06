@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dhgfxjldh32m1"]
+[gd_scene load_steps=16 format=3 uid="uid://dhgfxjldh32m1"]
 
 [ext_resource type="Script" path="res://src/hud.gd" id="1_4r25s"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="1_q6lgt"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="5_nbkal"]
 [ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="6_lbip0"]
 [ext_resource type="AudioStream" uid="uid://dylo1sbyjkg2p" path="res://assets/sound/back.wav" id="8_6b03o"]
+[ext_resource type="Texture2D" uid="uid://cxn1sa153kaur" path="res://assets/ui/buttons/grey_arrowUpWhite.png" id="8_h0au8"]
 [ext_resource type="AudioStream" uid="uid://duume0iti6ox" path="res://assets/sound/forward.wav" id="9_4euiv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5uws"]
@@ -23,6 +24,37 @@
 [node name="HUD" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_4r25s")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
+offset_top = 181.0
+offset_right = 995.0
+offset_bottom = 230.0
+scale = Vector2(0.4, 0.4)
+alignment = 1
+
+[node name="HintButton" type="TextureButton" parent="HBoxContainer"]
+z_as_relative = false
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("5_nbkal")
+texture_pressed = ExtResource("6_lbip0")
+
+[node name="Label" type="Label" parent="HBoxContainer/HintButton"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -49.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_q6lgt")
+theme_override_font_sizes/font_size = 18
+text = "Show Hint"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 398.0
@@ -174,16 +206,29 @@ text = "Help"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="TrashPointers" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PointerTemplate" type="TextureRect" parent="."]
+offset_left = 271.0
+offset_top = 64.0
+offset_right = 311.0
+offset_bottom = 104.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_h0au8")
+
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("8_6b03o")
-bus = &"sfx"
 
 [node name="ForwardSFX" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("9_4euiv")
-bus = &"sfx"
 
+[connection signal="pressed" from="HBoxContainer/HintButton" to="." method="_on_hint_button_pressed"]
 [connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
 [connection signal="pressed" from="TrashButton" to="." method="_on_trash_button_pressed"]
 [connection signal="pressed" from="HUDOpacity/Settings" to="." method="_on_settings_pressed"]

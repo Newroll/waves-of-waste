@@ -5,6 +5,11 @@ var settings_scene = preload("res://src/settings.tscn")
 var help_scene = preload("res://src/help_menu.tscn")
 var paused = false
 
+func _ready():
+	for i in Main.max_points[Main.current_level - 1]:
+		$TrashPointers.add_child($PointerTemplate.duplicate())
+	$PointerTemplate.queue_free()
+
 func _process(_delta):
 	# sets text, bit of string concactnation
 	$TextLabel.text = str(Main.points) + "/" + str(Main.max_points[Main.current_level - 1]) + " | " + str(Main.formatted_time)
@@ -13,6 +18,11 @@ func _process(_delta):
 		$HUDOpacity/Fullscreen.icon = load("res://assets/ui/exit_fullscreen.png")
 	else:
 		$HUDOpacity/Fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
+	
+	for i in Main.max_points[Main.current_level - 1]:
+		$TrashPointers.get_child(i).rotation = Main.camera_position.angle_to(Main.trash_positions[i]) + PI
+		# $TrashPointers.get_child(i).position = 
+		# need to move this
 
 func _input(event):
 	if event.is_action_pressed("fullscreen"):
@@ -75,3 +85,6 @@ func _on_trash_button_pressed():
 	$HUDOpacity.show()
 	# puts it on top of the hud instead of changing the scene
 	add_child(trash_scene.instantiate())
+
+func _on_hint_button_pressed():
+	pass # Replace with function body.
