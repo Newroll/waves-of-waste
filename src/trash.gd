@@ -3,8 +3,11 @@ extends Area2D
 var trash
 var rotation_var
 var rotate_dir
+var id
 
 func _ready():
+	await get_tree().create_timer(0.1).timeout # need to wait for the id to be set by the other guy first
+	id = int($ID.get_text())
 	trash = int(randf_range(0, Main.trash_list.size())) # randomizes the trash sprite
 	
 	# automagically sets everything
@@ -15,7 +18,6 @@ func _ready():
 	rotation_var = randf_range(-3.14, 3.14)
 	$TrashSprite.rotate(rotation_var) # randomizes the rotation of the trash
 	trash_animation()
-	
 
 func trash_animation():
 	rotate_dir = randf_range(-1, 1)
@@ -45,6 +47,7 @@ func _on_body_entered(body):
 			get_tree().paused = true # pauses the game and show the ui
 			timer_tick()
 		Main.trash_seen[trash] = 1
+		Main.trash_visible[id] = 0
 
 func timer_tick():
 	# for loop instead of manually setting everything
@@ -54,3 +57,9 @@ func timer_tick():
 	$CanvasLayer.hide()
 	get_tree().paused = false # does the reverse of above function
 	queue_free() # kills the child
+
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	Main.trash_visible[id] = 1
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	Main.trash_visible[id] = 0

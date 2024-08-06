@@ -10,8 +10,11 @@ var current_scene = "res://src/main_menu.tscn"
 var previous_scene
 var current_save
 var trash_seen:Array # gdscript supports dynamic typing but we need to initialize this variable as an array so we can append to it
-var trash_positions = [Vector2(0, 0)]# same reason as above
+var trash_positions = [Vector2(0, 0)] # same reason as above
+var trash_visible:Array # again, same as above
 var camera_position
+var show_hint
+var hint_clicked = false
 
 # text to speech stuff
 var auto_tts = false

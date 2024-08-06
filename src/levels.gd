@@ -9,10 +9,11 @@ func _ready():
 	
 	# automatic trash spawning
 	for i in Main.max_points[Main.current_level - 1]:
+		Main.trash_visible.append(0)
 		$Trash.add_child(trash.instantiate())
 		Main.trash_positions.append(Vector2(randf_range(30, 740), randf_range(50, 740)))
 		$Trash.get_child(i).position = Main.trash_positions[i]
-	print(Main.trash_positions)
+		$Trash.get_child(i).get_child(0).set_text(str(i))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -21,13 +22,15 @@ func _process(_delta):
 	if Main.max_points[Main.current_level - 1] <= Main.points:
 		_on_timer_timeout()
 	if Main.eclapsed_time > 30 or Main.points / Main.max_points[Main.current_level - 1] > 0.8:
-		$HUD/HBoxContainer.show()
+		if Main.hint_clicked == false:
+			$HUD/HBoxContainer.show()
 	else:
 		$HUD/HBoxContainer.hide()
 
 func _on_timer_timeout():
 	get_tree().paused = true
 	$HUD/HBoxContainer.hide()
+	Main.hint_clicked = false
 	# scorekeeaping stuff
 	Main.rating[Main.current_level - 1] = float(Main.points) / float(Main.max_points[Main.current_level - 1])
 	Main.points = 0

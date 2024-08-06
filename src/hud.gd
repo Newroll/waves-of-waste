@@ -27,6 +27,10 @@ func _process(_delta):
 		opp = sin(Main.camera_position.angle_to_point(Main.trash_positions[i])) * hyp
 		$TrashPointers.get_child(i).rotation = Main.camera_position.angle_to_point(Main.trash_positions[i])
 		$TrashPointers.get_child(i).position = Vector2(199 + adj, 120 + opp)
+		if Main.trash_visible[i] == 0:
+			$TrashPointers.get_child(i).show()
+		else:
+			$TrashPointers.get_child(i).hide()
 
 func _input(event):
 	if event.is_action_pressed("fullscreen"):
@@ -91,4 +95,6 @@ func _on_trash_button_pressed():
 	add_child(trash_scene.instantiate())
 
 func _on_hint_button_pressed():
-	pass # Replace with function body.
+	Main.hint_clicked = true
+	$HBoxContainer.queue_free()
+	$TrashPointers.show()

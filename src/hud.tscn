@@ -34,7 +34,6 @@ scale = Vector2(0.4, 0.4)
 alignment = 1
 
 [node name="HintButton" type="TextureButton" parent="HBoxContainer"]
-z_as_relative = false
 layout_mode = 2
 size_flags_horizontal = 0
 texture_normal = ExtResource("5_nbkal")
@@ -207,17 +206,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TrashPointers" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="PointerTemplate" type="TextureRect" parent="."]
-offset_left = 199.0
-offset_top = 113.0
-offset_right = 239.0
-offset_bottom = 153.0
-scale = Vector2(0.2, 0.2)
+[node name="PointerTemplate" type="Sprite2D" parent="."]
+z_index = -20
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("8_fnm71")
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
