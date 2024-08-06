@@ -4,8 +4,6 @@ const MAX_VELOCITY = 100 # defines the max velocity of the player
 const ACCELERATION = 2 # defines acceleration per frame
 const DECELERATION = 2 # same as above but deceleration
 
-var theta = 0
-
 func _physics_process(_delta):
 	var direction_vertical = Input.get_axis("move_up", "move_down")
 	var direction_horizontal = Input.get_axis("move_left", "move_right")
@@ -38,9 +36,6 @@ func _physics_process(_delta):
 		if velocity.y < 6 and velocity.y > - 6 and velocity.y != 0:
 			velocity.y = 0
 	
-	if velocity.length() > 0:
-		theta = velocity.angle()
-	
-	$Sprite2D.rotation = theta
-	$CollisionShape2D.rotation = theta
+	$Sprite2D.rotation = velocity.angle()
+	$CollisionShape2D.rotation = velocity.angle()
 	move_and_slide()
