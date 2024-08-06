@@ -4,6 +4,9 @@ var trash_scene = preload("res://src/trash_menu.tscn")
 var settings_scene = preload("res://src/settings.tscn")
 var help_scene = preload("res://src/help_menu.tscn")
 var paused = false
+var hyp = 95
+var adj
+var opp
 
 func _ready():
 	for i in Main.max_points[Main.current_level - 1]:
@@ -20,9 +23,10 @@ func _process(_delta):
 		$HUDOpacity/Fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
 	
 	for i in Main.max_points[Main.current_level - 1]:
-		$TrashPointers.get_child(i).rotation = Main.camera_position.angle_to(Main.trash_positions[i]) + PI
-		# $TrashPointers.get_child(i).position = 
-		# need to move this
+		adj = cos(Main.camera_position.angle_to_point(Main.trash_positions[i])) * hyp * 2.0526
+		opp = sin(Main.camera_position.angle_to_point(Main.trash_positions[i])) * hyp
+		$TrashPointers.get_child(i).rotation = Main.camera_position.angle_to_point(Main.trash_positions[i])
+		$TrashPointers.get_child(i).position = Vector2(199 + adj, 120 + opp)
 
 func _input(event):
 	if event.is_action_pressed("fullscreen"):
