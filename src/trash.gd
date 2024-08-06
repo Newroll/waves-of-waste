@@ -47,18 +47,18 @@ func _on_body_entered(body):
 			get_tree().paused = true # pauses the game and show the ui
 			timer_tick()
 		Main.trash_seen[trash] = 1
-		Main.trash_visible[id] = 0
+		Main.trash_visible[id] = 1 # we'll pretend that the trash is "visible" on screen after it is picked up even though it is not
 
 func timer_tick():
 	# for loop instead of manually setting everything
-	for i in 5: # kokomileaderofthewatatsu-
+	for i in 5:
 		await get_tree().create_timer(1.0).timeout
 		$CanvasLayer/TimeLabel.set_text(str(4-i))
 	$CanvasLayer.hide()
 	get_tree().paused = false # does the reverse of above function
 	queue_free() # kills the child
 
-func _on_visible_on_screen_notifier_2d_screen_entered():
+func _on_visible_on_screen_notifier_2d_screen_entered(): # checks if the trash is visible on screen or not
 	Main.trash_visible[id] = 1
 
 func _on_visible_on_screen_notifier_2d_screen_exited():

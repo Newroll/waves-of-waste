@@ -2,13 +2,13 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# sets the text + animation
+	# sets the default text + animation
 	for i in 5:
 		get_node("LeftStackText/HelpText" + str(i)).set_text(Main.help_list[i].name)
 	%Title.set_text(Main.help_list[0].title)
 	%Description.set_text(Main.help_list[0].text)
 
-func _input(event):
+func _input(event): # hotkey shortcut stuff
 	if event.is_action_pressed("escape"):
 		_on_back_button_pressed()
 
@@ -25,8 +25,9 @@ func _on_back_button_pressed():
 func _on_help_button_0_pressed():
 	%Title.set_text(Main.help_list[0].title)
 	%Description.set_text(Main.help_list[0].text)
-	%Animation.set_animation("movement")
+	%Animation.set_animation("movement") # sets the right side of the screen to show the relevent help stuff
 
+# same thing
 func _on_help_button_1_pressed():
 	%Title.set_text(Main.help_list[1].title)
 	%Description.set_text(Main.help_list[1].text)

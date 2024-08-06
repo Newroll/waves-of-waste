@@ -19,7 +19,7 @@ func _ready():
 			%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(0).set_text("???")
 			%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(1).set_text("This trash has not be discovered yet!")
 
-func _input(event):
+func _input(event): # hotkey shortcut stuff
 	if event.is_action_pressed("escape"):
 		_on_back_button_pressed()
 

@@ -37,6 +37,7 @@ func _physics_process(_delta):
 		if velocity.y < 6 and velocity.y > - 6 and velocity.y != 0:
 			velocity.y = 0
 	
+	# rotates the sprite based on the direction the player is facing
 	$Sprite2D.rotation = velocity.angle()
 	$CollisionShape2D.rotation = velocity.angle()
 	move_and_slide()

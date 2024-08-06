@@ -4,12 +4,13 @@ var trash_scene = preload("res://src/trash_menu.tscn")
 var settings_scene = preload("res://src/settings.tscn")
 var help_scene = preload("res://src/help_menu.tscn")
 var paused = false
+
 var hyp = 95
 var adj
 var opp
 
 func _ready():
-	for i in Main.max_points[Main.current_level - 1]:
+	for i in Main.max_points[Main.current_level - 1]: # prepares pointers based on the amount of trash there could be on the current level
 		$TrashPointers.add_child($PointerTemplate.duplicate())
 	$PointerTemplate.queue_free()
 
@@ -22,17 +23,17 @@ func _process(_delta):
 	else:
 		$HUDOpacity/Fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
 	
-	for i in Main.max_points[Main.current_level - 1]:
-		adj = cos(Main.camera_position.angle_to_point(Main.trash_positions[i])) * hyp * 2.0526
-		opp = sin(Main.camera_position.angle_to_point(Main.trash_positions[i])) * hyp
-		$TrashPointers.get_child(i).rotation = Main.camera_position.angle_to_point(Main.trash_positions[i])
+	for i in Main.max_points[Main.current_level - 1]: # repeats for every single pointer
+		adj = cos(Main.camera_position.angle_to_point(Main.trash_positions[i])) * hyp * 2.0526 # trigonometry to calculate the x-shift of the pointer, 2.0526 is to make the circle fatter
+		opp = sin(Main.camera_position.angle_to_point(Main.trash_positions[i])) * hyp # same as above but for the y-shift
+		$TrashPointers.get_child(i).rotation = Main.camera_position.angle_to_point(Main.trash_positions[i]) # rotates the pointer to face the trash
 		$TrashPointers.get_child(i).position = Vector2(199 + adj, 120 + opp)
-		if Main.trash_visible[i] == 0:
+		if Main.trash_visible[i] == 0: # only shows the pointer if the trash is not visible but still exists, this is value is determined in trash.gd
 			$TrashPointers.get_child(i).show()
 		else:
 			$TrashPointers.get_child(i).hide()
 
-func _input(event):
+func _input(event): # hotkey shortcut stuff
 	if event.is_action_pressed("fullscreen"):
 		_on_fullscreen_pressed()
 	if event.is_action_pressed("escape"):

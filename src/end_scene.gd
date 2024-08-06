@@ -1,19 +1,20 @@
 extends CanvasLayer
 
+# preloads the scenes to be smcked on top of the scene
 var trash_scene = preload("res://src/trash_menu.tscn")
 var settings_scene = preload("res://src/settings.tscn")
 
 var selected_level
 
 func _process(_delta):
-	# checks fullscreen status and sets texture
+	# checks fullscreen status and sets texture of the button accordingly
 	if DisplayServer.window_get_mode() == 3:
 		$Fullscreen.icon = load("res://assets/ui/exit_fullscreen.png")
 	else:
 		$Fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
 
 func level_ended():
-	if Main.current_level <= 5:
+	if Main.current_level <= 5: # level 6 does not exist so it checks the current level (double protection more or less since it's impossible for Main.current_level to be higher than 5)
 		call("_on_lvl_" + str(Main.current_level) + "_pressed")
 	if Main.rating[Main.current_level - 2] >= 0.5&&Main.rating[Main.current_level - 2] < 1:
 		$Star3.set_animation("empty") # sets two stars to full
@@ -42,7 +43,7 @@ func _on_fullscreen_pressed():
 
 func _on_continue_pressed():
 	$ForwardSFX.play()
-	await get_tree().create_timer(0.17).timeout
+	await get_tree().create_timer(0.17).timeout # for the sound effect to finish playing
 	Main.current_level = selected_level
 	Main.change_scene("res://src/levels.tscn")
 
