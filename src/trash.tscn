@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cj1scop6horkq" path="res://assets/sound/water_splash.wav" id="4_2byid"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_itv50"]
+radius = 5.09902
 
 [node name="Trash" type="Area2D"]
 process_mode = 3
@@ -13,14 +14,13 @@ script = ExtResource("1_35l1h")
 
 [node name="TrashSprite" type="Sprite2D" parent="."]
 position = Vector2(-5.96046e-08, 0)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.2, 0.2)
 texture = ExtResource("2_i63t8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_itv50")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Opacity" type="ColorRect" parent="CanvasLayer"]
 offset_right = 398.0
@@ -40,9 +40,9 @@ autowrap_mode = 2
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer"]
 offset_left = 71.0
-offset_top = 142.0
+offset_top = 161.0
 offset_right = 326.0
-offset_bottom = 175.0
+offset_bottom = 186.0
 theme_override_fonts/font = ExtResource("3_rua71")
 theme_override_font_sizes/font_size = 24
 text = "5"
