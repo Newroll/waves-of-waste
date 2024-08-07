@@ -1,12 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://dhgfxjldh32m1"]
+[gd_scene load_steps=15 format=3 uid="uid://dhgfxjldh32m1"]
 
 [ext_resource type="Script" path="res://src/hud.gd" id="1_4r25s"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="1_q6lgt"]
 [ext_resource type="Texture2D" uid="uid://bw80od2udayp4" path="res://assets/ui/gear.png" id="2_2ajp7"]
+[ext_resource type="Theme" uid="uid://37elalvtqa6s" path="res://src/buttons.tres" id="2_8ws02"]
 [ext_resource type="Texture2D" uid="uid://b7go6aiadjwti" path="res://assets/ui/pause.png" id="2_t4h1s"]
 [ext_resource type="Texture2D" uid="uid://c3snw6owwn3cl" path="res://assets/ui/enter_fullscreen.png" id="3_lkdgu"]
-[ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="5_nbkal"]
-[ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="6_lbip0"]
 [ext_resource type="Texture2D" uid="uid://b1abvw5xnj5xa" path="res://assets/ui/pointer.png" id="8_fnm71"]
 [ext_resource type="AudioStream" uid="uid://1oflo2uupgv" path="res://assets/sound/back.mp3" id="9_alshl"]
 [ext_resource type="AudioStream" uid="uid://bmtahw41a2p2t" path="res://assets/sound/forward.mp3" id="10_8no5o"]
@@ -33,27 +32,11 @@ offset_bottom = 230.0
 scale = Vector2(0.4, 0.4)
 alignment = 1
 
-[node name="HintButton" type="TextureButton" parent="HBoxContainer"]
+[node name="HintButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("5_nbkal")
-texture_pressed = ExtResource("6_lbip0")
-
-[node name="Label" type="Label" parent="HBoxContainer/HintButton"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -49.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_fonts/font = ExtResource("1_q6lgt")
-theme_override_font_sizes/font_size = 18
-text = "Show Hint"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme = ExtResource("2_8ws02")
+text = "Show hint"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 398.0
@@ -79,24 +62,14 @@ scale = Vector2(0.4, 0.4)
 toggle_mode = true
 texture_normal = ExtResource("2_t4h1s")
 
-[node name="TrashButton" type="TextureButton" parent="."]
+[node name="TrashButton" type="Button" parent="."]
 offset_left = 357.0
 offset_top = 3.0
 offset_right = 547.0
 offset_bottom = 48.0
 scale = Vector2(0.2, 0.4)
-texture_normal = ExtResource("6_lbip0")
-
-[node name="Label" type="Label" parent="TrashButton"]
-layout_mode = 0
-offset_right = 95.0
-offset_bottom = 45.0
-scale = Vector2(2, 1)
-theme_override_fonts/font = ExtResource("1_q6lgt")
-theme_override_font_sizes/font_size = 18
-text = "View Trash"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme = ExtResource("2_8ws02")
+text = "View trash"
 
 [node name="HUDOpacity" type="ColorRect" parent="."]
 visible = false
@@ -131,6 +104,7 @@ offset_top = 7.0
 offset_right = 423.0
 offset_bottom = 55.0
 scale = Vector2(0.3, 0.3)
+theme = ExtResource("2_8ws02")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_k5uws")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_6wmig")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4qfax")
@@ -139,71 +113,35 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_t06ls")
 toggle_mode = true
 icon = ExtResource("3_lkdgu")
 
-[node name="Unpause" type="TextureButton" parent="HUDOpacity"]
+[node name="Unpause" type="Button" parent="HUDOpacity"]
 layout_mode = 0
 offset_left = 132.0
 offset_top = 61.0
 offset_right = 322.0
 offset_bottom = 110.0
 scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("5_nbkal")
-texture_pressed = ExtResource("6_lbip0")
-
-[node name="UnpauseText" type="Label" parent="HUDOpacity"]
-layout_mode = 0
-offset_left = 132.0
-offset_top = 61.0
-offset_right = 264.0
-offset_bottom = 92.0
-theme_override_fonts/font = ExtResource("1_q6lgt")
-theme_override_font_sizes/font_size = 20
+theme = ExtResource("2_8ws02")
 text = "Resume game"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="BackMenu" type="TextureButton" parent="HUDOpacity"]
+[node name="BackMenu" type="Button" parent="HUDOpacity"]
 layout_mode = 0
 offset_left = 132.0
 offset_top = 97.0
 offset_right = 322.0
 offset_bottom = 146.0
 scale = Vector2(0.7, 0.5)
-texture_normal = ExtResource("5_nbkal")
-texture_pressed = ExtResource("6_lbip0")
+theme = ExtResource("2_8ws02")
+text = "Quit to menu"
 
-[node name="BackMenuText" type="Label" parent="HUDOpacity"]
-layout_mode = 0
-offset_left = 132.0
-offset_top = 97.0
-offset_right = 263.0
-offset_bottom = 119.0
-theme_override_fonts/font = ExtResource("1_q6lgt")
-theme_override_font_sizes/font_size = 12
-text = "Exit to menu"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="HelpMenu" type="TextureButton" parent="HUDOpacity"]
+[node name="HelpMenu" type="Button" parent="HUDOpacity"]
 layout_mode = 0
 offset_left = 132.0
 offset_top = 124.0
 offset_right = 322.0
 offset_bottom = 173.0
 scale = Vector2(0.7, 0.5)
-texture_normal = ExtResource("5_nbkal")
-texture_pressed = ExtResource("6_lbip0")
-
-[node name="HelpText" type="Label" parent="HUDOpacity"]
-layout_mode = 0
-offset_left = 132.0
-offset_top = 124.0
-offset_right = 263.0
-offset_bottom = 146.0
-theme_override_fonts/font = ExtResource("1_q6lgt")
-theme_override_font_sizes/font_size = 12
+theme = ExtResource("2_8ws02")
 text = "Help"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="TrashPointers" type="Control" parent="."]
 visible = false

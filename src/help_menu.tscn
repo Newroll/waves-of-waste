@@ -1,10 +1,9 @@
-[gd_scene load_steps=242 format=3 uid="uid://bevpdcjf66scx"]
+[gd_scene load_steps=241 format=3 uid="uid://bevpdcjf66scx"]
 
 [ext_resource type="Script" path="res://src/help_menu.gd" id="1_2k8c8"]
 [ext_resource type="Texture2D" uid="uid://r3se4stfbo4m" path="res://assets/background/background.png" id="2_bwvji"]
+[ext_resource type="Theme" uid="uid://37elalvtqa6s" path="res://src/buttons.tres" id="3_g2cgh"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="3_sf1g4"]
-[ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="3_u60vt"]
-[ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="4_118xj"]
 [ext_resource type="Texture2D" uid="uid://dti6sc4msdwdi" path="res://assets/ui/buttons/blue_button09.png" id="4_sbr7t"]
 [ext_resource type="Texture2D" uid="uid://bgcvafwsts3e8" path="res://assets/help/lvlComplete/frame_00_delay-0.1s.jpg" id="5_0ym3p"]
 [ext_resource type="Texture2D" uid="uid://xysh4uty5dug" path="res://assets/help/lvlComplete/frame_01_delay-0.1s.jpg" id="6_542gc"]
@@ -996,92 +995,30 @@ scale = Vector2(0.39, 0.47)
 theme_override_constants/separation = 15
 alignment = 1
 
-[node name="HelpButton0" type="TextureButton" parent="LeftBG/LeftStack"]
+[node name="HelpButton0" type="Button" parent="LeftBG/LeftStack"]
 layout_mode = 2
-texture_normal = ExtResource("3_u60vt")
-texture_pressed = ExtResource("4_118xj")
-stretch_mode = 3
-
-[node name="HelpButton1" type="TextureButton" parent="LeftBG/LeftStack"]
-layout_mode = 2
-texture_normal = ExtResource("3_u60vt")
-texture_pressed = ExtResource("4_118xj")
-stretch_mode = 3
-
-[node name="HelpButton2" type="TextureButton" parent="LeftBG/LeftStack"]
-layout_mode = 2
-texture_normal = ExtResource("3_u60vt")
-texture_pressed = ExtResource("4_118xj")
-stretch_mode = 3
-
-[node name="HelpButton3" type="TextureButton" parent="LeftBG/LeftStack"]
-layout_mode = 2
-texture_normal = ExtResource("3_u60vt")
-texture_pressed = ExtResource("4_118xj")
-stretch_mode = 3
-
-[node name="HelpButton4" type="TextureButton" parent="LeftBG/LeftStack"]
-layout_mode = 2
-texture_normal = ExtResource("3_u60vt")
-texture_pressed = ExtResource("4_118xj")
-stretch_mode = 3
-
-[node name="LeftStackText" type="Node" parent="."]
-
-[node name="HelpText0" type="Label" parent="LeftStackText"]
-offset_left = 18.0
-offset_top = 62.0
-offset_right = 88.0
-offset_bottom = 79.0
-theme_override_fonts/font = ExtResource("3_sf1g4")
-theme_override_font_sizes/font_size = 10
+theme = ExtResource("3_g2cgh")
 text = "Movement"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="HelpText1" type="Label" parent="LeftStackText"]
-offset_left = 18.0
-offset_top = 92.0
-offset_right = 88.0
-offset_bottom = 109.0
-theme_override_fonts/font = ExtResource("3_sf1g4")
-theme_override_font_sizes/font_size = 10
+[node name="HelpButton1" type="Button" parent="LeftBG/LeftStack"]
+layout_mode = 2
+theme = ExtResource("3_g2cgh")
 text = "Picking up trash"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="HelpText2" type="Label" parent="LeftStackText"]
-offset_left = 18.0
-offset_top = 122.0
-offset_right = 88.0
-offset_bottom = 139.0
-theme_override_fonts/font = ExtResource("3_sf1g4")
-theme_override_font_sizes/font_size = 10
+[node name="HelpButton2" type="Button" parent="LeftBG/LeftStack"]
+layout_mode = 2
+theme = ExtResource("3_g2cgh")
 text = "The goal"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="HelpText3" type="Label" parent="LeftStackText"]
-offset_left = 18.0
-offset_top = 152.0
-offset_right = 88.0
-offset_bottom = 169.0
-theme_override_fonts/font = ExtResource("3_sf1g4")
-theme_override_font_sizes/font_size = 10
+[node name="HelpButton3" type="Button" parent="LeftBG/LeftStack"]
+layout_mode = 2
+theme = ExtResource("3_g2cgh")
 text = "Switching levels"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="HelpText4" type="Label" parent="LeftStackText"]
-offset_left = 18.0
-offset_top = 182.0
-offset_right = 88.0
-offset_bottom = 199.0
-theme_override_fonts/font = ExtResource("3_sf1g4")
-theme_override_font_sizes/font_size = 10
+[node name="HelpButton4" type="Button" parent="LeftBG/LeftStack"]
+layout_mode = 2
+theme = ExtResource("3_g2cgh")
 text = "Placeholder"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="RightBG" type="ColorRect" parent="."]
 offset_left = 103.0

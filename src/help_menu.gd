@@ -4,7 +4,7 @@ extends Node2D
 func _ready():
 	# sets the default text + animation
 	for i in 5:
-		get_node("LeftStackText/HelpText" + str(i)).set_text(Main.help_list[i].name)
+		get_node("LeftBG/LeftStack/HelpButton" + str(i)).set_text(Main.help_list[i].name)
 	%Title.set_text(Main.help_list[0].title)
 	%Description.set_text(Main.help_list[0].text)
 

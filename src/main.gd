@@ -7,7 +7,7 @@ var formatted_time
 var trash_list
 var help_list
 var current_scene = "res://src/main_menu.tscn"
-var previous_scene
+var previous_scene = "res://src/main_menu.tscn"
 var current_save
 var trash_seen:Array # gdscript supports dynamic typing but we need to initialize this variable as an array so we can append to it
 var trash_positions = [Vector2(0, 0)] # same reason as above

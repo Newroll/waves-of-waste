@@ -1,0 +1,28 @@
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://37elalvtqa6s"]
+
+[ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="1_55w7m"]
+[ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="1_hxfko"]
+[ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="2_gpjkq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37n4t"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2hjj3"]
+content_margin_bottom = 4.0
+texture = ExtResource("1_55w7m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ihgja"]
+content_margin_bottom = 4.0
+texture = ExtResource("1_55w7m")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rw7rk"]
+content_margin_top = 10.0
+content_margin_bottom = 4.0
+texture = ExtResource("2_gpjkq")
+
+[resource]
+Button/font_sizes/font_size = 20
+Button/fonts/font = ExtResource("1_hxfko")
+Button/styles/focus = SubResource("StyleBoxEmpty_37n4t")
+Button/styles/hover = SubResource("StyleBoxTexture_2hjj3")
+Button/styles/normal = SubResource("StyleBoxTexture_ihgja")
+Button/styles/pressed = SubResource("StyleBoxTexture_rw7rk")

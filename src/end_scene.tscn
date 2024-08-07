@@ -1,11 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://brxwfd43b8t4x"]
+[gd_scene load_steps=30 format=3 uid="uid://brxwfd43b8t4x"]
 
 [ext_resource type="Texture2D" uid="uid://b34d6j0o5i473" path="res://assets/ui/star_empty.png" id="1_j77f4"]
 [ext_resource type="Script" path="res://src/end_scene.gd" id="1_srch7"]
 [ext_resource type="Texture2D" uid="uid://si5ss1ux6tch" path="res://assets/ui/star.png" id="2_bxkvv"]
 [ext_resource type="Texture2D" uid="uid://bw80od2udayp4" path="res://assets/ui/gear.png" id="3_ln0xr"]
-[ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="6_mh7er"]
-[ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="7_ovxpd"]
+[ext_resource type="Theme" uid="uid://37elalvtqa6s" path="res://src/buttons.tres" id="5_7vobp"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="8_mccgr"]
 [ext_resource type="Texture2D" uid="uid://c36nbshdroxv5" path="res://assets/ui/buttons/yellow_button12.png" id="9_k4jl4"]
 [ext_resource type="AudioStream" uid="uid://1oflo2uupgv" path="res://assets/sound/back.mp3" id="10_y2os8"]
@@ -182,65 +181,32 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_iqrrp")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_cmlku")
 toggle_mode = true
 
-[node name="Continue" type="TextureButton" parent="."]
+[node name="Continue" type="Button" parent="."]
 offset_left = 131.0
 offset_top = 119.0
 offset_right = 321.0
 offset_bottom = 168.0
 scale = Vector2(0.7, 0.7)
-texture_normal = ExtResource("6_mh7er")
-texture_pressed = ExtResource("7_ovxpd")
-
-[node name="ContinueText" type="Label" parent="."]
-offset_left = 131.0
-offset_top = 119.0
-offset_right = 263.0
-offset_bottom = 150.0
-theme_override_fonts/font = ExtResource("8_mccgr")
-theme_override_font_sizes/font_size = 20
+theme = ExtResource("5_7vobp")
 text = "Continue"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="TrashMenu" type="TextureButton" parent="."]
+[node name="TrashMenu" type="Button" parent="."]
 offset_left = 131.0
 offset_top = 155.0
 offset_right = 321.0
 offset_bottom = 204.0
 scale = Vector2(0.7, 0.5)
-texture_normal = ExtResource("6_mh7er")
-texture_pressed = ExtResource("7_ovxpd")
-
-[node name="TrashText" type="Label" parent="."]
-offset_left = 131.0
-offset_top = 155.0
-offset_right = 262.0
-offset_bottom = 177.0
-theme_override_fonts/font = ExtResource("8_mccgr")
-theme_override_font_sizes/font_size = 12
+theme = ExtResource("5_7vobp")
 text = "View trash"
-horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="QuitMenu" type="TextureButton" parent="."]
+[node name="QuitMenu" type="Button" parent="."]
 offset_left = 131.0
 offset_top = 182.0
 offset_right = 321.0
 offset_bottom = 231.0
 scale = Vector2(0.7, 0.5)
-texture_normal = ExtResource("6_mh7er")
-texture_pressed = ExtResource("7_ovxpd")
-
-[node name="QuitText" type="Label" parent="."]
-offset_left = 131.0
-offset_top = 182.0
-offset_right = 262.0
-offset_bottom = 204.0
-theme_override_fonts/font = ExtResource("8_mccgr")
-theme_override_font_sizes/font_size = 12
+theme = ExtResource("5_7vobp")
 text = "Quit to menu"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Lvl1" type="TextureButton" parent="."]
 offset_left = 116.0
