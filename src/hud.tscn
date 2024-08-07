@@ -62,15 +62,6 @@ scale = Vector2(0.4, 0.4)
 toggle_mode = true
 texture_normal = ExtResource("2_t4h1s")
 
-[node name="TrashButton" type="Button" parent="."]
-offset_left = 357.0
-offset_top = 3.0
-offset_right = 547.0
-offset_bottom = 48.0
-scale = Vector2(0.2, 0.4)
-theme = ExtResource("2_8ws02")
-text = "View trash"
-
 [node name="HUDOpacity" type="ColorRect" parent="."]
 visible = false
 offset_right = 398.0
@@ -163,11 +154,20 @@ stream = ExtResource("9_alshl")
 process_mode = 3
 stream = ExtResource("10_8no5o")
 
+[node name="TrashButton" type="Button" parent="."]
+offset_left = 352.0
+offset_top = 6.0
+offset_right = 454.0
+offset_bottom = 39.0
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("2_8ws02")
+text = "View trash"
+
 [connection signal="pressed" from="HBoxContainer/HintButton" to="." method="_on_hint_button_pressed"]
 [connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
-[connection signal="pressed" from="TrashButton" to="." method="_on_trash_button_pressed"]
 [connection signal="pressed" from="HUDOpacity/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="HUDOpacity/Fullscreen" to="." method="_on_fullscreen_pressed"]
 [connection signal="pressed" from="HUDOpacity/Unpause" to="." method="_on_unpause_pressed"]
 [connection signal="pressed" from="HUDOpacity/BackMenu" to="." method="_on_backmenu_pressed"]
 [connection signal="pressed" from="HUDOpacity/HelpMenu" to="." method="_on_helpmenu_pressed"]
+[connection signal="pressed" from="TrashButton" to="." method="_on_trash_button_pressed"]

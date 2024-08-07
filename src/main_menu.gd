@@ -25,7 +25,6 @@ func _on_settings_pressed():
 
 func _on_play_pressed():
 	$ForwardSFX.play()
-	await get_tree().create_timer(0.17).timeout
 	Main.change_scene("res://src/levels.tscn")
 
 func _on_trashmenu_pressed():
