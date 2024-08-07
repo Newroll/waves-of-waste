@@ -96,6 +96,9 @@ func _on_trash_button_pressed():
 	add_child(trash_scene.instantiate())
 
 func _on_hint_button_pressed():
+	$HBoxContainer.hide()
+	$ForwardSFX.play()
 	Main.hint_clicked = true
+	# this queue free is causing a lot of issues
 	$HBoxContainer.queue_free()
 	$TrashPointers.show()
