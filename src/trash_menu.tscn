@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://rxggx4n7wuxh" path="res://assets/trash/plastic_bag.png" id="3_2bstm"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="3_wokcj"]
 [ext_resource type="Texture2D" uid="uid://dti6sc4msdwdi" path="res://assets/ui/buttons/blue_button09.png" id="5_uo3bi"]
-[ext_resource type="AudioStream" uid="uid://dylo1sbyjkg2p" path="res://assets/sound/back.wav" id="6_yehj6"]
+[ext_resource type="AudioStream" uid="uid://1oflo2uupgv" path="res://assets/sound/back.mp3" id="6_gt0ur"]
 
 [node name="TrashMenu" type="Node2D"]
 process_mode = 3
@@ -125,6 +125,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_yehj6")
+stream = ExtResource("6_gt0ur")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

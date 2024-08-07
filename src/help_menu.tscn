@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="4_118xj"]
 [ext_resource type="Texture2D" uid="uid://dti6sc4msdwdi" path="res://assets/ui/buttons/blue_button09.png" id="4_sbr7t"]
 [ext_resource type="Texture2D" uid="uid://bgcvafwsts3e8" path="res://assets/help/lvlComplete/frame_00_delay-0.1s.jpg" id="5_0ym3p"]
-[ext_resource type="AudioStream" uid="uid://dylo1sbyjkg2p" path="res://assets/sound/back.wav" id="5_q2jjq"]
 [ext_resource type="Texture2D" uid="uid://xysh4uty5dug" path="res://assets/help/lvlComplete/frame_01_delay-0.1s.jpg" id="6_542gc"]
 [ext_resource type="Texture2D" uid="uid://dnyq7u4m5hy7m" path="res://assets/help/lvlComplete/frame_02_delay-0.1s.jpg" id="7_mby3e"]
 [ext_resource type="Texture2D" uid="uid://dw3ye30phpff5" path="res://assets/help/lvlComplete/frame_03_delay-0.1s.jpg" id="8_3uf21"]
@@ -240,6 +239,7 @@
 [ext_resource type="Texture2D" uid="uid://sg3joxuwtwa" path="res://assets/help/pickUp/frame_54_delay-0.1s.jpg" id="236_lcw7d"]
 [ext_resource type="Texture2D" uid="uid://b32aepqmov2w5" path="res://assets/help/pickUp/frame_55_delay-0.1s.jpg" id="237_7tny8"]
 [ext_resource type="Texture2D" uid="uid://bxg0f5crmo0pc" path="res://assets/help/pickUp/frame_56_delay-0.1s.jpg" id="238_aem84"]
+[ext_resource type="AudioStream" uid="uid://1oflo2uupgv" path="res://assets/sound/back.mp3" id="240_iwlwr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7aq61"]
 animations = [{
@@ -1149,8 +1149,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_q2jjq")
-bus = &"sfx"
+stream = ExtResource("240_iwlwr")
 
 [connection signal="pressed" from="LeftBG/LeftStack/HelpButton0" to="." method="_on_help_button_0_pressed"]
 [connection signal="pressed" from="LeftBG/LeftStack/HelpButton1" to="." method="_on_help_button_1_pressed"]

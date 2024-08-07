@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://c3snw6owwn3cl" path="res://assets/ui/enter_fullscreen.png" id="3_lkdgu"]
 [ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="5_nbkal"]
 [ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="6_lbip0"]
-[ext_resource type="AudioStream" uid="uid://dylo1sbyjkg2p" path="res://assets/sound/back.wav" id="8_6b03o"]
 [ext_resource type="Texture2D" uid="uid://b1abvw5xnj5xa" path="res://assets/ui/pointer.png" id="8_fnm71"]
-[ext_resource type="AudioStream" uid="uid://duume0iti6ox" path="res://assets/sound/forward.wav" id="9_4euiv"]
+[ext_resource type="AudioStream" uid="uid://1oflo2uupgv" path="res://assets/sound/back.mp3" id="9_alshl"]
+[ext_resource type="AudioStream" uid="uid://bmtahw41a2p2t" path="res://assets/sound/forward.mp3" id="10_8no5o"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5uws"]
 
@@ -219,11 +219,11 @@ texture = ExtResource("8_fnm71")
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("8_6b03o")
+stream = ExtResource("9_alshl")
 
 [node name="ForwardSFX" type="AudioStreamPlayer" parent="."]
 process_mode = 3
-stream = ExtResource("9_4euiv")
+stream = ExtResource("10_8no5o")
 
 [connection signal="pressed" from="HBoxContainer/HintButton" to="." method="_on_hint_button_pressed"]
 [connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]

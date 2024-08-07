@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://cbvpqkufpfcdj" path="res://assets/ui/buttons/blue_button03.png" id="7_ovxpd"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="8_mccgr"]
 [ext_resource type="Texture2D" uid="uid://c36nbshdroxv5" path="res://assets/ui/buttons/yellow_button12.png" id="9_k4jl4"]
-[ext_resource type="AudioStream" uid="uid://dylo1sbyjkg2p" path="res://assets/sound/back.wav" id="10_lgnok"]
+[ext_resource type="AudioStream" uid="uid://1oflo2uupgv" path="res://assets/sound/back.mp3" id="10_y2os8"]
 [ext_resource type="Texture2D" uid="uid://bjrkm04it1qdf" path="res://assets/ui/buttons/red_sliderDown.png" id="11_c7l5m"]
-[ext_resource type="AudioStream" uid="uid://duume0iti6ox" path="res://assets/sound/forward.wav" id="11_nxtwk"]
+[ext_resource type="AudioStream" uid="uid://bmtahw41a2p2t" path="res://assets/sound/forward.mp3" id="11_q6thc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vce4"]
 atlas = ExtResource("2_bxkvv")
@@ -348,10 +348,10 @@ scale = Vector2(0.375, 0.375)
 texture = ExtResource("11_c7l5m")
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_lgnok")
+stream = ExtResource("10_y2os8")
 
 [node name="ForwardSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_nxtwk")
+stream = ExtResource("11_q6thc")
 
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Fullscreen" to="." method="_on_fullscreen_pressed"]
