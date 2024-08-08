@@ -50,7 +50,7 @@ func _on_body_entered(body):
 		Main.trash_visible[id] = 1 # we'll pretend that the trash is "visible" on screen after it is picked up even though it is not
 
 func timer_tick():
-	# for loop instead of manually setting everything
+	 # for loop instead of manually setting everything
 	for i in 5:
 		await get_tree().create_timer(1.0).timeout
 		$CanvasLayer/TimeLabel.set_text(str(4-i))

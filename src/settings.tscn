@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dr5bb178cngki"]
+[gd_scene load_steps=7 format=3 uid="uid://dr5bb178cngki"]
 
 [ext_resource type="Script" path="res://src/settings.gd" id="1_cbw6e"]
 [ext_resource type="Texture2D" uid="uid://r3se4stfbo4m" path="res://assets/background/background.png" id="1_q80e1"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="2_8255a"]
 [ext_resource type="AudioStream" uid="uid://1oflo2uupgv" path="res://assets/sound/back.mp3" id="4_ai4b8"]
 [ext_resource type="Texture2D" uid="uid://dti6sc4msdwdi" path="res://assets/ui/buttons/blue_button09.png" id="5_had7k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53yke"]
 
 [node name="Settings" type="Node2D"]
 script = ExtResource("1_cbw6e")
@@ -78,6 +80,7 @@ max_value = 2.0
 step = 0.001
 
 [node name="TTSVolumeLabel" type="Label" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_8255a")
 theme_override_font_sizes/font_size = 12
@@ -85,6 +88,7 @@ text = "TTS Volume"
 horizontal_alignment = 1
 
 [node name="TTSVolume" type="HSlider" parent="VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="TTSContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -93,6 +97,7 @@ alignment = 1
 
 [node name="TTSCheck" type="CheckBox" parent="VBoxContainer/TTSContainer"]
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_53yke")
 
 [node name="TTSLabel" type="Label" parent="VBoxContainer/TTSContainer"]
 layout_mode = 2

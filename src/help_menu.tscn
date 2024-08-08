@@ -1027,6 +1027,7 @@ theme_override_font_sizes/font_size = 20
 text = "Switching levels"
 
 [node name="HelpButton4" type="Button" parent="LeftBG/LeftStack"]
+visible = false
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 size_flags_vertical = 3
@@ -1098,5 +1099,4 @@ stream = ExtResource("240_iwlwr")
 [connection signal="pressed" from="LeftBG/LeftStack/HelpButton1" to="." method="_on_help_button_1_pressed"]
 [connection signal="pressed" from="LeftBG/LeftStack/HelpButton2" to="." method="_on_help_button_2_pressed"]
 [connection signal="pressed" from="LeftBG/LeftStack/HelpButton3" to="." method="_on_help_button_3_pressed"]
-[connection signal="pressed" from="LeftBG/LeftStack/HelpButton4" to="." method="_on_help_button_4_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

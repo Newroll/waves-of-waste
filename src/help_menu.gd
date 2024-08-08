@@ -3,7 +3,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# sets the default text + animation
-	for i in 5:
+	for i in 4:
 		get_node("LeftBG/LeftStack/HelpButton" + str(i)).set_text(Main.help_list[i].name)
 	%Title.set_text(Main.help_list[0].title)
 	%Description.set_text(Main.help_list[0].text)
@@ -42,8 +42,3 @@ func _on_help_button_3_pressed():
 	%Title.set_text(Main.help_list[3].title)
 	%Description.set_text(Main.help_list[3].text)
 	%Animation.set_animation("lvlSwitch")
-
-func _on_help_button_4_pressed():
-	%Title.set_text(Main.help_list[4].title)
-	%Description.set_text(Main.help_list[4].text)
-	%Animation.set_animation("lvlComplete")

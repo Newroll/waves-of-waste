@@ -21,7 +21,7 @@ func _process(_delta):
 	if Main.max_points[Main.current_level - 1] <= Main.points: # express level ending when all trash has been collected
 		_on_timer_timeout()
 	# shows the button to show hints if the player is eligible
-	if Main.eclapsed_time > 30 or Main.points / Main.max_points[Main.current_level - 1] > 0.8:
+	if Main.eclapsed_time < 30 or Main.points / Main.max_points[Main.current_level - 1] > 0.8:
 		if Main.hint_clicked == false:
 			$HUD/HBoxContainer.show()
 	else:

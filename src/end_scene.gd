@@ -16,9 +16,9 @@ func _process(_delta):
 func level_ended():
 	if Main.current_level <= 5: # level 6 does not exist so it checks the current level (double protection more or less since it's impossible for Main.current_level to be higher than 5)
 		call("_on_lvl_" + str(Main.current_level) + "_pressed")
-	if Main.rating[Main.current_level - 2] >= 0.5&&Main.rating[Main.current_level - 2] < 1:
+	if Main.rating[Main.current_level - 2] >= 0.5 and Main.rating[Main.current_level - 2] < 1:
 		$Star3.set_animation("empty") # sets two stars to full
-	elif Main.rating[Main.current_level - 2] >= 0&&Main.rating[Main.current_level - 2] < 0.5:
+	elif Main.rating[Main.current_level - 2] >= 0 and Main.rating[Main.current_level - 2] < 0.5:
 		$Star2.set_animation("empty") # sets only one star to full
 		$Star3.set_animation("empty")
 	elif Main.rating[Main.current_level - 2] <= 0.5:
@@ -62,36 +62,31 @@ func _on_quitmenu_pressed():
 
 func _on_lvl_1_pressed():
 	$ForwardSFX.play()
-	if Main.current_level >= 1:
-		selected_level = 1
-		$Pointer.show()
-		$Pointer.set_position(Vector2(129, 74)) # moves the pointer around
+	selected_level = 1
+	$Pointer.show()
+	$Pointer.set_position(Vector2(129, 74)) # moves the pointer around
 
 # same thing
 func _on_lvl_2_pressed():
 	$ForwardSFX.play()
-	if Main.current_level >= 2:
-		selected_level = 2
-		$Pointer.show()
-		$Pointer.set_position(Vector2(164, 74))
+	selected_level = 2
+	$Pointer.show()
+	$Pointer.set_position(Vector2(164, 74))
 
 func _on_lvl_3_pressed():
 	$ForwardSFX.play()
-	if Main.current_level >= 3:
-		selected_level = 3
-		$Pointer.show()
-		$Pointer.set_position(Vector2(199, 74))
+	selected_level = 3
+	$Pointer.show()
+	$Pointer.set_position(Vector2(199, 74))
 
 func _on_lvl_4_pressed():
 	$ForwardSFX.play()
-	if Main.current_level >= 4:
-		selected_level = 4
-		$Pointer.show()
-		$Pointer.set_position(Vector2(234, 74))
+	selected_level = 4
+	$Pointer.show()
+	$Pointer.set_position(Vector2(234, 74))
 
 func _on_lvl_5_pressed():
 	$ForwardSFX.play()
-	if Main.current_level >= 5:
-		selected_level = 5
-		$Pointer.show()
-		$Pointer.set_position(Vector2(269, 74))
+	selected_level = 5
+	$Pointer.show()
+	$Pointer.set_position(Vector2(269, 74))
