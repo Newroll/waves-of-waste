@@ -3,8 +3,8 @@ extends Node2D
 func _ready():
 	# sets settings to reflect actual current status
 	$VBoxContainer/MasterVolume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Master")))
-	$VBoxContainer/MusicVolume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("music")))
-	$VBoxContainer/SFXVolume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("sfx")))
+	$VBoxContainer/MusicVolume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")))
+	$VBoxContainer/SFXVolume.value = db_to_linear(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX")))
 	$VBoxContainer/TTSVolume.value = Main.tts_volume
 	if Main.auto_tts == true:
 		$VBoxContainer/TTSContainer/TTSCheck.button_pressed = true
