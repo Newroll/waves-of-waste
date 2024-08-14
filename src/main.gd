@@ -15,6 +15,7 @@ var trash_visible:Array # again, same as above
 var camera_position
 var show_hint
 var hint_clicked = false
+var pause_block = false
 
 # text to speech stuff
 var auto_tts = false

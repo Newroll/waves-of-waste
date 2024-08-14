@@ -28,6 +28,7 @@ func level_ended():
 
 func _on_settings_pressed():
 	$ForwardSFX.play()
+	Main.pause_block = true
 	get_tree().paused = true
 	# puts it on top of the hud instead of changing the scene
 	add_child(settings_scene.instantiate())
@@ -49,6 +50,7 @@ func _on_continue_pressed():
 
 func _on_trashmenu_pressed():
 	$ForwardSFX.play()
+	Main.pause_block = true
 	get_tree().paused = true
 	# puts it on top of the hud instead of changing the scene
 	add_child(trash_scene.instantiate())
@@ -56,6 +58,7 @@ func _on_trashmenu_pressed():
 func _on_quitmenu_pressed():
 	$BackSFX.play()
 	await get_tree().create_timer(0.23).timeout
+	Main.pause_block = false
 	get_tree().paused = false
 	hide()
 	Main.change_scene("res://src/main_menu.tscn")

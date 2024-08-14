@@ -24,10 +24,12 @@ func _input(event): # hotkey shortcut stuff
 		_on_back_button_pressed()
 
 func _on_back_button_pressed():
+	Main.pause_block = false
 	get_tree().paused = false
 	$BackSFX.play()
 	await get_tree().create_timer(0.23).timeout
 	if Main.current_scene.left( - 7) == "res://src/levels/level":
+		Main.pause_block = true
 		get_tree().paused = true
 		queue_free()
 	else:

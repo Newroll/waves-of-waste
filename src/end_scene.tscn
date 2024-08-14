@@ -160,27 +160,6 @@ animation = &"filled"
 autoplay = "filled"
 frame_progress = 0.617965
 
-[node name="Settings" type="TextureButton" parent="."]
-offset_left = 7.0
-offset_top = 192.0
-offset_right = 39.0
-offset_bottom = 224.0
-scale = Vector2(0.8, 0.8)
-texture_normal = ExtResource("3_ln0xr")
-
-[node name="Fullscreen" type="Button" parent="."]
-offset_left = 380.0
-offset_top = 3.0
-offset_right = 428.0
-offset_bottom = 51.0
-scale = Vector2(0.3, 0.3)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_geqsm")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_q0qlb")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_s7gms")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_iqrrp")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cmlku")
-toggle_mode = true
-
 [node name="Lvl1" type="TextureButton" parent="."]
 offset_left = 116.0
 offset_top = 84.0825
@@ -323,8 +302,27 @@ theme = ExtResource("5_7vobp")
 theme_override_font_sizes/font_size = 13
 text = "Quit to menu"
 
-[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Fullscreen" to="." method="_on_fullscreen_pressed"]
+[node name="Settings" type="TextureButton" parent="."]
+offset_left = 7.0
+offset_top = 192.0
+offset_right = 39.0
+offset_bottom = 224.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("3_ln0xr")
+
+[node name="Fullscreen" type="Button" parent="."]
+offset_left = 380.0
+offset_top = 3.0
+offset_right = 428.0
+offset_bottom = 51.0
+scale = Vector2(0.3, 0.3)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_geqsm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_q0qlb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_s7gms")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_iqrrp")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cmlku")
+toggle_mode = true
+
 [connection signal="pressed" from="Lvl1" to="." method="_on_lvl_1_pressed"]
 [connection signal="pressed" from="Lvl2" to="." method="_on_lvl_2_pressed"]
 [connection signal="pressed" from="Lvl3" to="." method="_on_lvl_3_pressed"]
@@ -333,3 +331,5 @@ text = "Quit to menu"
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TrashMenu" to="." method="_on_trashmenu_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QuitMenu" to="." method="_on_quitmenu_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Fullscreen" to="." method="_on_fullscreen_pressed"]

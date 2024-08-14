@@ -4,26 +4,29 @@ var trash_scene = preload("res://src/trash_menu.tscn")
 var settings_scene = preload("res://src/settings.tscn")
 var help_scene = preload("res://src/help_menu.tscn")
 var paused = false
+var current_level
 
 var hyp = 95
 var adj
 var opp
 
 func _ready():
+	current_level = Main.current_level
 	for i in Main.max_points[Main.current_level - 1]: # prepares pointers based on the amount of trash there could be on the current level
 		$TrashPointers.add_child($PointerTemplate.duplicate())
 	$PointerTemplate.queue_free()
 
 func _process(_delta):
+	#print(Main.trash_visible)
 	# sets text, bit of string concactnation
 	$TextLabel.text = str(Main.points) + "/" + str(Main.max_points[Main.current_level - 1]) + " | " + str(Main.formatted_time)
 	# checks fullscreen status and sets texture
 	if DisplayServer.window_get_mode() == 3:
-		$HUDOpacity/Fullscreen.icon = load("res://assets/ui/exit_fullscreen.png")
+		$PauseMenu/Fullscreen.icon = load("res://assets/ui/exit_fullscreen.png")
 	else:
-		$HUDOpacity/Fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
+		$PauseMenu/Fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
 	
-	for i in Main.max_points[Main.current_level - 1]: # repeats for every single pointer
+	for i in Main.max_points[current_level - 1]: # repeats for every single pointer
 		adj = cos(Main.camera_position.angle_to_point(Main.trash_positions[i])) * hyp * 2.0526 # trigonometry to calculate the x-shift of the pointer, 2.0526 is to make the circle fatter
 		opp = sin(Main.camera_position.angle_to_point(Main.trash_positions[i])) * hyp # same as above but for the y-shift
 		$TrashPointers.get_child(i).rotation = Main.camera_position.angle_to_point(Main.trash_positions[i]) # rotates the pointer to face the trash
@@ -43,11 +46,12 @@ func _input(event): # hotkey shortcut stuff
 			_on_pause_pressed()
 
 func _on_pause_pressed():
-	paused = true
-	$ForwardSFX.play()
-	get_tree().paused = true
-	$Pause.hide()
-	$HUDOpacity.show()
+	if Main.pause_block == false:
+		paused = true
+		$ForwardSFX.play()
+		get_tree().paused = true
+		$Pause.hide()
+		$PauseMenu.show()
 
 # literally the same as the menu
 
@@ -61,37 +65,41 @@ func _on_fullscreen_pressed():
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 
 func _on_settings_pressed():
+	print("hi")
 	$ForwardSFX.play()
+	Main.pause_block = true
 	get_tree().paused = true
-	$HUDOpacity.show()
 	# puts it on top of the hud instead of changing the scene
 	add_child(settings_scene.instantiate())
 
 func _on_unpause_pressed():
-	paused = false
-	get_tree().paused = false
-	$BackSFX.play()
-	$Pause.show()
-	$HUDOpacity.hide()
+	if Main.pause_block == false:
+		paused = false
+		get_tree().paused = false
+		$BackSFX.play()
+		$Pause.show()
+		$PauseMenu.hide()
 
 func _on_backmenu_pressed():
+	Main.pause_block = false
 	get_tree().paused = false
 	$BackSFX.play()
 	$Pause.show()
-	$HUDOpacity.hide()
+	$PauseMenu.hide()
 	Main.change_scene("res://src/main_menu.tscn")
 
 func _on_helpmenu_pressed():
 	$ForwardSFX.play()
+	Main.pause_block = true
 	get_tree().paused = true
-	$HUDOpacity.show()
 	# puts it on top of the hud instead of changing the scene
 	add_child(help_scene.instantiate())
 
 func _on_trash_button_pressed():
 	$ForwardSFX.play()
+	Main.pause_block = true
 	get_tree().paused = true
-	$HUDOpacity.show()
+	$PauseMenu.show()
 	# puts it on top of the hud instead of changing the scene
 	add_child(trash_scene.instantiate())
 
@@ -100,5 +108,5 @@ func _on_hint_button_pressed():
 	$ForwardSFX.play()
 	Main.hint_clicked = true
 	# this queue free is causing a lot of issues
-	$HBoxContainer.queue_free()
+	$HBoxContainer.hide()
 	$TrashPointers.show()

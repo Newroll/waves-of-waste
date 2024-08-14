@@ -3,7 +3,8 @@ extends Area2D
 var trash
 var rotation_var
 var rotate_dir
-var id
+var id = 0
+var picked_up = false
 
 func _ready():
 	await get_tree().create_timer(0.1).timeout # need to wait for the id to be set by the other guy first
@@ -36,18 +37,24 @@ func trash_animation():
 	trash_animation()
 
 func _on_body_entered(body):
-	if body.name == "Player": # checks if it's really the player picking up the trash; we don't want trash picking each other up
+	if body.name == "Player" and picked_up == false: # checks if it's really the player picking up the trash; we don't want trash picking each other up
 		self.visible = false
+		picked_up = true
 		$SFX.play()
 		Main.points += 1
+		Main.trash_visible[id] = 1 # we'll pretend that the trash is "visible" on screen after it is picked up even though it is not
 		if Main.trash_seen[trash] == 0:
+			Main.trash_seen[trash] = 1
 			$CanvasLayer.show()
 			if Main.auto_tts == true:
 				DisplayServer.tts_speak(Main.trash_list[trash].description, Main.voice_id, Main.tts_volume)
+			Main.pause_block = true
 			get_tree().paused = true # pauses the game and show the ui
 			timer_tick()
-		Main.trash_seen[trash] = 1
-		Main.trash_visible[id] = 1 # we'll pretend that the trash is "visible" on screen after it is picked up even though it is not
+		else:
+			await get_tree().create_timer(1.0).timeout
+			queue_free()
+
 
 func timer_tick():
 	 # for loop instead of manually setting everything
@@ -55,11 +62,13 @@ func timer_tick():
 		await get_tree().create_timer(1.0).timeout
 		$CanvasLayer/TimeLabel.set_text(str(4-i))
 	$CanvasLayer.hide()
+	Main.pause_block = false
 	get_tree().paused = false # does the reverse of above function
-	queue_free() # kills the child
+	
 
 func _on_visible_on_screen_notifier_2d_screen_entered(): # checks if the trash is visible on screen or not
 	Main.trash_visible[id] = 1
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	Main.trash_visible[id] = 0
+	if picked_up == false:
+		Main.trash_visible[id] = 0

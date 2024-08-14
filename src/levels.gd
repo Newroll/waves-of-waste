@@ -4,10 +4,12 @@ var trash = preload("res://src/trash.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	Main.pause_block = false
 	get_tree().paused = false
 	$GameMusic.play(120)
 	
 	# automatic trash spawning
+	Main.trash_visible = []
 	for i in Main.max_points[Main.current_level - 1]:
 		Main.trash_visible.append(0)
 		$Trash.add_child(trash.instantiate())
@@ -28,6 +30,7 @@ func _process(_delta):
 		$HUD/HBoxContainer.hide()
 
 func _on_timer_timeout():
+	Main.pause_block = true
 	get_tree().paused = true
 	$HUD/HBoxContainer.hide()
 	Main.hint_clicked = false

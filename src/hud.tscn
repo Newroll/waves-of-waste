@@ -29,11 +29,6 @@ border_color = Color(0.00784314, 0.517647, 0.780392, 1)
 process_mode = 3
 script = ExtResource("1_4r25s")
 
-[node name="Panel" type="Panel" parent="."]
-offset_right = 398.0
-offset_bottom = 24.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_nu4t4")
-
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 337.0
 offset_right = 490.0
@@ -47,6 +42,11 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("2_8ws02")
 text = "Show hint"
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 398.0
+offset_bottom = 24.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nu4t4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -82,22 +82,25 @@ toggle_mode = true
 texture_normal = ExtResource("2_t4h1s")
 stretch_mode = 3
 
-[node name="HUDOpacity" type="ColorRect" parent="."]
+[node name="TrashPointers" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PointerTemplate" type="Sprite2D" parent="."]
+z_index = -20
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("8_fnm71")
+
+[node name="PauseMenu" type="ColorRect" parent="."]
 visible = false
 offset_right = 398.0
 offset_bottom = 224.0
-color = Color(0, 0, 0, 0.623529)
+color = Color(0, 0, 0, 0.470588)
 
-[node name="Settings" type="TextureButton" parent="HUDOpacity"]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 192.0
-offset_right = 39.0
-offset_bottom = 224.0
-scale = Vector2(0.8, 0.8)
-texture_normal = ExtResource("2_2ajp7")
-
-[node name="Fullscreen" type="Button" parent="HUDOpacity"]
+[node name="Fullscreen" type="Button" parent="PauseMenu"]
 layout_mode = 0
 offset_left = 375.0
 offset_top = 7.0
@@ -113,7 +116,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_t06ls")
 toggle_mode = true
 icon = ExtResource("3_lkdgu")
 
-[node name="MarginContainer" type="MarginContainer" parent="HUDOpacity"]
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu"]
 layout_mode = 0
 offset_top = 38.0
 offset_right = 398.0
@@ -121,45 +124,42 @@ offset_bottom = 224.0
 theme_override_constants/margin_left = 110
 theme_override_constants/margin_right = 110
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HUDOpacity/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="HUDOpacity/MarginContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_q6lgt")
 theme_override_font_sizes/font_size = 32
 text = "Game Paused"
 horizontal_alignment = 1
 
-[node name="Unpause" type="Button" parent="HUDOpacity/MarginContainer/VBoxContainer"]
+[node name="Unpause" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 40)
 layout_mode = 2
 theme = ExtResource("2_8ws02")
 text = "Resume game"
 
-[node name="BackMenu" type="Button" parent="HUDOpacity/MarginContainer/VBoxContainer"]
+[node name="BackMenu" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 25)
 layout_mode = 2
 theme = ExtResource("2_8ws02")
 text = "Quit to menu"
 
-[node name="HelpMenu" type="Button" parent="HUDOpacity/MarginContainer/VBoxContainer"]
+[node name="HelpMenu" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(2.08165e-12, 25)
 layout_mode = 2
 theme = ExtResource("2_8ws02")
 text = "Help"
 
-[node name="TrashPointers" type="Control" parent="."]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="PointerTemplate" type="Sprite2D" parent="."]
-z_index = -20
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("8_fnm71")
+[node name="Settings" type="TextureButton" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 192.0
+offset_right = 39.0
+offset_bottom = 224.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("2_2ajp7")
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 process_mode = 3
@@ -172,8 +172,8 @@ stream = ExtResource("10_8no5o")
 [connection signal="pressed" from="HBoxContainer/HintButton" to="." method="_on_hint_button_pressed"]
 [connection signal="pressed" from="TrashButton" to="." method="_on_trash_button_pressed"]
 [connection signal="pressed" from="Pause" to="." method="_on_pause_pressed"]
-[connection signal="pressed" from="HUDOpacity/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="HUDOpacity/Fullscreen" to="." method="_on_fullscreen_pressed"]
-[connection signal="pressed" from="HUDOpacity/MarginContainer/VBoxContainer/Unpause" to="." method="_on_unpause_pressed"]
-[connection signal="pressed" from="HUDOpacity/MarginContainer/VBoxContainer/BackMenu" to="." method="_on_backmenu_pressed"]
-[connection signal="pressed" from="HUDOpacity/MarginContainer/VBoxContainer/HelpMenu" to="." method="_on_helpmenu_pressed"]
+[connection signal="pressed" from="PauseMenu/Fullscreen" to="." method="_on_fullscreen_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/Unpause" to="." method="_on_unpause_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/BackMenu" to="." method="_on_backmenu_pressed"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/HelpMenu" to="." method="_on_helpmenu_pressed"]
+[connection signal="pressed" from="PauseMenu/Settings" to="." method="_on_settings_pressed"]
