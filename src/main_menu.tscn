@@ -24,6 +24,7 @@
 script = ExtResource("1_x3e1o")
 
 [node name="Background" type="Sprite2D" parent="."]
+modulate = Color(0.597176, 0.597176, 0.597176, 1)
 position = Vector2(162, 113)
 scale = Vector2(1.05093, 1.05093)
 texture = ExtResource("1_htada")
@@ -55,7 +56,7 @@ offset_left = 146.0
 offset_top = 9.0
 offset_right = 255.0
 offset_bottom = 72.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0.871141, 0.871141, 0.871141, 1)
 theme_override_fonts/font = ExtResource("1_36ylp")
 theme_override_font_sizes/font_size = 20
 text = "waves  
