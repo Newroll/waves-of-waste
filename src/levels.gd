@@ -39,10 +39,10 @@ func _on_timer_timeout():
 	Main.points = 0
 	# make sure this is saved
 	Main.current_level += 1
-	Main.write_save()
 	if Main.current_level > 5:
 		Main.current_level = 1
 		Main.rating = [0, 0, 0, 0, 0]
+	Main.write_save()
 	# ends the level properly
 	$HUD.hide()
 	$EndScene.show()

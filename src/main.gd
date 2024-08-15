@@ -69,20 +69,66 @@ func write_save():
 		"trash_seen": trash_seen
 	}
 	# writes the save array to a file
-	FileAccess.open("user://wavesofwaste.save", FileAccess.WRITE).store_line(JSON.stringify(current_save))
+	var save_file = FileAccess.open_encrypted_with_pass("user://wavesofwaste.save", FileAccess.WRITE, "thisisaveryverysecurepasswordthatnoonewillguess")
+	if save_file != null:
+		save_file.store_line(JSON.stringify(current_save))
+	else:
+		# nukes the save file if it's corrupted
+		DirAccess.remove_absolute("user://wavesofwaste.save")
 
 func read_save():
 	if FileAccess.file_exists("user://wavesofwaste.save"): # checks if the save file exists
-		var save_game = FileAccess.open("user://wavesofwaste.save", FileAccess.READ)
+		var save_game = FileAccess.open_encrypted_with_pass("user://wavesofwaste.save", FileAccess.READ, "thisisaveryverysecurepasswordthatnoonewillguess")
 		# json parsing stuff
-		while save_game.get_position() < save_game.get_length():
-			var json_string = save_game.get_line()
-			var json = JSON.new()
-			var parse_result = json.parse(json_string)
-			if parse_result == OK:
-				current_save = json.get_data()
+		if save_game != null:
+			while save_game.get_position() < save_game.get_length():
+				var json_string = save_game.get_line()
+				var json = JSON.new()
+				var parse_result = json.parse(json_string)
+				if parse_result == OK:
+					current_save = json.get_data()
+				if check_save(current_save) == true:
+					current_level = current_save["level"] # actually loads the value
+					rating = current_save["rating"]
+					trash_seen = current_save["trash_seen"]
+				else:
+					# nukes the save file if the save is not valid
+					DirAccess.remove_absolute("user://wavesofwaste.save")
+		else:
+			# nukes the save file if it's corrupted
+			DirAccess.remove_absolute("user://wavesofwaste.save")
+
+func check_save(save_file):
+	var level_check = false
+	var rating_check = false
+	var trash_seen_check = false
+
+	if save_file.has("level") and save_file["level"] >= 1 and save_file["level"] <= 5:
+		level_check = true
+
+	if save_file.has("rating") and save_file["rating"].size() == 5:
+		var is_valid = true
+		for i in 5:
+			if save_file["rating"][i] >= 0 and save_file["rating"][i] <= 1:
+				pass
 			else:
-				print("Error parsing save file")
-			current_level = current_save["level"] # actually loads the value
-			rating = current_save["rating"]
-			trash_seen = current_save["trash_seen"]
+				is_valid = false
+				break
+		if is_valid:
+			rating_check = true
+	
+	if save_file.has("trash_seen") and save_file["trash_seen"].size() == trash_list.size():
+		for i in save_file["trash_seen"]:
+			var is_valid = true
+			if i == 0 or i == 1:
+				pass
+			else:
+				is_valid = false
+				break
+			if is_valid:
+				trash_seen_check = true
+
+	if level_check and rating_check and trash_seen_check:
+		return true
+	else:
+		return false

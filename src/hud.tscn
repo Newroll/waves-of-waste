@@ -29,6 +29,11 @@ border_color = Color(0.00784314, 0.517647, 0.780392, 1)
 process_mode = 3
 script = ExtResource("1_4r25s")
 
+[node name="Panel" type="Panel" parent="."]
+offset_right = 398.0
+offset_bottom = 24.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_nu4t4")
+
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 offset_left = 337.0
 offset_right = 490.0
@@ -42,11 +47,6 @@ layout_mode = 2
 size_flags_horizontal = 0
 theme = ExtResource("2_8ws02")
 text = "Show hint"
-
-[node name="Panel" type="Panel" parent="."]
-offset_right = 398.0
-offset_bottom = 24.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_nu4t4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -98,7 +98,7 @@ texture = ExtResource("8_fnm71")
 visible = false
 offset_right = 398.0
 offset_bottom = 224.0
-color = Color(0, 0, 0, 0.470588)
+color = Color(0, 0, 0, 0.756863)
 
 [node name="Fullscreen" type="Button" parent="PauseMenu"]
 layout_mode = 0
