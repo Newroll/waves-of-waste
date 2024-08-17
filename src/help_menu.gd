@@ -1,22 +1,22 @@
 extends Node2D
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	# sets the default text + animation
+	# sets the text of the buttons to the names of the help titles with a for loop
 	for i in 4:
 		get_node("LeftBG/LeftStack/HelpButton" + str(i)).set_text(Main.help_list[i].name)
-	%Title.set_text(Main.help_list[0].title)
+	%Title.set_text(Main.help_list[0].title) # sets the default state
 	%Description.set_text(Main.help_list[0].text)
 
-func _input(event): # hotkey shortcut stuff
+func _input(event): # hotkey shortcuts
 	if event.is_action_pressed("escape"):
 		_on_back_button_pressed()
 
 func _on_back_button_pressed():
 	get_tree().paused = false
 	$BackSFX.play()
-	await get_tree().create_timer(0.23).timeout
-	if Main.current_scene == "res://src/levels.tscn":
+	await get_tree().create_timer(0.23).timeout # wait for the sound effect to finish playing before switching scenes
+	# if the current scene is the levels scene, kills itself. otherwise goes back to the previous scene
+	if Main.current_scene == "res://src/levels.tscn":dd
 		Main.pause_block = false
 		get_tree().paused = true
 		queue_free()
@@ -24,9 +24,10 @@ func _on_back_button_pressed():
 		Main.change_scene(Main.previous_scene)
 
 func _on_help_button_0_pressed():
+	# sets the right side of the screen to show the relevent help topic
 	%Title.set_text(Main.help_list[0].title)
 	%Description.set_text(Main.help_list[0].text)
-	%Animation.set_animation("movement") # sets the right side of the screen to show the relevent help stuff
+	%Animation.set_animation("movement")
 
 # same thing
 func _on_help_button_1_pressed():

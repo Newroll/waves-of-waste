@@ -7,7 +7,7 @@ func _process(_delta):
 	else:
 		$Fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
 
-func _input(event):
+func _input(event): # hotkey shortcut stuff
 	if event.is_action_pressed("fullscreen"):
 		_on_fullscreen_pressed()
 
