@@ -16,7 +16,7 @@ func _on_back_button_pressed():
 	$BackSFX.play()
 	await get_tree().create_timer(0.23).timeout # wait for the sound effect to finish playing before switching scenes
 	# if the current scene is the levels scene, kills itself. otherwise goes back to the previous scene
-	if Main.current_scene == "res://src/levels.tscn":dd
+	if Main.current_scene == "res://src/levels.tscn":
 		Main.pause_block = false
 		get_tree().paused = true
 		queue_free()
