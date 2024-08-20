@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr5bb178cngki"]
+[gd_scene load_steps=8 format=3 uid="uid://dr5bb178cngki"]
 
 [ext_resource type="Script" path="res://src/settings.gd" id="1_cbw6e"]
 [ext_resource type="Texture2D" uid="uid://r3se4stfbo4m" path="res://assets/background/background.png" id="1_q80e1"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="2_8255a"]
 [ext_resource type="AudioStream" uid="uid://1oflo2uupgv" path="res://assets/sound/back.mp3" id="4_ai4b8"]
 [ext_resource type="Texture2D" uid="uid://dti6sc4msdwdi" path="res://assets/ui/buttons/blue_button09.png" id="5_had7k"]
+[ext_resource type="Theme" uid="uid://37elalvtqa6s" path="res://src/buttons.tres" id="6_gn38i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_53yke"]
 
@@ -25,6 +26,16 @@ offset_bottom = 214.0
 color = Color(0.0825711, 0.265946, 0.368267, 0.870588)
 metadata/_edit_use_anchors_ = true
 
+[node name="ScrollHint" type="Label" parent="ColorRect"]
+offset_left = 345.0
+offset_top = 149.0
+offset_right = 376.0
+offset_bottom = 162.0
+theme_override_colors/font_color = Color(0.278474, 0.616547, 0.815699, 0.686275)
+theme_override_fonts/font = ExtResource("2_8255a")
+theme_override_font_sizes/font_size = 10
+text = "Scroll↓"
+
 [node name="Title" type="Label" parent="."]
 offset_top = -1.0
 offset_right = 399.0
@@ -34,76 +45,6 @@ theme_override_font_sizes/font_size = 32
 text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 90.0
-offset_top = 56.0
-offset_right = 362.0
-offset_bottom = 234.0
-scale = Vector2(0.8, 0.8)
-alignment = 1
-
-[node name="MasterVolumeLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8255a")
-theme_override_font_sizes/font_size = 12
-text = "Master Volume"
-horizontal_alignment = 1
-
-[node name="MasterVolume" type="HSlider" parent="VBoxContainer"]
-layout_mode = 2
-max_value = 2.0
-step = 0.001
-
-[node name="MusicVolumeLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8255a")
-theme_override_font_sizes/font_size = 12
-text = "Music Volume"
-horizontal_alignment = 1
-
-[node name="MusicVolume" type="HSlider" parent="VBoxContainer"]
-layout_mode = 2
-max_value = 2.0
-step = 0.001
-
-[node name="SFXVolumeLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8255a")
-theme_override_font_sizes/font_size = 12
-text = "Sound Effects Volume"
-horizontal_alignment = 1
-
-[node name="SFXVolume" type="HSlider" parent="VBoxContainer"]
-layout_mode = 2
-max_value = 2.0
-step = 0.001
-
-[node name="TTSVolumeLabel" type="Label" parent="VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8255a")
-theme_override_font_sizes/font_size = 12
-text = "TTS Volume"
-horizontal_alignment = 1
-
-[node name="TTSVolume" type="HSlider" parent="VBoxContainer"]
-visible = false
-layout_mode = 2
-
-[node name="TTSContainer" type="HBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-alignment = 1
-
-[node name="TTSCheck" type="CheckBox" parent="VBoxContainer/TTSContainer"]
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_53yke")
-
-[node name="TTSLabel" type="Label" parent="VBoxContainer/TTSContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_8255a")
-theme_override_font_sizes/font_size = 12
-text = "Auto Text to Speech (TTS)"
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ai4b8")
@@ -125,9 +66,178 @@ text = "Back"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="value_changed" from="VBoxContainer/MasterVolume" to="." method="_on_master_volume_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/MusicVolume" to="." method="_on_music_volume_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
-[connection signal="value_changed" from="VBoxContainer/TTSVolume" to="." method="_on_tts_volume_value_changed"]
-[connection signal="toggled" from="VBoxContainer/TTSContainer/TTSCheck" to="." method="_on_tts_check_toggled"]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_left = 10.0
+offset_top = 49.0
+offset_right = 640.0
+offset_bottom = 324.0
+scale = Vector2(0.6, 0.6)
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Container" type="Container" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(2.08165e-12, 10)
+layout_mode = 2
+
+[node name="MasterVolumeLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8255a")
+theme_override_font_sizes/font_size = 15
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="MarginContainer4" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="MasterVolume" type="HSlider" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer4"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 2.0
+step = 0.001
+
+[node name="MusicVolumeLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8255a")
+theme_override_font_sizes/font_size = 15
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="MusicVolume" type="HSlider" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer3"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 2.0
+step = 0.001
+
+[node name="SFXVolumeLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8255a")
+theme_override_font_sizes/font_size = 15
+text = "Sound Effects Volume"
+horizontal_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="SFXVolume" type="HSlider" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 2.0
+step = 0.001
+
+[node name="TTSVolumeLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8255a")
+theme_override_font_sizes/font_size = 15
+text = "TTS Volume"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="TTSVolume" type="HSlider" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="TTSContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TTSCheck" type="CheckBox" parent="MarginContainer/HBoxContainer/VBoxContainer/TTSContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_53yke")
+
+[node name="TTSLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/TTSContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8255a")
+theme_override_font_sizes/font_size = 12
+text = "Auto Text to Speech (TTS)"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("6_gn38i")
+theme_override_fonts/normal_font = ExtResource("2_8255a")
+theme_override_font_sizes/normal_font_size = 11
+bbcode_enabled = true
+text = "Water splashes
+Michel Baradari
+CC-BY 3.0
+https://opengameart.org/content/water-splashes
+
+8 Bit Lofi - Peractorum
+TAD
+CC-BY 4.0
+https://opengameart.org/content/8-bit-lofi-peractorum
+
+Remnants of the Festival
+TAD
+CC-BY 4.0
+https://opengameart.org/content/remnants-of-the-festival
+
+Bright button click 3
+ZapSplat
+Must credit
+https://www.zapsplat.com/sound-effect-category/button-clicks/ 
+
+Bright button click 2
+ZapSplat
+Must credit
+https://www.zapsplat.com/sound-effect-category/button-clicks/ 
+
+Animated Pixel Art Raft Sprite
+Sevarihk
+https://opengameart.org/content/animated-pixel-art-raft-sprite 
+
+Animated Ocean Water Tile
+Jason Wild
+https://opengameart.org/content/animated-ocean-water-tile 
+
+Kenney UI Pack
+Kenney
+Creative Commons CC0
+https://kenney.nl/assets/ui-pack 
+
+Pixel Art Animated Star
+Narik
+https://soulofkiran.itch.io/pixel-art-animated-star 
+
+VT323 Font
+Peter Hull
+Open Font License
+https://fonts.google.com/specimen/VT323 
+
+Gear Pixel Art 32x32
+MSavioti
+https://opengameart.org/content/gear-pixel-art-32x32 
+
+8-bit Graphics Pixels Scene With Ocean Waves
+Freepik
+https://www.freepik.com/free-ai-image/8-bit-graphics-pixels-scene-with-ocean-waves_137494782.htm "
+
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer4/MasterVolume" to="." method="_on_master_volume_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer3/MusicVolume" to="." method="_on_music_volume_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2/SFXVolume" to="." method="_on_sfx_volume_value_changed"]
+[connection signal="value_changed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/TTSVolume" to="." method="_on_tts_volume_value_changed"]
+[connection signal="toggled" from="MarginContainer/HBoxContainer/VBoxContainer/TTSContainer/TTSCheck" to="." method="_on_tts_check_toggled"]

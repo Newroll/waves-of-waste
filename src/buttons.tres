@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://37elalvtqa6s"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://37elalvtqa6s"]
 
 [ext_resource type="Texture2D" uid="uid://6e6npygm6xgl" path="res://assets/ui/buttons/blue_button02.png" id="1_55w7m"]
 [ext_resource type="FontFile" uid="uid://br7j0ngbmc0f8" path="res://assets/ui/vt323.ttf" id="1_hxfko"]
@@ -19,6 +19,16 @@ content_margin_top = 10.0
 content_margin_bottom = 4.0
 texture = ExtResource("2_gpjkq")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1jicv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7ci8g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kk4jl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_035jx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nlc1k"]
+
 [resource]
 Button/colors/font_color = Color(0.870588, 0.870588, 0.870588, 1)
 Button/font_sizes/font_size = 14
@@ -27,3 +37,8 @@ Button/styles/focus = SubResource("StyleBoxEmpty_37n4t")
 Button/styles/hover = SubResource("StyleBoxTexture_2hjj3")
 Button/styles/normal = SubResource("StyleBoxTexture_ihgja")
 Button/styles/pressed = SubResource("StyleBoxTexture_rw7rk")
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_1jicv")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_7ci8g")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_kk4jl")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_035jx")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_nlc1k")
