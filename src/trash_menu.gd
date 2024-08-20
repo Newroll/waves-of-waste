@@ -3,17 +3,16 @@ extends Node2D
 var previous_scene
 
 func _ready():
-	# time to mess with arrays (yay)
 	for i in Main.trash_list.size():
 		# duplicates the template container (templateContainer) as to how many trash there are
 		%VBoxContainer.add_child(%TemplateContainer.duplicate())
-		# kills the template bc we don't need it anymore and it will mess things up
+		# kills the template because we don't need it anymore and it will mess things up
 		%TemplateContainer.queue_free()
 		# sets sprites and text as to what is in the database
 		%VBoxContainer.get_child(i).get_child(0).get_child(0).get_child(0).set_texture(load("res://assets/trash/" + Main.trash_list[i].path))
 		%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(0).set_text(Main.trash_list[i].name)
 		%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(1).set_text(Main.trash_list[i].description)
-		# sets stuff if trash has not been discovered
+		# only shows a silhouette of the trash if it has not been discovered yet, as well as ??? for the name
 		if Main.trash_seen[i] == 0:
 			%VBoxContainer.get_child(i).get_child(0).get_child(0).get_child(0).self_modulate = Color(0, 0, 0, 255)
 			%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(0).set_text("???")

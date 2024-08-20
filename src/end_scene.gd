@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-# preloads the scenes to be smcked on top of the scene
+# preloads the scenes to be loaded on top of this scene
 var trash_scene = preload("res://src/trash_menu.tscn")
 var settings_scene = preload("res://src/settings.tscn")
 
@@ -13,9 +13,10 @@ func _process(_delta):
 	else:
 		$Fullscreen.icon = load("res://assets/ui/enter_fullscreen.png")
 
+# this function is called from another script when the level ends
 func level_ended():
-	if Main.current_level <= 5: # level 6 does not exist so it checks the current level (double protection more or less since it's impossible for Main.current_level to be higher than 5)
-		call("_on_lvl_" + str(Main.current_level) + "_pressed")
+	if Main.current_level <= 5: # it shouldn't be possible for Main.current_level to be higher than 5, however this acts as a failsafe, as the game will crash if it tries call an nonexistent function
+		call("_on_lvl_" + str(Main.current_level) + "_pressed") # calls one of the functions below (with the help of some string concactnation)
 	if Main.rating[Main.current_level - 2] >= 0.5 and Main.rating[Main.current_level - 2] < 1:
 		$Star3.set_animation("empty") # sets two stars to full
 	elif Main.rating[Main.current_level - 2] >= 0 and Main.rating[Main.current_level - 2] < 0.5:
@@ -28,9 +29,8 @@ func level_ended():
 
 func _on_settings_pressed():
 	$ForwardSFX.play()
-	Main.pause_block = true
 	get_tree().paused = true
-	# puts it on top of the hud instead of changing the scene
+	# puts it on top of the hud instead of changing the scene, otherwise things will break
 	add_child(settings_scene.instantiate())
 
 func _on_fullscreen_pressed():
@@ -50,7 +50,6 @@ func _on_continue_pressed():
 
 func _on_trashmenu_pressed():
 	$ForwardSFX.play()
-	Main.pause_block = true
 	get_tree().paused = true
 	# puts it on top of the hud instead of changing the scene
 	add_child(trash_scene.instantiate())
@@ -58,7 +57,6 @@ func _on_trashmenu_pressed():
 func _on_quitmenu_pressed():
 	$BackSFX.play()
 	await get_tree().create_timer(0.23).timeout
-	Main.pause_block = false
 	get_tree().paused = false
 	hide()
 	Main.change_scene("res://src/main_menu.tscn")
@@ -69,7 +67,7 @@ func _on_lvl_1_pressed():
 	$Pointer.show()
 	$Pointer.set_position(Vector2(129, 74)) # moves the pointer around
 
-# same thing
+# same thing as above
 func _on_lvl_2_pressed():
 	$ForwardSFX.play()
 	selected_level = 2

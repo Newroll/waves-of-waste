@@ -12,15 +12,14 @@ func _ready():
 func _on_master_volume_value_changed(value): # sets the volume of the master bus
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))
 
-# same as above
-func _on_music_volume_value_changed(value):
+func _on_music_volume_value_changed(value): # sets the volume of the music bus
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(value))
 
-func _on_sfx_volume_value_changed(value):
+func _on_sfx_volume_value_changed(value): # sets the volume of the sfx bus
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(value))
 
-func _on_tts_volume_value_changed(value):
-	Main.tts_volume = value
+func _on_tts_check_toggled(toggled_on): # tts toggle thing
+	Main.auto_tts = toggled_on
 
 func _on_back_button_pressed():
 	Main.pause_block = false
@@ -32,6 +31,3 @@ func _on_back_button_pressed():
 		queue_free()
 	else:
 		Main.change_scene(Main.previous_scene)
-
-func _on_tts_check_toggled(toggled_on):
-	Main.auto_tts = toggled_on
