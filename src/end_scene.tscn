@@ -118,15 +118,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_geqsm"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmlku"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iqrrp"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q0qlb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s7gms"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iqrrp"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cmlku"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_geqsm"]
 
 [node name="EndScene" type="CanvasLayer"]
 process_mode = 3
@@ -178,7 +178,7 @@ theme_override_fonts/font = ExtResource("8_mccgr")
 theme_override_font_sizes/font_size = 24
 text = "1"
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="Lvl2" type="TextureButton" parent="."]
 offset_left = 151.0
@@ -198,7 +198,7 @@ theme_override_fonts/font = ExtResource("8_mccgr")
 theme_override_font_sizes/font_size = 24
 text = "2"
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="Lvl3" type="TextureButton" parent="."]
 offset_left = 185.843
@@ -218,7 +218,7 @@ theme_override_fonts/font = ExtResource("8_mccgr")
 theme_override_font_sizes/font_size = 24
 text = "3"
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="Lvl4" type="TextureButton" parent="."]
 offset_left = 220.844
@@ -238,7 +238,7 @@ theme_override_fonts/font = ExtResource("8_mccgr")
 theme_override_font_sizes/font_size = 24
 text = "4"
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="Lvl5" type="TextureButton" parent="."]
 offset_left = 255.844
@@ -258,7 +258,7 @@ theme_override_fonts/font = ExtResource("8_mccgr")
 theme_override_font_sizes/font_size = 24
 text = "5"
 horizontal_alignment = 1
-vertical_alignment = 2
+vertical_alignment = 1
 
 [node name="Pointer" type="Sprite2D" parent="."]
 position = Vector2(199, 74)
@@ -316,11 +316,11 @@ offset_top = 3.0
 offset_right = 428.0
 offset_bottom = 51.0
 scale = Vector2(0.3, 0.3)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_geqsm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_cmlku")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_iqrrp")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_q0qlb")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_s7gms")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_iqrrp")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_cmlku")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_geqsm")
 toggle_mode = true
 
 [connection signal="pressed" from="Lvl1" to="." method="_on_lvl_1_pressed"]

@@ -27,6 +27,7 @@ color = Color(0.0825711, 0.265946, 0.368267, 0.870588)
 metadata/_edit_use_anchors_ = true
 
 [node name="ScrollHint" type="Label" parent="ColorRect"]
+layout_mode = 0
 offset_left = 345.0
 offset_top = 149.0
 offset_right = 376.0

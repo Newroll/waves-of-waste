@@ -16,6 +16,8 @@ func _ready():
 		Main.trash_positions.append(Vector2(randf_range(60, 720), randf_range(60, 740))) # saves position of the trash to a global variable to be used later
 		$Trash.get_child(i).position = Main.trash_positions[i] # actually sets the position to the randomly generated position above
 		$Trash.get_child(i).get_child(0).set_text(str(i)) # puts the id of the trash into a hidden label in the trash node for later use
+	Main.trash_positions[0] = Vector2(randf_range(60, 720), randf_range(60, 740))
+	$Trash.get_child(0).position = Main.trash_positions[0]
 
 func _process(_delta):
 	Main.eclapsed_time = $Timer.get_time_left()

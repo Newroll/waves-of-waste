@@ -10,15 +10,15 @@
 [ext_resource type="AudioStream" uid="uid://bmtahw41a2p2t" path="res://assets/sound/forward.mp3" id="10_5d4sf"]
 [ext_resource type="AudioStream" uid="uid://1oflo2uupgv" path="res://assets/sound/back.mp3" id="11_hxttk"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybh8n"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2qf0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q7fvd"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dven5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klsmf"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q7fvd"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d2qf0"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybh8n"]
 
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_x3e1o")
@@ -43,11 +43,11 @@ offset_top = 7.0
 offset_right = 424.0
 offset_bottom = 55.0
 scale = Vector2(0.3, 0.3)
-theme_override_styles/normal = SubResource("StyleBoxEmpty_ybh8n")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d2qf0")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q7fvd")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_dven5")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_klsmf")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_q7fvd")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_d2qf0")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ybh8n")
 toggle_mode = true
 icon = ExtResource("4_2tbbo")
 
