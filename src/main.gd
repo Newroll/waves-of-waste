@@ -29,8 +29,7 @@ var max_points = [5, 10, 20, 30, 50]
 var rating = [0, 0, 0, 0, 0]
 
 func _ready():
-	# for whatever reason this needed 
-	# bc it's not set in the HTML5 exports
+	# for whatever reason this needed because the variables are not set in HTML5 conditions?
 	points = 0
 	max_points = [5, 10, 20, 30, 50]
 	rating = [0, 0, 0, 0, 0]
@@ -47,8 +46,6 @@ func _ready():
 		trash_seen.append(0) 
 	# reads the save file to see if anything needs to be loaded
 	read_save()
-	print(max_points)
-	print(rating)
 
 func _process(_delta):
 	formatted_time = time_convert(eclapsed_time)
