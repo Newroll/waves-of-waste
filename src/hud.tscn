@@ -15,15 +15,15 @@ bg_color = Color(0.054902, 0.647059, 0.913725, 0.631373)
 border_width_bottom = 1
 border_color = Color(0.00784314, 0.517647, 0.780392, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5uws"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t06ls"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2re5t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6wmig"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4qfax"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2re5t"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t06ls"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k5uws"]
 
 [node name="HUD" type="CanvasLayer"]
 process_mode = 3
@@ -108,11 +108,11 @@ offset_right = 423.0
 offset_bottom = 55.0
 scale = Vector2(0.3, 0.3)
 theme = ExtResource("2_8ws02")
-theme_override_styles/normal = SubResource("StyleBoxEmpty_k5uws")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_t06ls")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2re5t")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_6wmig")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_4qfax")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_2re5t")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_t06ls")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k5uws")
 toggle_mode = true
 icon = ExtResource("3_lkdgu")
 
