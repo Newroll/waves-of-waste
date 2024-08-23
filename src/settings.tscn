@@ -49,6 +49,7 @@ vertical_alignment = 1
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_ai4b8")
+bus = &"SFX"
 
 [node name="BackButton" type="TextureButton" parent="."]
 offset_left = 10.0

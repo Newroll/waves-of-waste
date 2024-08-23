@@ -267,9 +267,11 @@ texture = ExtResource("11_c7l5m")
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_y2os8")
+bus = &"SFX"
 
 [node name="ForwardSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_q6thc")
+bus = &"SFX"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_top = 120.0

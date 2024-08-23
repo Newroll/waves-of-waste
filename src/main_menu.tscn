@@ -66,14 +66,17 @@ text = "waves
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("9_7sy6c")
 autoplay = true
+bus = &"Music"
 
 [node name="ForwardSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_5d4sf")
 volume_db = 10.0
+bus = &"SFX"
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_hxttk")
 volume_db = 3.0
+bus = &"SFX"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 offset_top = 80.0

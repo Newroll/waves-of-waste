@@ -118,5 +118,6 @@ text = "Back"
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_gt0ur")
+bus = &"SFX"
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

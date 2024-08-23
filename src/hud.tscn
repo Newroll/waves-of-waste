@@ -164,10 +164,12 @@ texture_normal = ExtResource("2_2ajp7")
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("9_alshl")
+bus = &"SFX"
 
 [node name="ForwardSFX" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("10_8no5o")
+bus = &"SFX"
 
 [connection signal="pressed" from="HBoxContainer/HintButton" to="." method="_on_hint_button_pressed"]
 [connection signal="pressed" from="TrashButton" to="." method="_on_trash_button_pressed"]
