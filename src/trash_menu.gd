@@ -30,7 +30,7 @@ func _on_back_button_pressed():
 	get_tree().paused = false
 	$BackSFX.play()
 	await get_tree().create_timer(0.23).timeout
-	if Main.current_scene.left( - 7) == "res://src/levels/level":
+	if Main.current_scene == "res://src/levels.tscn":
 		Main.pause_block = true
 		get_tree().paused = true
 		queue_free()
