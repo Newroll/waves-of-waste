@@ -25,22 +25,26 @@ func _on_back_button_pressed():
 
 func _on_help_button_0_pressed():
 	# sets the right side of the screen to show the relevent help topic
+	$ForwardSFX.play()
 	%Title.set_text(Main.help_list[0].title)
 	%Description.set_text(Main.help_list[0].text)
 	%Animation.set_animation("movement")
 
 # same thing
 func _on_help_button_1_pressed():
+	$ForwardSFX.play()
 	%Title.set_text(Main.help_list[1].title)
 	%Description.set_text(Main.help_list[1].text)
 	%Animation.set_animation("pickup")
 
 func _on_help_button_2_pressed():
+	$ForwardSFX.play()
 	%Title.set_text(Main.help_list[2].title)
 	%Description.set_text(Main.help_list[2].text)
 	%Animation.set_animation("lvlComplete")
 
 func _on_help_button_3_pressed():
+	$ForwardSFX.play()
 	%Title.set_text(Main.help_list[3].title)
 	%Description.set_text(Main.help_list[3].text)
 	%Animation.set_animation("lvlSwitch")

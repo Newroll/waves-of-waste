@@ -80,6 +80,7 @@ func write_save():
 	else:
 		# nukes the save file if it's corrupted
 		DirAccess.remove_absolute("user://wavesofwaste.save")
+		print("nuked bc can't write")
 
 func read_save():
 	if FileAccess.file_exists("user://wavesofwaste.save"): # checks if the save file exists
@@ -119,7 +120,7 @@ func check_save(save_file):
 		var is_valid = true
 		# are all the elements in the rating array either 0 or 1?
 		for i in save_file["rating"]:
-			if save_file["rating"][i] == 0 and save_file["rating"][i] == 1:
+			if save_file["rating"][i] >= 0 and save_file["rating"][i] <= 1:
 				pass
 			else:
 				is_valid = false

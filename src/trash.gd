@@ -52,14 +52,18 @@ func _on_body_entered(body):
 			get_tree().paused = true # pauses the game and show the ui
 			timer_tick()
 		else:
-			await get_tree().create_timer(0.5).timeout
+			await get_tree().create_timer(0.75).timeout
 			queue_free()
 
 func timer_tick():
-	 # for loop instead of manually setting everything
-	for i in 5:
+	var n = 5
+	if Main.auto_tts == true:
+		n = 12
+		$CanvasLayer/TimeLabel.set_text("12")
+	# for loop instead of manually setting everything
+	for i in n:
 		await get_tree().create_timer(1.0).timeout
-		$CanvasLayer/TimeLabel.set_text(str(4 - i))
+		$CanvasLayer/TimeLabel.set_text(str(n - 1 - i))
 	$CanvasLayer.hide()
 	Main.pause_block = false
 	get_tree().paused = false 

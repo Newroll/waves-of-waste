@@ -1,4 +1,4 @@
-[gd_scene load_steps=206 format=3 uid="uid://bevpdcjf66scx"]
+[gd_scene load_steps=207 format=3 uid="uid://bevpdcjf66scx"]
 
 [ext_resource type="Script" path="res://src/help_menu.gd" id="1_2k8c8"]
 [ext_resource type="Texture2D" uid="uid://r3se4stfbo4m" path="res://assets/background/background.png" id="2_bwvji"]
@@ -202,6 +202,7 @@
 [ext_resource type="Texture2D" uid="uid://coc1jsc0t1ayp" path="res://assets/help/pickUp/frame_32_delay-0.15s.jpg" id="200_kb6c5"]
 [ext_resource type="Texture2D" uid="uid://dablnpsvleo0y" path="res://assets/help/pickUp/frame_33_delay-0.14s.jpg" id="201_004n8"]
 [ext_resource type="Texture2D" uid="uid://caiqjlbqvr2et" path="res://assets/help/pickUp/frame_34_delay-0.14s.jpg" id="202_qb4jp"]
+[ext_resource type="AudioStream" uid="uid://bmtahw41a2p2t" path="res://assets/sound/forward.mp3" id="205_1u4ba"]
 [ext_resource type="Theme" uid="uid://bfet06ovticr4" path="res://src/button_small.tres" id="238_oe5vi"]
 [ext_resource type="AudioStream" uid="uid://1oflo2uupgv" path="res://assets/sound/back.mp3" id="240_iwlwr"]
 
@@ -954,6 +955,11 @@ text = "Back"
 
 [node name="BackSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("240_iwlwr")
+bus = &"SFX"
+
+[node name="ForwardSFX" type="AudioStreamPlayer" parent="."]
+process_mode = 3
+stream = ExtResource("205_1u4ba")
 bus = &"SFX"
 
 [connection signal="pressed" from="LeftBG/LeftStack/HelpButton0" to="." method="_on_help_button_0_pressed"]

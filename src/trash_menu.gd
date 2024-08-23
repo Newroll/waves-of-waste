@@ -14,9 +14,10 @@ func _ready():
 		%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(1).set_text(Main.trash_list[i].description)
 		# only shows a silhouette of the trash if it has not been discovered yet, as well as ??? for the name
 		if Main.trash_seen[i] == 0:
-			%VBoxContainer.get_child(i).get_child(0).get_child(0).get_child(0).self_modulate = Color(0, 0, 0, 255)
 			%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(0).set_text("???")
 			%VBoxContainer.get_child(i).get_child(0).get_child(1).get_child(1).set_text("This trash has not be discovered yet!\n\n\n")
+			%VBoxContainer.get_child(i).get_child(0).get_child(0).modulate = Color(0, 0, 0, 1)
+	%TemplateContainer.queue_free()
 
 func _input(event): # hotkey shortcut stuff
 	if event.is_action_pressed("escape"):
