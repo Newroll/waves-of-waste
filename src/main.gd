@@ -54,10 +54,10 @@ func _process(_delta):
 		current_level = 5
 
 # this change scene function is here to remember what the previous scene was (so the "back" buttons can work)
-func change_scene(newScenePath):
+func change_scene(new_scene_path):
 	previous_scene = current_scene
-	current_scene = newScenePath
-	get_tree().change_scene_to_file(newScenePath)
+	current_scene = new_scene_path
+	get_tree().change_scene_to_file(new_scene_path)
 	
 func time_convert(time_in_sec):
 	var seconds = int(str(eclapsed_time)) % 60
